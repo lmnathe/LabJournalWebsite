@@ -1,11 +1,16 @@
-name: "MyLabJournal"
+name: Lucas Nathe
 navbar:
-  title: "MyLabJournal"
+  title: Lucas Nathe
   left:
-    - text: "Home"
-      href: index.html
-    - text: "Journal"
-      href: Journal.html
-    - text: "Links"
-      href: Links.html
-output_dir: "docs"
+  - text: Home
+    href: index.html
+  - text: Journal
+    href: Journal.html
+  - text: Links
+    href: Links.html
+output_dir: docs
+output:
+  html_document:
+    lib_dir: site_libs
+    self_contained: no
+
