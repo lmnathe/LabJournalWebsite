@@ -19,11 +19,10 @@ output: html_document
 
 # **Lucas Nathe**
 
-This is a template example for lab journaling. Students in Matt Crump's Human Cognition and Performance Lab will use this template to learn R, and other things. Students can replace this text with more fun things. People not in my lab can use this too.
+This is a working space for my website. I am currently a Senior Research Assistant at the Federal Reserve Board studying Consumer Finance. 
+
 
 ## How to use
-
-1. fork the repo for this website and follow instructions on read me to get set up. [https://github.com/CrumpLab/LabJournalWebsite](https://github.com/CrumpLab/LabJournalWebsite)
 
 2. Blog/journal what you are doing in R, by editing the Journal.Rmd. See the [Journal page](https://crumplab.github.io/LabJournalWebsite/Journal.html) for an example of what to do to get started learning R.
 
@@ -35,7 +34,6 @@ This is a template example for lab journaling. Students in Matt Crump's Human Co
 </div>
 <div class="col-sm-6">
 
-### [Crump Lab: Human Cognition and Performance](https://crumplab.github.io)
 
 <a href = "https://crumplab.github.io">
 ![](images/logo.png)
