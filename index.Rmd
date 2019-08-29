@@ -22,8 +22,8 @@ output: html_document
 This is a working space for my website. I am currently a Senior Research Assistant at the Federal Reserve Board studying Consumer Finance. 
 
 
-## How to use
-
+## What i've been working on lately..
+1. An clean, yet inefficient, function to pull in CRA disclosure files.. [https://github.com/lmnathe/read_cra]
 
 </div>
 <div class="col-sm-6">
