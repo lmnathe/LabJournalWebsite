@@ -28,9 +28,7 @@ This is a working space for my website. I am currently a Senior Research Assista
 </div>
 <div class="col-sm-6">
 
-
 <a href = "https://github.com/lmnathe/LucasNathe">
 ![](econ_pic.jpeg)
 </a>
 </div>
-<font size="0.1">Image taken from : https://medium.com/@christos.a.makridis/synergies-between-economics-and-computer-science-8e582141264d</font>
