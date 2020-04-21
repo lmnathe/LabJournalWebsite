@@ -5,7 +5,7 @@
 # ?	Interest-free loan
 
 library(tools) #titlecasing
-source('/hpc/creditmarket/Lucas/relationship_distance/code/distance/theme_frb.R')
+source('theme_frb.R')
 
 packages <- c("dplyr",'foreign','ggplot2','sp','haven',
               'rgdal','maptools','rgeos','ggplot2','jsonlite',
@@ -40,7 +40,7 @@ suppressPackageStartupMessages(invisible(lapply(packages, library, character.onl
 setHandleParameters(user= NULL, password= NULL, domain= NULL, proxyhost = 'wwwproxy.frb.gov', proxyport = 8080)
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("/href/research3/m1lmn03/ln/jdp/code/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+neil <- readOGR("nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                 verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
@@ -86,8 +86,7 @@ for(i in 1:length(gtrend_keywords)){
 }
 data<- data %>% rowwise() %>% mutate(dates = format(as.Date(strsplit(date, " ")[[1]][1],format = "%Y-%m-%d"),"%Y-%m")) %>% ungroup()
 data<- data %>% arrange(date)
-saveRDS(data,'/href/scratch3/m1lmn03/corona/gtrends/data/animated_monthly.rds')
-#data<-readRDS('/href/scratch3/m1lmn03/corona/gtrends/data/animated_monthly.rds')
+saveRDS(data,'animated_monthly.rds')
 
 
 
