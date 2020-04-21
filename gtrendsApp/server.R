@@ -35,10 +35,10 @@ server <- function(input, output) {
       theme(axis.ticks = element_blank())
   }
   us <- map_data("state")
-  source("/href/research3/m1lmn03/ln/shinyJDP/theme_frb.R") #pp theme
+  source("theme_frb.R") #pp theme
   # INTEREST RATE DATA
-  data<- readRDS('/href/scratch3/m1lmn03/corona/gtrends/data/animated_monthly.rds')
-  neil <- readOGR("/href/research3/m1lmn03/ln/jdp/code/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+  data<- readRDS('animated_monthly.rds')
+  neil <- readOGR("nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                   verbose=FALSE)
   neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                    data=neil@data)
