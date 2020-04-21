@@ -1,18 +1,12 @@
-# ?	Billing deferral 
-# ?	Frozen account (this is going to be murky bc it may include many gym accounts)
-# ?	Overdraft forgiveness 
-# ?	Special loan program
-# ?	Interest-free loan
-
-library(tools) #titlecasing
-source('theme_frb.R')
-
-packages <- c("dplyr",'foreign','ggplot2','sp','haven',
-              'rgdal','maptools','rgeos','ggplot2','jsonlite',
-              'purrr','viridis','scales','stringr','ggthemes',
-              'RColorBrewer','ggpubr','lubridate','gtrendsR','pracma','tools')
-library(gganimate)
-library(animation)
+# packages <- c("dplyr",'foreign','ggplot2','sp','haven',
+#               'rgdal','maptools','rgeos','ggplot2','jsonlite',
+#               'purrr','viridis','scales','stringr','ggthemes',
+#               'RColorBrewer','ggpubr','lubridate','gtrendsR',
+#               'pracma','tools','tools')
+#library(gganimate)
+#library(animation)
+library(dplyr)
+library(ggplot2)
 library(plotly)
 ### helper functions ----
 my_theme <- function() {
@@ -37,7 +31,6 @@ my_theme2 = function() {
 }
 suppressPackageStartupMessages(invisible(lapply(packages, library, character.only = TRUE)))
 #Set proxy to be able to start download
-setHandleParameters(user= NULL, password= NULL, domain= NULL, proxyhost = 'wwwproxy.frb.gov', proxyport = 8080)
 
 #### READ IN NEILSEN MAP DATA ####
 neil <- readOGR("nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
