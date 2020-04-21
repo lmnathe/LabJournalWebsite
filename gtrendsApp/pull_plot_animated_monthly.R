@@ -3,11 +3,12 @@
 #               'purrr','viridis','scales','stringr','ggthemes',
 #               'RColorBrewer','ggpubr','lubridate','gtrendsR',
 #               'pracma','tools','tools')
-#library(gganimate)
-#library(animation)
-library(dplyr)
-library(ggplot2)
-library(plotly)
+
+library(gtrendsR) #google trends
+library(rgdal) #for reading.json
+library(dplyr)  #dplyr grammar
+library(ggplot2) #plotting
+library(plotly) #converting to plotly
 ### helper functions ----
 my_theme <- function() {
   theme_bw() +
@@ -33,7 +34,7 @@ suppressPackageStartupMessages(invisible(lapply(packages, library, character.onl
 #Set proxy to be able to start download
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+neil <- readOGR("shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                 verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
@@ -46,13 +47,11 @@ niel_codes<-data.frame("dma"=tolower(as.character(neil@data[["dma1"]])),"id"=nei
 
 data<-data.frame()
 #trend-by-state
-#gtrend_keywords<- c("personal loan","student loan","payment delay","payment deferral","payday loan","forebearance")
 gtrend_keywords<- c("hardship program","forebearance","payment delay","payday loan","pawnshop","personal loan","cash loan")
 time1<- seq.Date(from = as.Date("2019-11-01",format="%Y-%m-%d"),
                  to = Sys.Date(),by ="month")
 time2<- c(seq(as.Date("2019-12-01"),length=5,by="months")-1,Sys.Date()-1)
 #adding yesterdays date to incomplete month
-#date.end.month <- c(seq(as.Date("2020-01-01"),length=4,by="months")-1,Sys.Date()-1)
 i<-1
 x<-1
 for(i in 1:length(gtrend_keywords)){
