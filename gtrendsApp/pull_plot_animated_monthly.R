@@ -34,7 +34,7 @@ cases<- cases %>% as.data.frame() %>%
 
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("/href/research3/m1lmn03/ln/jdp/code/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+neil <- readOGR("Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                 verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
