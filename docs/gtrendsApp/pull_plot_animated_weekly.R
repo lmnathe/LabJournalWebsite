@@ -6,35 +6,35 @@ packages<- c('gtrendsR', #googletrends
              'cdlTools', #fips function
              'RCurl', #pulling covid data from github
              'stringr',
-             'rgeos' # gBuffer
-             )
-suppressPackageStartupMessages(
-  invisible(lapply(packages,library,character.only=TRUE)))
+             'lubridate', #converting to plotly
+             'rgeos') #gBuffer
+suppressPackageStartupMessages(invisible(lapply(packages,library,character.only=TRUE)))
 
 #PULL COVID CASES DATA
-url <- getURL('https://raw.githubusercontent.com/datasets/covid-19/master/data/us_confirmed.csv')
-cases<- read.csv(text = x)
-cases<-cases %>% group_by(Province.State,Date) %>% 
+url <- 'https://raw.githubusercontent.com/datasets/covid-19/master/data/us_confirmed.csv'
+cases<- download.file(url = url, destfile = basename(url))
+cases<- readr::read_csv("us_confirmed.csv")
+cases<-cases %>% group_by(`Province/State`,Date) %>% 
   summarise(Case= sum(Case,na.rm = T)) %>% 
   ungroup() %>%
-  mutate(FIPS = fips(Province.State,to = "FIPS")) %>%
-  mutate(mdate = format(as.Date(x = Date,format = "%Y-%m-%d"),"%Y-%m")) %>%
-  group_by(mdate,FIPS) %>%
+  mutate(FIPS = fips(`Province/State`,to = "FIPS")) %>%
+  mutate(wdate = floor_date(as.Date(x = Date,format = "%Y-%m-%d"),'week')) %>%
+  group_by(wdate,FIPS) %>%
   summarise(Case = max(Case,na.rm = T))
 # expand back to november filling cases with 0
 
-cases<- cases %>% as.data.frame() %>%
-  ungroup() %>%
-  complete(mdate = format(seq.Date(
-    as.Date("2019-11-01",format = "%Y-%m-%d"),
+cases<- cases %>% ungroup()%>%
+  as.data.frame() %>%
+  tidyr::complete(wdate = seq.Date(
+    as.Date("2019-11-03",format = "%Y-%m-%d"),
     #as.Date("2020-05-01",format = "%Y-%m-%d"),
-    max(as.Date(paste0(mdate,"-01"),format = "%Y-%m-%d")),
-    by="month"),"%Y-%m"),FIPS) %>%
+    max(cases$wdate),
+    by="week"),FIPS) %>%
   mutate(Case = ifelse(is.na(Case),0,Case))
 
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("/href/research3/m1lmn03/ln/jdp/code/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+neil <- readOGR("shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                 verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
@@ -44,13 +44,14 @@ niel_codes<-data.frame("dma"=tolower(as.character(neil@data[["dma1"]])),"id"=nei
   mutate(dma=as.character(dma)) %>% arrange(dma)
 
 
+
 data<-data.frame()
 #trend-by-dma
 gtrend_keywords<- c("small business loan","furlough","overdraft",
-                    "stimulus check","divorce","legal zoom")
-time1<- seq.Date(from = as.Date("2019-11-01",format="%Y-%m-%d"),
-                 to = Sys.Date(),by ="month")
-time2<- c(seq(as.Date("2019-12-01"),length=5,by="months")-1,Sys.Date()-1)
+                    "stimulus check")
+time1<- seq.Date(from = as.Date("2019-11-03",format="%Y-%m-%d"),
+                 to = Sys.Date(),by ="week")
+time2<- c(seq(as.Date("2019-11-10"),length=length(time1)-1,by="week"),Sys.Date()-1)
 #adding yesterdays date to incomplete month
 i<-1
 x<-1
@@ -65,7 +66,8 @@ for(i in 1:length(gtrend_keywords)){
     tmp<-data.frame(last_90_c19$interest_by_dma) %>%
       filter(!location %in% c("Anchorage AK","Honolulu HI","Fairbanks AK","Juneau AK")) %>%
       mutate(location = ifelse(location == "Florence-Myrtle Beach SC","myrtle beach-florence, SC",location),
-             date = paste(time1[x],time2[x])) %>%
+             date = paste(time1[x],time2[x]),
+             hits = as.numeric(hits)) %>%
       arrange(location)
     tmp<-cbind(tmp,niel_codes)
     
@@ -76,18 +78,19 @@ for(i in 1:length(gtrend_keywords)){
   #Sys.sleep(10)
   i<-i+1
 }
-data<- data %>% rowwise() %>% mutate(mdate = format(as.Date(strsplit(date, " ")[[1]][1],format = "%Y-%m-%d"),"%Y-%m"),
+backup<-data
+data<-backup
+data<- data %>% 
+  rowwise() %>%
+  mutate(wdate = 
+           as.Date(strsplit(date, " ")[[1]][1],format = "%Y-%m-%d"),
                                      FIPS = fips(ifelse(
                                        str_sub(location,-2,-1)=="D)","DC",
                                        str_sub(location,-2,-1)),to="FIPS")
                                      )%>% ungroup()
 data<- data %>% arrange(date)
-data<- data %>% left_join(cases,by = c("mdate","FIPS"))
-
-
-
-
-saveRDS(data,'shapefiles/animated_monthly.rds')
+data<- data %>% left_join(cases,by = c("wdate","FIPS"))
+saveRDS(data,'shapefiles/animated_weekly.rds')
 
 
 

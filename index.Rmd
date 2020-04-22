@@ -1,5 +1,5 @@
 ---
-title: "Lucas's Website Draft 2: Test push from work"
+title: "Lucas's Website"
 output: html_document
 #https://lmnathe.github.io/LucasNathe/
 ---
