@@ -4,16 +4,20 @@
 ### P: i) Shiny Server for JDP ISR content
 library(shiny)
 library(dplyr)
+library(RColorBrewer)
 library(shinydashboard)
-#library(policyPlot)
 library(plotly)
 library(rgdal)
 library(R.utils)
 library(ggplot2)
 library(rgeos)
 library(mapdata)
+library(stringi)
 # Define server logic to plot various JDP ISR data ----
 server <- function(input, output) {
+  #get colors
+  myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+  
   my_theme <- function() {
     theme_bw() +
       theme(panel.background = element_blank()) +
@@ -35,20 +39,14 @@ server <- function(input, output) {
       theme(axis.ticks = element_blank())
   }
   us <- map_data("state")
-  source("theme_frb.R") #pp theme
   # INTEREST RATE DATA
-  data<- readRDS('animated_monthly.rds')
-  neil <- readOGR("nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
-                  verbose=FALSE)
-  neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
-                                   data=neil@data)
-  neil_map <- fortify(neil, region="id")
+  data<- readRDS('shapefiles/animated_monthly.rds')
 
-  gtrend_keywords<- c("hardship program","forebearance","payment delay","payday loan","pawnshop","personal loan","cash loan")
-  
+  gtrend_keywords<- c("small business loan","furlough","overdraft",
+                      "stimulus check","divorce","legal zoom")
   output$plot1 <- renderPlotly({
    # ggplotly(ggplot() + geom_polygon(data = neil_map,aes(x = long,y=lat,group=group))   +
-   #                  geom_point(data=filter(data,keyword == gtrend_keywords[1]),aes(x=long, y=lat, size = hits,frame = dates),color = 'purple')+
+   #                  geom_point(data=filter(data,keyword == gtrend_keywords[1]),aes(x=long, y=lat, size = hits,frame = datem),color = 'purple')+
    #                  scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
    #                  labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[1])))+
    #                     theme(legend.position = 'top')+
@@ -56,68 +54,68 @@ server <- function(input, output) {
     ggplotly(ggplot() + 
                geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
                      geom_point(data=filter(data,keyword == gtrend_keywords[1]),
-                                aes(x=long, y=lat, size = hits,frame = dates,name=location),color = 'purple')+
-                     scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                     labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[1])))+
-                     my_theme2()+
-                        theme(legend.position = 'top')+
-                     theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+                                aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                      scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
+                     #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+               scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
+                     labs(title = stri_trans_general(unique(gtrend_keywords[1]),id = "Title"))+
+                     my_theme2())
   })
    output$plot2 <-renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
                 geom_point(data=filter(data,keyword == gtrend_keywords[2]),
-                           aes(x=long, y=lat, size = hits,frame = dates,name=location),color = 'purple')+
-                scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[2])))+
-                my_theme2()+
-                theme(legend.position = 'top')+
-                theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
+                #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+                scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
+                labs(title = stri_trans_general(unique(gtrend_keywords[2]),id = "Title"))+
+                my_theme2())
 })
    output$plot3<- renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[4]),
-                           aes(x=long, y=lat, size = hits,frame = dates,name=location),color = 'purple')+
-                scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[4])))+
-                my_theme2()+
-                theme(legend.position = 'top')+
-                theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+                geom_point(data=filter(data,keyword == gtrend_keywords[3]),
+                       aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
+                #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+                scale_colour_gradientn(name = "Log(Cases)",colours = myPalette(100))+
+                labs(title = stri_trans_general(unique(gtrend_keywords[3]),id = "Title"))+
+                my_theme2())
 })
    output$plot4<-renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[5]),
-                           aes(x=long, y=lat, size = hits,frame = dates,name=location),color = 'purple')+
-                scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[5])))+
-                my_theme2()+
-                theme(legend.position = 'top')+
-                theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+                geom_point(data=filter(data,keyword == gtrend_keywords[4]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
+                #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+                scale_colour_gradientn(name = "Log(Cases)",colours = myPalette(100))+
+                labs(title = stri_trans_general(unique(gtrend_keywords[4]),id = "Title"))+
+                my_theme2())
 })
    
    output$plot5<- renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[6]),
-                           aes(x=long, y=lat, size = hits,frame = dates,name=location),color = 'purple')+
-                scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[6])))+
-                my_theme2()+
-                theme(legend.position = 'top')+
-                theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+                geom_point(data=filter(data,keyword == gtrend_keywords[5]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                scale_size_continuous(name = "Hits", range = c(0.25,6.5))+ # Don't know why this scale is not showing up
+                #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+                scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
+                labs(title = stri_trans_general(unique(gtrend_keywords[5]),id = "Title"))+
+                my_theme2())
    })
    output$plot6<-  renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[7]),
-                           aes(x=long, y=lat, size = hits,frame = dates,name=location),color = 'purple')+
-                scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[7])))+
-                my_theme2()+
-                theme(legend.position = 'top')+
-                theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+                geom_point(data=filter(data,keyword == gtrend_keywords[6]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
+                #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+                scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
+                labs(title = stri_trans_general(unique(gtrend_keywords[6]),id = "Title"))+
+                my_theme2())
    })
   # 
   # output$plot4<- renderPlotly({

@@ -1,53 +1,40 @@
-# packages <- c("dplyr",'foreign','ggplot2','sp','haven',
-#               'rgdal','maptools','rgeos','ggplot2','jsonlite',
-#               'purrr','viridis','scales','stringr','ggthemes',
-#               'RColorBrewer','ggpubr','lubridate','gtrendsR',
-#               'pracma','tools','tools')
 
-library(gtrendsR) #google trends
-library(rgdal) #for reading.json
-library(dplyr)  #dplyr grammar
-library(ggplot2) #plotting
-library(plotly) #converting to plotly
-### helper functions ----
-my_theme <- function() {
-  theme_bw() +
-    theme(panel.background = element_blank()) +
-    theme(plot.background = element_rect(fill = "white")) +
-    theme(panel.border = element_blank()) +                     # facet border
-    theme(strip.background = element_blank()) +                 # facet title background
-    theme(plot.margin = unit(c(.5, .5, .5, .5), "cm")) +
-    theme(panel.spacing = unit(3, "lines")) +
-    theme(panel.grid.major = element_blank()) +
-    theme(panel.grid.minor = element_blank()) +
-    theme(legend.background = element_blank()) +
-    theme(legend.key = element_blank()) +
-    theme(legend.title = element_blank())
-}
-my_theme2 = function() {
-  my_theme() +
-    theme(axis.title = element_blank()) +
-    theme(axis.text = element_blank()) +
-    theme(axis.ticks = element_blank())
-}
-suppressPackageStartupMessages(invisible(lapply(packages, library, character.only = TRUE)))
-#Set proxy to be able to start download
+packages<- c('gtrendsR', #googletrends
+             'dplyr', 
+             'rgdal', #for reading .json
+             'ggplot2', #plotting 
+             'cdlTools', #fips function
+             'RCurl', #pulling covid data from github
+             'stringr') #converting to plotly
+suppressPackageStartupMessages(
+  invisible(lapply(packages,library,character.only=TRUE)))
 
-#### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
-                verbose=FALSE)
-neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
-                                 data=neil@data)
-neil_map <- fortify(neil, region="id")
-niel_codes<-data.frame("dma"=tolower(as.character(neil@data[["dma1"]])),"id"=neil@data[["dma"]],
-                       "lat"=neil@data[["latitude"]],"long"=neil@data[["longitude"]]) %>%
-  mutate(dma=as.character(dma)) %>% arrange(dma)
+#PULL COVID CASES DATA
+url <- getURL('https://raw.githubusercontent.com/datasets/covid-19/master/data/us_confirmed.csv')
+cases<- read.csv(text = x)
+cases<-cases %>% group_by(Province.State,Date) %>% 
+  summarise(Case= sum(Case,na.rm = T)) %>% 
+  ungroup() %>%
+  mutate(FIPS = fips(Province.State,to = "FIPS")) %>%
+  mutate(mdate = format(as.Date(x = Date,format = "%Y-%m-%d"),"%Y-%m")) %>%
+  group_by(mdate,FIPS) %>%
+  summarise(Case = max(Case,na.rm = T))
+# expand back to november filling cases with 0
 
+cases<- cases %>% as.data.frame() %>%
+  ungroup() %>%
+  complete(mdate = format(seq.Date(
+    as.Date("2019-11-01",format = "%Y-%m-%d"),
+    #as.Date("2020-05-01",format = "%Y-%m-%d"),
+    max(as.Date(paste0(mdate,"-01"),format = "%Y-%m-%d")),
+    by="month"),"%Y-%m"),FIPS) %>%
+  mutate(Case = ifelse(is.na(Case),0,Case))
 
 
 data<-data.frame()
-#trend-by-state
-gtrend_keywords<- c("hardship program","forebearance","payment delay","payday loan","pawnshop","personal loan","cash loan")
+#trend-by-dma
+gtrend_keywords<- c("small business loan","furlough","overdraft",
+                    "stimulus check","divorce","legal zoom")
 time1<- seq.Date(from = as.Date("2019-11-01",format="%Y-%m-%d"),
                  to = Sys.Date(),by ="month")
 time2<- c(seq(as.Date("2019-12-01"),length=5,by="months")-1,Sys.Date()-1)
@@ -76,9 +63,18 @@ for(i in 1:length(gtrend_keywords)){
   #Sys.sleep(10)
   i<-i+1
 }
-data<- data %>% rowwise() %>% mutate(dates = format(as.Date(strsplit(date, " ")[[1]][1],format = "%Y-%m-%d"),"%Y-%m")) %>% ungroup()
+data<- data %>% rowwise() %>% mutate(mdate = format(as.Date(strsplit(date, " ")[[1]][1],format = "%Y-%m-%d"),"%Y-%m"),
+                                     FIPS = fips(ifelse(
+                                       str_sub(location,-2,-1)=="D)","DC",
+                                       str_sub(location,-2,-1)),to="FIPS")
+                                     )%>% ungroup()
 data<- data %>% arrange(date)
-saveRDS(data,'animated_monthly.rds')
+data<- data %>% left_join(cases,by = c("mdate","FIPS"))
+
+
+
+
+saveRDS(data,'shapefiles/animated_monthly.rds')
 
 
 
