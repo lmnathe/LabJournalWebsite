@@ -34,7 +34,7 @@ cases<- cases %>% ungroup()%>%
 
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+neil <- readOGR("Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                 verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
@@ -48,7 +48,7 @@ niel_codes<-data.frame("dma"=tolower(as.character(neil@data[["dma1"]])),"id"=nei
 data<-data.frame()
 #trend-by-dma
 gtrend_keywords<- c("small business loan","furlough","overdraft",
-                    "stimulus check")
+                    "stimulus check","divorce","legal zoom")
 time1<- seq.Date(from = as.Date("2019-11-03",format="%Y-%m-%d"),
                  to = Sys.Date(),by ="week")
 time2<- c(seq(as.Date("2019-11-10"),length=length(time1)-1,by="week"),Sys.Date()-1)
@@ -79,7 +79,6 @@ for(i in 1:length(gtrend_keywords)){
   i<-i+1
 }
 backup<-data
-data<-backup
 data<- data %>% 
   rowwise() %>%
   mutate(wdate = 
@@ -90,7 +89,7 @@ data<- data %>%
                                      )%>% ungroup()
 data<- data %>% arrange(date)
 data<- data %>% left_join(cases,by = c("wdate","FIPS"))
-saveRDS(data,'shapefiles/animated_weekly.rds')
+saveRDS(data,'Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')
 
 
 
