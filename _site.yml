@@ -5,7 +5,7 @@ navbar:
   - text: Home
     href: index.html
   - text: Resume
-    href: Journal.html
+    href: Resume.html
   - text: Journal
     href: Journal.html
   - text: Links
