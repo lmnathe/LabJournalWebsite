@@ -20,6 +20,7 @@ packages<- c('dplyr',
 )
 suppressPackageStartupMessages(
   invisible(lapply(packages,library,character.only=TRUE)))
+source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
 server <- function(input, output) {
   #get colors
   myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
@@ -47,7 +48,10 @@ server <- function(input, output) {
   us <- map_data("state")
   # INTEREST RATE DATA
   #data<- readRDS('shapefiles/animated_monthly.rds')
-  dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')
+  data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
+  dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
+    mutate(wdate = as.character(wdate)) %>%
+    filter(wdate>="2019-12-01")
 
   gtrend_keywordsw<- c("small business loan","furlough","overdraft",
                       "stimulus check","divorce","legal zoom")
@@ -72,8 +76,8 @@ server <- function(input, output) {
       layout(annotations = 
                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                                                    data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
-                                                     "\nControlling for state and week fixed effects."
+                              data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
+                                 "\nControlling for state and week fixed effects."
                ), 
                showarrow = F, xref='paper', yref='paper', 
                xanchor='right', yanchor='auto', xshift=0, yshift=0,
@@ -129,9 +133,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                                                     data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
-                                                      "\nControlling for state and week fixed effects."
+                                    str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                           data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
+                                              "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
                 xanchor='right', yanchor='auto', xshift=0, yshift=0,
@@ -159,8 +163,8 @@ server <- function(input, output) {
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
                                                       str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                                                     data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
-                                                                                  type = 'text')[7],split = ")")[[1]][2]),
+                                                          data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
+                                                        type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -190,8 +194,8 @@ server <- function(input, output) {
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
                                                       str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                                                     data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
-                                                                                  type = 'text')[7],split = ")")[[1]][2]),
+                                                    data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
+                                                                type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -228,5 +232,96 @@ server <- function(input, output) {
                 font=list(size=15, color="black"))
        )
    })
-  
+   
+   output$plot7<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) +
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[1]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+                )
+   })
+   output$plot8<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) + 
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[2]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+     )
+   })
+   output$plot9<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) + 
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[3]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+     )
+   })
+   output$plot10<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) +
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[4]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+     )
+   })
+   
+   
+   
 }
+
+
+
+

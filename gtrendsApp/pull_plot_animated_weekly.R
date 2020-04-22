@@ -49,9 +49,9 @@ data<-data.frame()
 #trend-by-dma
 gtrend_keywords<- c("small business loan","furlough","overdraft",
                     "stimulus check","divorce","legal zoom")
-time1<- seq.Date(from = as.Date("2019-11-03",format="%Y-%m-%d"),
+time1<- seq.Date(from = as.Date("2019-12-02",format="%Y-%m-%d"),
                  to = Sys.Date(),by ="week")
-time2<- c(seq(as.Date("2019-11-10"),length=length(time1)-1,by="week"),Sys.Date()-1)
+time2<- c(seq(as.Date("2019-12-09"),length=length(time1)-1,by="week"),Sys.Date()-1)
 #adding yesterdays date to incomplete month
 i<-1
 x<-1
@@ -89,7 +89,7 @@ data<- data %>%
                                      )%>% ungroup()
 data<- data %>% arrange(date)
 data<- data %>% left_join(cases,by = c("wdate","FIPS"))
-saveRDS(data,'Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')
+saveRDS(data,'Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly_2.rds')
 
 
 
