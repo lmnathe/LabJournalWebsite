@@ -13,8 +13,8 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       id = "tabs",
-      menuItem("Overview", tabName = "Overview", icon = icon("cog",lib = "glyphicon")),
-      menuItem("High Cost Credit", tabName = "Credit", icon = icon("credit-card"))#From glyphicon library
+      menuItem("Google Search Trends", tabName = "states", icon = icon("cog",lib = "glyphicon")),
+      menuItem("DMA - Cases", tabName = "dmas", icon = icon("credit-card"))#From glyphicon library
       )
     ),
     
@@ -25,16 +25,24 @@ dashboardBody(
   tabItems(
 
     # Credit tab content
-    tabItem(tabName = "Overview",
+    tabItem(tabName = "states",
             fluidRow(
-              box(plotlyOutput("plot1", height = 500,width = 1000))
+              box(plotlyOutput("plot7", height = 500,width = 1000))
             ),
             fluidRow(
-              box(plotlyOutput("plot2", height = 500,width = 1000))
+              box(plotlyOutput("plot8", height = 500,width = 1000))
+            ),
+            fluidRow(
+              box(plotlyOutput("plot9", height = 500,width = 1000))
+            ),
+            fluidRow(
+              box(plotlyOutput("plot10", height = 500,width = 1000))
             )
     ),
-    tabItem(tabName = "Credit",
+    tabItem(tabName = "dmas",
             fluidRow(
+              box(plotlyOutput("plot1", height = 500,width = 850)),
+              box(plotlyOutput("plot2", height = 500,width = 850)),
               box(plotlyOutput("plot3", height = 500,width = 850)),
               box(plotlyOutput("plot4", height = 500,width = 850)),
               box(plotlyOutput("plot5", height = 500,width = 850)),

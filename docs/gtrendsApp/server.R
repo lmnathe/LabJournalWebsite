@@ -1,19 +1,26 @@
 ### A: Lucas Nathe
-### D: 3/17/2020
+### D: 4/22/2020
 ### U: 
-### P: i) Shiny Server for JDP ISR content
-library(shiny)
-library(dplyr)
-library(RColorBrewer)
-library(shinydashboard)
-library(plotly)
-library(rgdal)
-library(R.utils)
-library(ggplot2)
-library(rgeos)
-library(mapdata)
-library(stringi)
-# Define server logic to plot various JDP ISR data ----
+### P: i) Shiny Server for google trends/COVID-19 cases
+
+packages<- c('dplyr',
+             'shiny', #shiny
+             'RColorBrewer', #color pallete
+             'shinydashboard', #shinty
+             'plotly', #for reading .json
+             'ggplot2', #plotting 
+             'rgdal', #fips function
+             'R.utils', #pulling covid data from github
+             'ggplot2', #plotting
+             'rgeos', # gBuffer
+             'mapdata', #us map
+             'stringi',#string work
+             'stringr', #string work
+             'stargazer' #exporting the coef with sig stars
+)
+suppressPackageStartupMessages(
+  invisible(lapply(packages,library,character.only=TRUE)))
+source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
 server <- function(input, output) {
   #get colors
   myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
@@ -40,141 +47,281 @@ server <- function(input, output) {
   }
   us <- map_data("state")
   # INTEREST RATE DATA
-  data<- readRDS('shapefiles/animated_monthly.rds')
+  #data<- readRDS('shapefiles/animated_monthly.rds')
+  data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
+  dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
+    mutate(wdate = as.character(wdate)) %>%
+    filter(wdate>="2019-12-01")
 
-  gtrend_keywords<- c("small business loan","furlough","overdraft",
+  gtrend_keywordsw<- c("small business loan","furlough","overdraft",
                       "stimulus check","divorce","legal zoom")
-  output$plot1 <- renderPlotly({
-   # ggplotly(ggplot() + geom_polygon(data = neil_map,aes(x = long,y=lat,group=group))   +
-   #                  geom_point(data=filter(data,keyword == gtrend_keywords[1]),aes(x=long, y=lat, size = hits,frame = datem),color = 'purple')+
-   #                  scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-   #                  labs(size = 'Hits',title = capitalize(unique(gtrend_keywords[1])))+
-   #                     theme(legend.position = 'top')+
-   #                  theme(legend.position = c(0, 1),legend.justification = c(0, 1)))
+  output$plot1<-  renderPlotly({
     ggplotly(ggplot() + 
                geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                     geom_point(data=filter(data,keyword == gtrend_keywords[1]),
-                                aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
-                      scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
-                     #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
+               geom_point(data=filter(dataw,keyword == gtrend_keywordsw[1]),
+                          aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = wdate))+
+               scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
+               #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
                scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
-                     labs(title = stri_trans_general(unique(gtrend_keywords[1]),id = "Title"))+
-                     my_theme2())
+               my_theme2()) %>% 
+      layout(title = list(text = paste0(stri_trans_general(unique(gtrend_keywordsw[1]),id = "Title"),
+                                        '<br>',
+                                        '</sup>')),
+             annotations = 
+               list(x = 1, y = -0.1, text = "Source: Search Intensity, Google Trends;Case count, Johns Hopkins University", 
+                    showarrow = F, xref='paper', yref='paper', 
+                    xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                    font=list(size=15, color="black"))
+      ) %>%
+      layout(annotations = 
+               list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
+                                                     str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                              data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
+                                 "\nControlling for state and week fixed effects."
+               ), 
+               showarrow = F, xref='paper', yref='paper', 
+               xanchor='right', yanchor='auto', xshift=0, yshift=0,
+               font=list(size=15, color="black"))
+      )
   })
    output$plot2 <-renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[2]),
-                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                geom_point(data=filter(dataw,keyword == gtrend_keywordsw[2]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = wdate))+
                 scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
                 #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
                 scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
-                labs(title = stri_trans_general(unique(gtrend_keywords[2]),id = "Title"))+
-                my_theme2())
+                my_theme2()) %>% 
+       layout(title = list(text = paste0(stri_trans_general(unique(gtrend_keywordsw[2]),id = "Title"),
+                                         '<br>',
+                                         '</sup>')),
+              annotations = 
+                list(x = 1, y = -0.1, text = "Source: Search Intensity, Google Trends;Case count, Johns Hopkins University", 
+                     showarrow = F, xref='paper', yref='paper', 
+                     xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                     font=list(size=15, color="black"))
+       ) %>%
+       layout(annotations = 
+                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
+                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      data = filter(dataw,keyword == gtrend_keywordsw[[2]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      "\nControlling for state and week fixed effects."
+                ), 
+                showarrow = F, xref='paper', yref='paper', 
+                xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                font=list(size=15, color="black"))
+       )
 })
    output$plot3<- renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[3]),
-                       aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                geom_point(data=filter(dataw,keyword == gtrend_keywordsw[3]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = wdate))+
                 scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
                 #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                scale_colour_gradientn(name = "Log(Cases)",colours = myPalette(100))+
-                labs(title = stri_trans_general(unique(gtrend_keywords[3]),id = "Title"))+
-                my_theme2())
+                scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
+                my_theme2()) %>% 
+       layout(title = list(text = paste0(stri_trans_general(unique(gtrend_keywordsw[3]),id = "Title"),
+                                         '<br>',
+                                         '</sup>')),
+              annotations = 
+                list(x = 1, y = -0.1, text = "Source: Search Intensity, Google Trends;Case count, Johns Hopkins University", 
+                     showarrow = F, xref='paper', yref='paper', 
+                     xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                     font=list(size=15, color="black"))
+       ) %>%
+       layout(annotations = 
+                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
+                                    str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                           data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
+                                              "\nControlling for state and week fixed effects."
+                ), 
+                showarrow = F, xref='paper', yref='paper', 
+                xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                font=list(size=15, color="black"))
+       )
 })
    output$plot4<-renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[4]),
-                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                geom_point(data=filter(dataw,keyword == gtrend_keywordsw[4]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = wdate))+
                 scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
                 #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
-                scale_colour_gradientn(name = "Log(Cases)",colours = myPalette(100))+
-                labs(title = stri_trans_general(unique(gtrend_keywords[4]),id = "Title"))+
-                my_theme2())
+                scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
+                my_theme2()) %>% 
+       layout(title = list(text = paste0(stri_trans_general(unique(gtrend_keywordsw[4]),id = "Title"),
+                                         '<br>',
+                                         '</sup>')),
+              annotations = 
+                list(x = 1, y = -0.1, text = "Source: Search Intensity, Google Trends;Case count, Johns Hopkins University", 
+                     showarrow = F, xref='paper', yref='paper', 
+                     xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                     font=list(size=15, color="black"))
+       ) %>%
+       layout(annotations = 
+                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
+                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                          data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
+                                                        type = 'text')[7],split = ")")[[1]][2]),
+                                                      "\nControlling for state and week fixed effects."
+                ), 
+                showarrow = F, xref='paper', yref='paper', 
+                xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                font=list(size=15, color="black"))
+       )
 })
    
    output$plot5<- renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[5]),
-                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
-                scale_size_continuous(name = "Hits", range = c(0.25,6.5))+ # Don't know why this scale is not showing up
+                geom_point(data=filter(dataw,keyword == gtrend_keywordsw[5]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = wdate))+
+                scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
                 #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
                 scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
-                labs(title = stri_trans_general(unique(gtrend_keywords[5]),id = "Title"))+
-                my_theme2())
+                my_theme2()) %>% 
+       layout(title = list(text = paste0(stri_trans_general(unique(gtrend_keywordsw[5]),id = "Title"),
+                                         '<br>',
+                                         '</sup>')),
+              annotations = 
+                list(x = 1, y = -0.1, text = "Source: Search Intensity, Google Trends;Case count, Johns Hopkins University", 
+                     showarrow = F, xref='paper', yref='paper', 
+                     xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                     font=list(size=15, color="black"))
+       ) %>%
+       layout(annotations = 
+                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
+                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                    data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
+                                                                type = 'text')[7],split = ")")[[1]][2]),
+                                                      "\nControlling for state and week fixed effects."
+                ), 
+                showarrow = F, xref='paper', yref='paper', 
+                xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                font=list(size=15, color="black"))
+       )
    })
    output$plot6<-  renderPlotly({
      ggplotly(ggplot() + 
                 geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+
-                geom_point(data=filter(data,keyword == gtrend_keywords[6]),
-                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = mdate))+
+                geom_point(data=filter(dataw,keyword == gtrend_keywordsw[6]),
+                           aes(x=long, y=lat, size = hits,color=log(Case),label1 = Case, label2 = location,frame = wdate))+
                 scale_size_continuous(name = "Hits", range = c(0.5,7))+ # Don't know why this scale is not showing up
                 #scale_size_continuous(range = c(1,8),breaks = c(25,50,75,100))+
                 scale_colour_gradientn( name = "Log(Cases)",colours = myPalette(100))+
-                labs(title = stri_trans_general(unique(gtrend_keywords[6]),id = "Title"))+
-                my_theme2())
+                my_theme2()) %>% 
+       layout(title = list(text = paste0(stri_trans_general(unique(gtrend_keywordsw[6]),id = "Title"),
+                                         '<br>',
+                                         '</sup>')),
+              annotations = 
+                list(x = 1, y = -0.1, text = "Source: Search Intensity, Google Trends;Case count, Johns Hopkins University", 
+                     showarrow = F, xref='paper', yref='paper', 
+                     xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                     font=list(size=15, color="black"))
+       ) %>%
+       layout(annotations = 
+                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
+                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                     data = filter(dataw,keyword == gtrend_keywordsw[[6]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      "\nControlling for state and week fixed effects."
+                ), 
+                showarrow = F, xref='paper', yref='paper', 
+                xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                font=list(size=15, color="black"))
+       )
    })
-  # 
-  # output$plot4<- renderPlotly({
-  #   if(is.null(input$inCheckboxGroup_finance)){
-  #     ggplotly(ggplot(data=term,
-  #                     aes(x=date,y=mavg_ft))+
-  #                geom_line()+
-  #                theme_frb()+
-  #                labs(x="Date",y="Average Term")
-  #              
-  #     )
-  #   }
-  #   else{
-  #     ggplotly(ggplot(data=filter(term,Manufacturer %in% input$inCheckboxGroup_finance),
-  #                     aes(x=date,y=avg_ft,color=Manufacturer))+
-  #                geom_line()+
-  #                theme_frb()+
-  #                labs(x="Date",y="Average Term") 
-  #     )
-  #   }
-  # })
-  # 
-  # output$plot5<- renderPlotly({
-  #   if(is.null(input$inCheckboxGroup_lease)){
-  #     ggplotly(ggplot(data=term,
-  #                     aes(x=date,y=mavg_lt))+
-  #                geom_line()+
-  #                theme_frb()+
-  #                labs(x="Date",y="Average Lease Term")
-  #     )
-  #   }
-  #   else{
-  #     ggplotly(ggplot(data=filter(term,Manufacturer %in% input$inCheckboxGroup_lease),
-  #                     aes(x=date,y=avg_lt,color=Manufacturer))+
-  #                geom_line()+
-  #                theme_frb()+
-  #                labs(x="Date",y="Average Lease Term") 
-  #     )
-  #   }
-  # })
-  # 
-  # output$plot6<- renderPlotly({
-  #   ggplotly(ggplot(data=dp_m, aes(x=reorder(Manufacturer,-m_dpf),y=m_dpf,fill=Manufacturer)) +
-  #              geom_bar(stat = "identity")+
-  #              theme_frb()+
-  #              labs(x="",y="Average Down Payment")+
-  #              theme(axis.text.x = element_text(size=10, angle=45, hjust=1, vjust=1))
-  #   )
-  # })
-  # 
-  # output$plot7<- renderPlotly({
-  #   ggplotly(ggplot(data=dp_m, aes(x=reorder(Manufacturer,-m_dpl),y=m_dpl,fill=Manufacturer)) +
-  #              geom_bar(stat = "identity")+
-  #              theme_frb()+
-  #              labs(x="",y="Average Lease Down Payment")+
-  #              theme(axis.text.x = element_text(size=10, angle=45, hjust=1, vjust=1))+
-  #              guides(fill=guide_legend(ncol=2))
-  #   )
-  # })
-  # 
-  
+   
+   output$plot7<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) +
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[1]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+                )
+   })
+   output$plot8<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) + 
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[2]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+     )
+   })
+   output$plot9<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) + 
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[3]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+     )
+   })
+   output$plot10<- renderPlotly({
+     ggplotly(ggplot() +
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo))+
+                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo=="US"), 
+                          mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
+                geom_point(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"),
+                           mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
+                #geom_line(aes(size=data$line_size)) +
+                theme_frb()+
+                xlab("") + 
+                scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+                ylab("Google search index") + ylim(0,100) +
+                ggtitle(paste0("Search term:",stri_trans_general(unique(gtrend_keywordsw[4]),id = "Title"))) +
+                theme(plot.title = element_text(size = 12, face="bold", margin = margin(10,0,10,0)),
+                      legend.text = element_text(size = 7.5))+
+                #guides(color = guide_legend(ncol=2))+
+                geom_vline(aes(xintercept = as.numeric(as.Date("2020-01-20"))),linetype="dotted",color="black")+
+                geom_text(aes(x = as.Date("2020-01-15"),label = "First US case of\nCOVID-19",y=95),color="black",size=2.25,nudge_x = 12.5,family="Times")         
+     )
+   })
+   
+   
+   
 }
+
+
+
+
