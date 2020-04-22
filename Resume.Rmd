@@ -6,3 +6,4 @@
   
   Hello World
   
+  <a href="LucasNathe_resume.pdf" class="image fit"><img src="images/LucasNathe_resume.jpg" alt=""></a>	
