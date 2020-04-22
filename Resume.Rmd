@@ -1,9 +1,30 @@
-  ---
-  title: "Something Is Wrong"
-  output: html_document
-  runtime: shiny
-  ---
+---
+title: "Journal"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+```
+
+IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.
+
+[linked phrase](https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.pdf)
+
+# Reading CRA data. 
+
+2019 | 8 | 28 Last compiled: `r Sys.Date()`
+
+1. An clean, yet inefficient, function to pull in CRA disclosure files.. [https://github.com/lmnathe/read_cra]
+-There are a few peculiarities regarding reading in the data from 1996-2001, and 2016-2017 that made this chalangeing, but I believe they are well attended to in this function. 
+
+
+1. Link to my resume [https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.pdf](https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.pdf)
   
-  Hello World
-  
-  <a href="images/LucasNathe_resume.pdf" class="image fit"><img src="images/LucasNathe_resume.jpg" alt=""></a>	
