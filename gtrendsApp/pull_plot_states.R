@@ -8,7 +8,8 @@ library(lubridate)
 library(dplyr)
 library(ggplot2) #plotting
 library(tools) #titlecasing
-source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
+#source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
+#source('theme_custom.R')
 #Set proxy to be able to start download
 
 data<-data.frame()
@@ -59,7 +60,8 @@ data<- data %>%
 data<- data %>%
   group_by(geo) %>% 
   mutate(dot_val = ifelse(date2==dot_date,hits,NA))
-saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
+#saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
+saveRDS(data,'shapefiles/states.rds')
 ### STATES AND US ----
 # p<-1
 # for(p in 1:length(gtrend_keywords)){

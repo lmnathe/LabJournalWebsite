@@ -20,7 +20,8 @@ packages<- c('dplyr',
 )
 suppressPackageStartupMessages(
   invisible(lapply(packages,library,character.only=TRUE)))
-source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
+#source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
+source('theme_custom.R')
 server <- function(input, output) {
   #get colors
   myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
@@ -48,8 +49,10 @@ server <- function(input, output) {
   us <- map_data("state")
   # INTEREST RATE DATA
   #data<- readRDS('shapefiles/animated_monthly.rds')
-  data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
-  dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
+  #data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
+  #dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
+  data<- readRDS('shapefiles/states.rds')
+  dataw<- readRDS('shapefiles/animated_weekly.rds')%>% 
     mutate(wdate = as.character(wdate)) %>%
     filter(wdate>="2019-12-01")
 
