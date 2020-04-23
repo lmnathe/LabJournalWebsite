@@ -16,7 +16,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.
 
-<a href = "https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.pdf">
+<a href = "https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.jpg">
 ![](LucasNathe_resume.jpg)
 
 
