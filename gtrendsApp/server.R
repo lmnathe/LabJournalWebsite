@@ -235,11 +235,11 @@ server <- function(input, output) {
    
    output$plot7<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[1] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[1] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[1] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
@@ -256,11 +256,11 @@ server <- function(input, output) {
    })
    output$plot8<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[2] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[2] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[2] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
@@ -277,11 +277,11 @@ server <- function(input, output) {
    })
    output$plot9<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[3] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[3] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[3] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
@@ -298,11 +298,11 @@ server <- function(input, output) {
    })
    output$plot10<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[4] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[4] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[4] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
