@@ -1,6 +1,7 @@
 ### A: Lucas Nathe
 ### D: 4/22/2020
-### U: 
+### U: 4/23/2020 - running regressions and saving as separate output in dma pull files
+#rather than running regressions in server every time it deploys..
 ### P: i) Shiny Server for google trends/COVID-19 cases
 
 packages<- c('dplyr',
@@ -20,7 +21,8 @@ packages<- c('dplyr',
 )
 suppressPackageStartupMessages(
   invisible(lapply(packages,library,character.only=TRUE)))
-source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
+#source('/Users/prnathe/Documents/LucasNathe/gtrendsApp/theme_custom.R')
+source('theme_custom.R')
 server <- function(input, output) {
   #get colors
   myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
@@ -48,10 +50,13 @@ server <- function(input, output) {
   us <- map_data("state")
   # INTEREST RATE DATA
   #data<- readRDS('shapefiles/animated_monthly.rds')
-  data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
-  dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
-    mutate(wdate = as.character(wdate)) %>%
-    filter(wdate>="2019-12-01")
+  #data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
+  #dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
+  data<- readRDS('shapefiles/states.rds')
+  dataw<- readRDS('shapefiles/animated_weekly.rds')%>% 
+    mutate(wdate = as.character(wdate)) 
+    #filter(wdate>="2019-12-01")
+  coefs<- readRDS('shapefiles/coefs.rds')
 
   gtrend_keywordsw<- c("small business loan","furlough","overdraft",
                       "stimulus check","divorce","legal zoom")
@@ -75,8 +80,9 @@ server <- function(input, output) {
       ) %>%
       layout(annotations = 
                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                     str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                              data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                     coefs[1],
+                                                     #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                     #data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
                                  "\nControlling for state and week fixed effects."
                ), 
                showarrow = F, xref='paper', yref='paper', 
@@ -104,8 +110,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                      data = filter(dataw,keyword == gtrend_keywordsw[[2]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[2],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      #data = filter(dataw,keyword == gtrend_keywordsw[[2]])),type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -133,8 +140,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                    str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                           data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[3],
+                                    #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                    #data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
                                               "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -162,9 +170,10 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                          data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
-                                                        type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[4],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      #data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
+                                                      #type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -193,9 +202,10 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                    data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
-                                                                type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[5],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      #data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
+                                                      #          type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -223,8 +233,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                     data = filter(dataw,keyword == gtrend_keywordsw[[6]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[6],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                     #data = filter(dataw,keyword == gtrend_keywordsw[[6]])),type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -235,11 +246,11 @@ server <- function(input, output) {
    
    output$plot7<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[1] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[1] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[1] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[1] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
@@ -256,11 +267,11 @@ server <- function(input, output) {
    })
    output$plot8<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[2] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[2] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[2] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[2] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
@@ -277,11 +288,11 @@ server <- function(input, output) {
    })
    output$plot9<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[3] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[3] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[3] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[3] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+
@@ -298,11 +309,11 @@ server <- function(input, output) {
    })
    output$plot10<- renderPlotly({
      ggplotly(ggplot() +
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[4] & !is.na(hits) & geo!="US"), 
                           mapping = aes(as.Date(date), hits,color = geo))+
-                geom_line(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo=="US"), 
+                geom_line(data = data %>% filter(keyword == gtrend_keywordsw[4] & !is.na(hits) & geo=="US"), 
                           mapping = aes(as.Date(date), hits,color = geo),size =1.25)+
-                geom_point(data = data %>% filter(keyword == gtrend_keywords[4] & !is.na(hits) & geo!="US"),
+                geom_point(data = data %>% filter(keyword == gtrend_keywordsw[4] & !is.na(hits) & geo!="US"),
                            mapping=aes(x = as.Date(dot_date),y=dot_val,color = geo),size=3)+
                 #geom_line(aes(size=data$line_size)) +
                 theme_frb()+

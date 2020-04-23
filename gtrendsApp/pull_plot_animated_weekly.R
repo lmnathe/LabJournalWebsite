@@ -37,8 +37,9 @@ cases<- cases %>% ungroup()%>%
 
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
-                verbose=FALSE)
+#neil <- readOGR("/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+#                verbose=FALSE)
+neil <- readOGR("shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
 neil_map <- fortify(neil, region="id")
@@ -93,8 +94,8 @@ data<- data %>%
                                      )%>% ungroup()
 data<- data %>% arrange(date)
 data<- data %>% left_join(cases,by = c("wdate","FIPS"))
-saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')
-data<- readRDS('shapefiles/animated_weekly.rds')
+#saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')
+#data<- readRDS('shapefiles/animated_weekly.rds')
 r<-1
 coefs<-list()
 #data<- data %>% mutate(hits = ifelse(is.na(hits),0,hits))
