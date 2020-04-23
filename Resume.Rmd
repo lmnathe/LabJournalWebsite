@@ -1,5 +1,5 @@
 ---
-title: "Resume"
+title: "Resume + Coursework"
 output:
   html_document:
     toc: true
@@ -14,10 +14,41 @@ output:
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
-IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.
+# Resume
 
+<div class="col-sm-6">
 <a href = "https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.jpg">
 ![](LucasNathe_resume.jpg)
+</a>
 
 
-  
+# Coursework
+    
+* Economics
+      + Advanced Consumer Economics
+      + Advanced Macroeconomics
+      + Advanced Producer Economics
+      + American Political Economics
+      + Health Economics
+      + Intermediate Macroeconomics
+      + Intermediate Microeconomics
+      + International Macroeconomics
+      + Econometrics I
+      + Research Methods for Policy Analysis I
+      + Research Methods for Policy Analysis II
+      + Intro to Game Theory
+      + Labor Economics
+      + Public Economics
+      + Money Banking and Financial Markets
+      + Quantitative Economics
+      + The Banking System and Money Market
+
+* Mathematics
+      + Calculus I,II,III
+      + Linear Algebra
+      + Graduate Real Analysis
+      + Differential Equations
+* Statistics
+      + Undergraduate Statistics I,II,III,IV
+      + Quantitative Statistics
+    
