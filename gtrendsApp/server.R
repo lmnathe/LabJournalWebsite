@@ -1,6 +1,7 @@
 ### A: Lucas Nathe
 ### D: 4/22/2020
-### U: 
+### U: 4/23/2020 - running regressions and saving as separate output in dma pull files
+#rather than running regressions in server every time it deploys..
 ### P: i) Shiny Server for google trends/COVID-19 cases
 
 packages<- c('dplyr',
@@ -53,8 +54,9 @@ server <- function(input, output) {
   #dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
   data<- readRDS('shapefiles/states.rds')
   dataw<- readRDS('shapefiles/animated_weekly.rds')%>% 
-    mutate(wdate = as.character(wdate)) %>%
-    filter(wdate>="2019-12-01")
+    mutate(wdate = as.character(wdate)) 
+    #filter(wdate>="2019-12-01")
+  coefs<- readRDS('shapefiles/coefs.rds')
 
   gtrend_keywordsw<- c("small business loan","furlough","overdraft",
                       "stimulus check","divorce","legal zoom")
@@ -78,8 +80,9 @@ server <- function(input, output) {
       ) %>%
       layout(annotations = 
                list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                     str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                              data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                     coefs[1],
+                                                     #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                     #data = filter(dataw,keyword == gtrend_keywordsw[[1]])),type = 'text')[7],split = ")")[[1]][2]),
                                  "\nControlling for state and week fixed effects."
                ), 
                showarrow = F, xref='paper', yref='paper', 
@@ -107,8 +110,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                      data = filter(dataw,keyword == gtrend_keywordsw[[2]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[2],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      #data = filter(dataw,keyword == gtrend_keywordsw[[2]])),type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -136,8 +140,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                    str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                           data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[3],
+                                    #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                    #data = filter(dataw,keyword == gtrend_keywordsw[[3]])),type = 'text')[7],split = ")")[[1]][2]),
                                               "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -165,9 +170,10 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                          data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
-                                                        type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[4],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      #data = filter(dataw,keyword == gtrend_keywordsw[[4]])),
+                                                      #type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -196,9 +202,10 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                    data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
-                                                                type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[5],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                      #data = filter(dataw,keyword == gtrend_keywordsw[[5]])),
+                                                      #          type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 
@@ -226,8 +233,9 @@ server <- function(input, output) {
        ) %>%
        layout(annotations = 
                 list(x = 0.35, y = 0.1, text = paste0("Hits ~ Log(Cases):",
-                                                      str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
-                                                     data = filter(dataw,keyword == gtrend_keywordsw[[6]])),type = 'text')[7],split = ")")[[1]][2]),
+                                                      coefs[6],
+                                                      #str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + as.factor(wdate),
+                                                     #data = filter(dataw,keyword == gtrend_keywordsw[[6]])),type = 'text')[7],split = ")")[[1]][2]),
                                                       "\nControlling for state and week fixed effects."
                 ), 
                 showarrow = F, xref='paper', yref='paper', 

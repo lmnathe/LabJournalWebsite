@@ -20,34 +20,34 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 <div class="col-sm-6">
 
 # Coursework
-    
+## Below is a list of relevent coursework taken at the following 
+three institutions - University of Missouri(MU), Kellstadt Graduate School of Business(D), and George Washington University(GWU).
 * Economics
-      + Advanced Consumer Economics
-      + Advanced Macroeconomics
-      + Advanced Producer Economics
-      + American Political Economics
-      + Health Economics
-      + Intermediate Macroeconomics
-      + Intermediate Microeconomics
-      + International Macroeconomics
-      + Econometrics I
-      + Research Methods for Policy Analysis I
-      + Research Methods for Policy Analysis II
-      + Intro to Game Theory
-      + Labor Economics
-      + Public Economics
-      + Money Banking and Financial Markets
-      + Quantitative Economics
-      + The Banking System and Money Market
-
+      + Research Methods for Policy Analysis I(D)
+      + Research Methods for Policy Analysis II(D)
+      + Labor Economics(D)
+      + Public Economics(D)
+      + Advanced Consumer Economics(D)
+      + Advanced Macroeconomics(D)
+      + Advanced Producer Economics(D)
+      + American Political Economics(MU)
+      + Health Economics(MU)
+      + Intermediate Macroeconomics(MU)
+      + Intermediate Microeconomics(MU)
+      + International Macroeconomics(D)
+      + Econometrics I(MU)
+      + Intro to Game Theory(MU)
+      + Money Banking and Financial Markets(MU)
+      + Quantitative Economics(MU)
+      + The Banking System and Money Market(MU)
 * Mathematics
-      + Calculus I,II,III
-      + Linear Algebra
-      + Graduate Real Analysis
-      + Differential Equations
+      + Graduate Real Analysis(GWU)
+      + Calculus I,II,III(MU)
+      + Linear Algebra(MU)
+      + Differential Equations(MU)
 * Statistics
-      + Undergraduate Statistics I,II,III,IV
-      + Quantitative Statistics
+      + Undergraduate Statistics I,II,III,IV (MU)
+      + Quantitative Statistics(MU)
 
 
 </div>

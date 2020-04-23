@@ -7,7 +7,10 @@ packages<- c('gtrendsR', #googletrends
              'RCurl', #pulling covid data from github
              'stringr',
              'lubridate', #converting to plotly
-             'rgeos') #gBuffer
+             'rgeos',
+             'stargazer',
+             'stringr',
+             'stringi') #gBuffer
 suppressPackageStartupMessages(invisible(lapply(packages,library,character.only=TRUE)))
 
 #PULL COVID CASES DATA
@@ -34,7 +37,7 @@ cases<- cases %>% ungroup()%>%
 
 
 #### READ IN NEILSEN MAP DATA ####
-neil <- readOGR("Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
+neil <- readOGR("/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
                 verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
@@ -49,9 +52,9 @@ data<-data.frame()
 #trend-by-dma
 gtrend_keywords<- c("small business loan","furlough","overdraft",
                     "stimulus check","divorce","legal zoom")
-time1<- seq.Date(from = as.Date("2019-12-02",format="%Y-%m-%d"),
+time1<- seq.Date(from = as.Date("2019-12-29",format="%Y-%m-%d"),
                  to = Sys.Date(),by ="week")
-time2<- c(seq(as.Date("2019-12-09"),length=length(time1)-1,by="week"),Sys.Date()-1)
+time2<- c(seq(as.Date("2020-01-05"),length=length(time1)-1,by="week"),Sys.Date()-1)
 #adding yesterdays date to incomplete month
 i<-1
 x<-1
@@ -79,6 +82,7 @@ for(i in 1:length(gtrend_keywords)){
   i<-i+1
 }
 backup<-data
+data<-backup
 data<- data %>% 
   rowwise() %>%
   mutate(wdate = 
@@ -89,9 +93,19 @@ data<- data %>%
                                      )%>% ungroup()
 data<- data %>% arrange(date)
 data<- data %>% left_join(cases,by = c("wdate","FIPS"))
-saveRDS(data,'Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly_2.rds')
-
-
+saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')
+data<- readRDS('shapefiles/animated_weekly.rds')
+r<-1
+coefs<-list()
+#data<- data %>% mutate(hits = ifelse(is.na(hits),0,hits))
+for(r in 1:length(unique(data$keyword))){
+  coefs[r]<-  str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + 
+                                               as.factor(as.character(wdate)),
+                                             data = filter(data,keyword == gtrend_keywords[[r]])),
+                                          type = 'text')[7],split = ")")[[1]][2])
+}
+saveRDS(coefs, 'shapefiles/coefs.rds')
+  
 
 
 
