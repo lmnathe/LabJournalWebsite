@@ -14,14 +14,17 @@ output:
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
+</style>
+
+<div class="row" style="padding-top: 10px;">
+<div class="col-sm-6">
+
 # Resume
 </div>
 <div class="col-sm-6">
 <a href = "https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.jpg">
 ![](LucasNathe_resume.jpg)
 </a>
-</div>
-
 # Coursework
     
 * Economics
@@ -51,4 +54,4 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 * Statistics
       + Undergraduate Statistics I,II,III,IV
       + Quantitative Statistics
-    
+    </div>
