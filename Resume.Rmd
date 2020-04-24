@@ -58,8 +58,8 @@ Below is a list of relevent coursework taken at the following three institutions
 </div>
 <div class="col-sm-6">
 # Resume
-<a href = "https://github.com/lmnathe/LucasNathe/blob/master/images/LucasNathe_resume.jpg">
-![](LucasNathe_resume.jpg)
+<a href = "https://github.com/lmnathe/LucasNathe/blob/master/resume/resume.jpg">
+![](resume/resume.jpg)
 </a>
 </div>
 

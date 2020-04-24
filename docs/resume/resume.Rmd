@@ -1,0 +1,78 @@
+---
+name: Lucas 
+surname: Nathe
+position: "Sr. Research Assistant"
+address: "1822 Florida Avenue NW, Apt.1\nWashington, D.C. 20009"
+phone: +1 630 251 8220
+#profilepic: mariecurie.jpg
+www: lmnathe.github.io/LucasNathe/
+email: Lmnathe@gmail.com
+github: /lmnathe
+linkedin: /lucasnathe
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: "Lucas is a Sr. Research Assistant at the Federal Reserve Board of Governors in the Division of Research & Statistics, Consumer Finance."
+output: vitae::twentyseconds
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,  ~Why,
+  "M.S. in Economics and Policy Analysis", "2017", "DePaul University", "Chicago, IL","3.8/4.0",
+  "B.S. Economics", "2016", "University of Missouri", "Columbia, MO","3.55/4.0"
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where, Why)
+```
+
+# Work
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
+  "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Assisting economists with data updates and maintenance, charting and presentation preparations, and supporting their research projects.",
+   "Industrial Engineering Intern", "2016-2018", "United Parcel Service", "Chicago, IL","Implement cost saving technologies and train employees on their optimal use.",
+  "Research Assistant","2016-2018","DePaul Kellstadt Graduate School of Business","Chicago, IL","Compile yearly data on work context variables from the O*Net occupation dataset for research on Hedonic-Based labor supply substitution.",
+  "Teaching Assistant\nIntermediate Microeconomics","2015-2016","University of Missouri Dept. of Economics","Columbia, MO","Conducting and recording weekly/exam review sessions, holding office hours, and grading coursework."
+) %>% 
+  detailed_entries(what = Degree, when = Year, with = Where, where = Institution, why = Why)
+```
+
+# Honors
+
+```{r}
+tribble(
+  ~ Year, ~ Degree, ~ Institution, 
+  "2016-2018", "Graduate Assistantship", "DePaul University Department of Economics",
+  "2015-2016", "Teaching Assistantship", "University of Missouri Department of Economics",
+  "2014-2016","Omicron Delta Epsilon International Economics Honors Fraternity","University of Missouri"
+) %>% 
+  detailed_entries(what = Degree, when = Year, where = Institution)
+```
+
+# Skills
+
+```{r}
+tribble(
+   ~Type,
+   "R, Stata, SAS, Visual Basic, Python, Java"
+) %>% 
+  brief_entries(
+    Type
+  )
+```
+
+```{r, include=FALSE}
+  knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+  library(pdftools)
+  pdf_convert(pdf = 'resume.pdf',format = "jpg",filenames = 'resume.jpg')
+```
+
+
+
