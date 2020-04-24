@@ -24,8 +24,8 @@ This is a working space for my website. I am currently a Senior Research Assista
 
 
 ## What i've been working on lately..
-1. Plotting a few google trend search results by DMA against the number of COVID-19 cases by month. [https://lmnathe.shinyapps.io/gtrendsapp/]
-2. An clean, yet inefficient, function to pull in CRA disclosure files.. [https://github.com/lmnathe/read_cra]
+1. Plotting a few google trend search results by DMA against the number of COVID-19 cases by month. [https://lmnathe.shinyapps.io/gtrendsapp/]. Note, the shinyApp currently takes about 30 seconds to launch.
+2. A clean function to pull in CRA disclosure files county loan totals.. [https://github.com/lmnathe/read_cra]
 
 </div>
 <div class="col-sm-6">
