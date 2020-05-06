@@ -33,7 +33,5 @@ This is a working space for my website. I am currently a Senior Research Assista
 <a href = "https://github.com/lmnathe/LucasNathe">
 ![](flowers.jpeg)
 
-
-
 </a>
 </div>
