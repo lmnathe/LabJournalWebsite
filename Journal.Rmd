@@ -9,10 +9,16 @@ output:
     toc_depth: 1
     #code_folding: hide
 ---
-
+</div>
+<div class="col-sm-6">
+<a href = "https://github.com/lmnathe/LucasNathe">
+![](econ_pic.jpeg)
+</a>
+</div>
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
+
 
 # Reading CRA data. 
 

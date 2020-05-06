@@ -31,6 +31,9 @@ This is a working space for my website. I am currently a Senior Research Assista
 <div class="col-sm-6">
 
 <a href = "https://github.com/lmnathe/LucasNathe">
-![](econ_pic.jpeg)
+![](flowers.jpeg)
+
+
+
 </a>
 </div>
