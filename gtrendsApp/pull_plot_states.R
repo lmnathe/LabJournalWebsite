@@ -14,8 +14,8 @@ library(tools) #titlecasing
 
 data<-data.frame()
 #trend-by-state
-gtrend_keywords<- c("small business loan","furlough","overdraft",
-                    "stimulus check",'divorce','legal zoom')
+gtrend_keywords<- c("small + business + loan","furlough","overdraft",
+                    "stimulus + check",'divorce','legal + zoom')
 gtrend_geos<-c("US","US-WA","US-NY","US-CA")
 i<-1
 x<-1
