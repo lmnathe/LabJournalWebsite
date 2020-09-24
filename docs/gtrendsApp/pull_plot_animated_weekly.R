@@ -39,7 +39,7 @@ cases<- cases %>% ungroup()%>%
 #### READ IN NEILSEN MAP DATA ####
 #neil <- readOGR("/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, 
 #                verbose=FALSE)
-neil <- readOGR("shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, verbose=FALSE)
+neil <- readOGR("Documents/LucasNathe/gtrendsApp/shapefiles/nielsentopo.json", "nielsen_dma", stringsAsFactors=FALSE, verbose=FALSE)
 neil <- SpatialPolygonsDataFrame(gBuffer(neil, byid=TRUE, width=0),
                                  data=neil@data)
 neil_map <- fortify(neil, region="id")
@@ -51,16 +51,19 @@ niel_codes<-data.frame("dma"=tolower(as.character(neil@data[["dma1"]])),"id"=nei
 
 data<-data.frame()
 #trend-by-dma
-gtrend_keywords<- c("small business loan","furlough","overdraft",
-                    "stimulus check","divorce","legal zoom")
+gtrend_keywords<- c("small+business+loan","furlough","overdraft",
+                    "stimulus+check","divorce","legal zoom")
 time1<- seq.Date(from = as.Date("2019-12-29",format="%Y-%m-%d"),
-                 to = Sys.Date(),by ="week")
-time2<- c(seq(as.Date("2020-01-05"),length=length(time1)-1,by="week"),Sys.Date()-1)
+                 #to = Sys.Date(),
+                 length.out = 24,
+                 by ="week")[c(TRUE, FALSE)]
+time2<- c(seq(as.Date("2020-01-12"),length=24,by="week"))[c(TRUE, FALSE)]
+
 #adding yesterdays date to incomplete month
 i<-1
 x<-1
 for(i in 1:length(gtrend_keywords)){
-  for(x in 1:length(time2)){
+  for(x in 1:length(time1)){
     last_90_c19<-gtrends(c(gtrend_keywords[i]), geo = c("US"), 
                          #time = "now 7-d",
                          #time = paste((Sys.Date() -1 - weeks(1)), Sys.Date()-1),
@@ -76,7 +79,7 @@ for(i in 1:length(gtrend_keywords)){
     tmp<-cbind(tmp,niel_codes)
     
     data<-bind_rows(data,tmp)
-    
+    #rm(last_90_c19)
     x<-x+1
   }
   #Sys.sleep(10)

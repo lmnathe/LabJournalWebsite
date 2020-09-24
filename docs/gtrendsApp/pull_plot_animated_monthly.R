@@ -1,19 +1,19 @@
 
 packages<- c('gtrendsR', #googletrends
-             'dplyr', 
              'rgdal', #for reading .json
              'ggplot2', #plotting 
              'cdlTools', #fips function
-             'RCurl', #pulling covid data from github
+             #'RCurl', #pulling covid data from github
              'stringr',
-             'rgeos' # gBuffer
+             'rgeos', # gBuffer
+             'dplyr'
              )
 suppressPackageStartupMessages(
   invisible(lapply(packages,library,character.only=TRUE)))
 
 #PULL COVID CASES DATA
-url <- getURL('https://raw.githubusercontent.com/datasets/covid-19/master/data/us_confirmed.csv')
-cases<- read.csv(text = x)
+url <- RCurl::getURL('https://raw.githubusercontent.com/datasets/covid-19/master/data/us_confirmed.csv')
+cases<- read.csv(text = url)
 cases<-cases %>% group_by(Province.State,Date) %>% 
   summarise(Case= sum(Case,na.rm = T)) %>% 
   ungroup() %>%
@@ -25,7 +25,7 @@ cases<-cases %>% group_by(Province.State,Date) %>%
 
 cases<- cases %>% as.data.frame() %>%
   ungroup() %>%
-  complete(mdate = format(seq.Date(
+  tidyr::complete(mdate = format(seq.Date(
     as.Date("2019-11-01",format = "%Y-%m-%d"),
     #as.Date("2020-05-01",format = "%Y-%m-%d"),
     max(as.Date(paste0(mdate,"-01"),format = "%Y-%m-%d")),
@@ -46,11 +46,11 @@ niel_codes<-data.frame("dma"=tolower(as.character(neil@data[["dma1"]])),"id"=nei
 
 data<-data.frame()
 #trend-by-dma
-gtrend_keywords<- c("small business loan","furlough","overdraft",
-                    "stimulus check","divorce","legal zoom")
+gtrend_keywords<- c("small + business + loan","furlough","overdraft",
+                    "stimulus + check","divorce","legal + zoom")
 time1<- seq.Date(from = as.Date("2019-11-01",format="%Y-%m-%d"),
                  to = Sys.Date(),by ="month")
-time2<- c(seq(as.Date("2019-12-01"),length=5,by="months")-1,Sys.Date()-1)
+time2<- c(seq(from = as.Date("2019-12-01"),to = Sys.Date(),by="months")-1,Sys.Date()-1)
 #adding yesterdays date to incomplete month
 i<-1
 x<-1
@@ -70,7 +70,7 @@ for(i in 1:length(gtrend_keywords)){
     tmp<-cbind(tmp,niel_codes)
     
     data<-bind_rows(data,tmp)
-    
+    rm(last_90_c19)
     x<-x+1
   }
   #Sys.sleep(10)
@@ -84,13 +84,21 @@ data<- data %>% rowwise() %>% mutate(mdate = format(as.Date(strsplit(date, " ")[
 data<- data %>% arrange(date)
 data<- data %>% left_join(cases,by = c("mdate","FIPS"))
 
+r<-1
+coefs<-list()
+#data<- data %>% mutate(hits = ifelse(is.na(hits),0,hits))
+for(r in 1:length(unique(data$keyword))){
+  coefs[r]<-  str_trim(strsplit(stargazer(lm(formula = hits ~ log(Case+1) + as.factor(FIPS) + 
+                                               as.factor(as.character(mdate)),
+                                             data = filter(data,keyword == gtrend_keywords[[r]])),
+                                          type = 'text')[7],split = ")")[[1]][2])
+}
 
 
-
+#saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_monthly.rds')
+#saveRDS(coefs, '/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/coefs.rds')
 saveRDS(data,'shapefiles/animated_monthly.rds')
-
-
-
+saveRDS(coefs, 'shapefiles/coefs.rds')
 
 
 

@@ -53,13 +53,16 @@ server <- function(input, output) {
   #data<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/states.rds')
   #dataw<- readRDS('/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_weekly.rds')%>% 
   data<- readRDS('shapefiles/states.rds')
-  dataw<- readRDS('shapefiles/animated_weekly.rds')%>% 
-    mutate(wdate = as.character(wdate)) 
+  #dataw<- readRDS('shapefiles/animated_weekly.rds')%>% 
+   # mutate(wdate = as.character(wdate)) 
     #filter(wdate>="2019-12-01")
+  dataw<- readRDS('shapefiles/animated_monthly.rds')%>% 
+   mutate(wdate = as.character(mdate)) 
+  
   coefs<- readRDS('shapefiles/coefs.rds')
 
-  gtrend_keywordsw<- c("small business loan","furlough","overdraft",
-                      "stimulus check","divorce","legal zoom")
+  gtrend_keywordsw<- c("small + business + loan","furlough","overdraft",
+                      "stimulus + check","divorce","legal + zoom")
   output$plot1<-  renderPlotly({
     ggplotly(ggplot() + 
                geom_polygon(data=us,aes(x=long,y=lat, group=group),color = "#2b2b2b",fill="white")+

@@ -95,9 +95,10 @@ for(r in 1:length(unique(data$keyword))){
 }
 
 
-saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_monthly.rds')
-saveRDS(coefs, '/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/coefs.rds')
-
+#saveRDS(data,'/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/animated_monthly.rds')
+#saveRDS(coefs, '/Users/prnathe/Documents/LucasNathe/gtrendsApp/shapefiles/coefs.rds')
+saveRDS(data,'shapefiles/animated_monthly.rds')
+saveRDS(coefs, 'shapefiles/coefs.rds')
 
 
 
