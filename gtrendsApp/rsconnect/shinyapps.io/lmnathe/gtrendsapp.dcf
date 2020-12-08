@@ -5,6 +5,8 @@ account: lmnathe
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2171898
-bundleId: 3269704
+bundleId: 3931104
 url: https://lmnathe.shinyapps.io/gtrendsapp/
-when: 1592180473.24744
+when: 1606883991.0538
+asMultiple: FALSE
+asStatic: FALSE

@@ -5,6 +5,7 @@ packages<- c('gtrendsR', #googletrends
              'cdlTools', #fips function
              #'RCurl', #pulling covid data from github
              'stringr',
+             'stargazer',
              'rgeos', # gBuffer
              'dplyr'
              )
@@ -55,7 +56,7 @@ time2<- c(seq(from = as.Date("2019-12-01"),to = Sys.Date(),by="months")-1,Sys.Da
 i<-1
 x<-1
 for(i in 1:length(gtrend_keywords)){
-  for(x in 1:length(time2)){
+  for(x in 1:(length(time2)-1)){
     last_90_c19<-gtrends(c(gtrend_keywords[i]), geo = c("US"), 
                          #time = "now 7-d",
                          #time = paste((Sys.Date() -1 - weeks(1)), Sys.Date()-1),

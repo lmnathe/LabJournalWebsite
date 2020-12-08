@@ -2,7 +2,7 @@ library(shiny)
 library(dplyr)
 library(shinydashboard)
 #library(policyPlot)
-library(plotly)
+library(plotly)  
 
 ui <- dashboardPage(
   dashboardHeader(title = "Basic dashboard",

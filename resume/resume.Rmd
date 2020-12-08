@@ -25,7 +25,7 @@ library(vitae)
 library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,  ~Why,
-  "M.S. in Economics and Policy Analysis", "2017", "DePaul University", "Chicago, IL","3.8/4.0",
+  "M.S. in Economics and Policy Analysis", "2017", "DePaul University", "Chicago, IL","3.73/4.0",
   "B.S. Economics", "2016", "University of Missouri", "Columbia, MO","3.55/4.0"
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where, Why)
@@ -37,11 +37,11 @@ library(tibble)
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
   "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Assisting economists with data updates and maintenance, charting, and presentation preparations for Tealbook and briefings to governors.",
-   "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Developed a program to identify household formation in Equifax Consumer Credit Panel for use in studying household credit allocation and decision making.",
+   "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Developed a program to identify household formation in Equifax Consumer Credit Panel for use in studying household credit allocation.",
    "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Created self contained program to download and merge Community Reinvestment Act data with FDIC Summary of Deposits data and calculate the geographic distance from all branches to various community centroids for use in research studying average bank lending distance.",
    "Industrial Engineering Intern", "2016-2018", "United Parcel Service", "Chicago, IL","Implement cost saving technologies and train employees on their optimal use.",
      "Industrial Engineering Intern", "2016-2018", "United Parcel Service", "Chicago, IL","Maintained data and visualizations for key performance indicators of the sorting, preload, and onroad operations.",
-   "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Maintained Board-wide Prediction Poll surveying staff on their predictions of various economic indicators. Produced visualizations for use in policy making.",
+   "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC","Maintained Board-wide Prediction Poll surveying staff on their predictions of various economic indicators. Storing data in SQL databases and producing visualizations.",
    "Sr. Research Assistant", "2018-2021", "Federal Reserve Board of Governors", "Washington, DC", "Served as a lecturer and member of the content committee for the Board's Econ181 course on Statistical Program and Financial Literacy in R.",
   "Graduate Research Assistant","2016-2018","DePaul Kellstadt Graduate School of Business","Chicago, IL","Compile yearly data on work context variables from the O*Net occupation dataset for research on Hedonic-Based labor supply substitution.",
   "Teaching Assistant\nIntermediate Microeconomics","2015-2016","University of Missouri Dept. of Economics","Columbia, MO","Conducting and recording weekly/exam review sessions, holding office hours, and grading coursework."
@@ -66,7 +66,7 @@ tribble(
 ```{r}
 tribble(
    ~Type,
-   "R, SAS, Stata, Python, Visual Basic, Java"
+   "R, SAS, Stata, Python, LaTex, Git"
 ) %>% 
   brief_entries(
     Type

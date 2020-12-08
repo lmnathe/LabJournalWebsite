@@ -24,8 +24,9 @@ This is a working space for my website. I am currently a Senior Research Assista
 
 
 ## What i've been working on lately..
-1. Plotting a few google trend search results by DMA against the number of COVID-19 cases by month. [https://lmnathe.shinyapps.io/gtrendsapp/]. Note, the shinyApp currently takes about 30 seconds to launch.
-2. A clean function to pull in CRA disclosure files county loan totals.. [https://github.com/lmnathe/read_cra]
+1. Scrapping data on brewery production and revenue from the Alcohol & Tobacco Tax and Trade Bureau [https://www.ttb.gov/beer/statistics], to generate the Herfindahl-Hirschman Index over time. [https://lmnathe.shinyapps.io/brew_app/]
+2. Plotting a few google trend search results by DMA against the number of COVID-19 cases by month. [https://lmnathe.shinyapps.io/gtrendsapp/]. Note, the shinyApp currently takes about 30 seconds to launch.
+3. A clean function to pull in CRA disclosure files county loan totals.. [https://github.com/lmnathe/read_cra]
 
 </div>
 <div class="col-sm-6">

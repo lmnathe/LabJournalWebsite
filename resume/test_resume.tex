@@ -1,0 +1,309 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\definecolor{awesome}{HTML}{414141}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{Diogo M. Camacho}{}
+
+\position{Lead, Predictive BioAnalytics}
+\address{Wyss Institute for Biologically Inspired Engineering @ Harvard
+University}
+
+\mobile{+1 617 945 4383}
+\email{\href{mailto:diogo.camacho.2008@gmail.com}{\nolinkurl{diogo.camacho.2008@gmail.com}}}
+\github{diogocamacho}
+\linkedin{diogocamacho}
+\twitter{DiogoMCamacho}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+\quote{Computational Systems Biology, Machine Learning, Bioinformatics}
+
+\usepackage{booktabs}
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+\def\detaileditem#1#2#3#4#5{%
+\cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}\ifx#5\empty{\vspace{-4.0mm}}\else\fi}
+\def\detailedsection#1{\begin{cventries}#1\end{cventries}}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{\cvhonor{}{#1}{#3}{#2}}
+\def\briefsection#1{\begin{cvhonors}#1\end{cvhonors}}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {October 2020}
+    {Diogo M. Camacho~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\section{Qualifications and research
+interests}\label{qualifications-and-research-interests}
+
+Highly effective computational system biologist, with graduate and
+post-doctoral work focusing on network inference and machine learning.
+Industry experience in development and implementation of computational
+tools for multi omics data analysis (including next-generation
+sequencing, metabolomics, proteomics), drug discovery, and target
+identification. I am interested in the application of machine
+learning/deep learning tools and techniques in the context of drug
+discovery, disease biology characterization, large data analytics for
+biology, while focused on bridging the gap between the computational and
+experimental labs through highly engaging and fruitful collaborations.
+
+\section{Technical Skills}\label{technical-skills}
+
+Machine learning, multi omics data analytics, R/Bioconductor, keras,
+perl, Latex, python, MATLAB, awk, bash. Adept user of OS X/macOS, Unix.
+Familiarity with cloud computing architectures (AWS) and high
+performance computing environments.
+
+\section{Education}\label{education}
+
+\textbf{{Virginia Polytechnic Institute and State University}}
+\hfill \emph{Blacksburg, VA}\\
+Ph.D.~in Genetics, Bioinformatics, and Computational Biology
+\hfill \emph{2007}
+
+\textbf{{Faculdade de Ciencias da Universidade de Lisboa}}
+\hfill \emph{Lisboa, Portugal}\\
+B. Sc. in Biochemistry \hfill \emph{2002}
+
+\section{Experience}\label{experience}
+
+\textbf{{Wyss Institute @ Harvard University}} \hfill \emph{Boston,
+MA}\\
+Lead, Predictive BioAnalytics Initiative, Advanced Technology Team
+\hfill \emph{July 2016 - Present}
+
+I am currently the group lead of the Predictive BioAnalytics Initiative
+at the Wyss Institute, where I lead a team of computational biologists,
+computer scientists, and software engineers to address challenges in
+machine learning and biomedical data sciences, both in-house or thtough
+external collaborations. Some of the functions associated with the role
+include:
+
+\begin{itemize}
+\tightlist
+\item
+  Development and implementation of research strategy for the
+  Initiative, focusin on enabling ML/DL/AI capabilities
+\item
+  Managing and mentoring staff scientists, post-doctoral fellows,
+  graduate students, and interns
+\item
+  Writing and managing federal grant applications and grant awards with
+  DARPA, NIH
+\item
+  Hands-on development of algorithms and computational approaches for
+  dissemination internally and with corporate partners via R Shiny
+  applications
+\item
+  Responsible for the implementation of diverse tools for analysis of
+  high throughput data (transcriptomics, RNA-seq, metabolomics,
+  proteomics, 16S rDNA sequencing) in support of diverse grant work
+\end{itemize}
+
+\textbf{{Evelo Biosciences}} \hfill \emph{Cambridge, MA}\\
+Senior Scientist, Computational Systems Biology Lead
+\hfill \emph{January 2015 - April 2016}
+
+As the lead Computational Systems Biologist at Evelo Biosciences, I was
+involved in the build out of the computational capabilities of the
+company, in support of preclinical development of microbiome-focused
+therapeutics for oncology. Some of the functions of the role included:
+
+\begin{itemize}
+\tightlist
+\item
+  Implementation of diverse tools for analysis of high throughput data
+  (transcriptomics, RNA-seq, metabolomics) as well as a 16S rDNA
+  sequencing analysis pipeline
+\item
+  Responsible for the identification of novel therapeutic opportunities
+  based on in-house and publicly available data
+\item
+  Implementation of analytical software tools to be used by bench
+  scientists in R Shiny
+\item
+  Responsible for the interface with IT provider to delineate and expand
+  computational capabilities of the company, from general to research
+  needs
+\end{itemize}
+
+\textbf{{Ember Therapeutics}} \hfill \emph{Cambridge, MA}\\
+Principal Scientist, Computational Systems Biology Lead
+\hfill \emph{January 2014 - December 2014}
+
+At Ember Therapeutics I was the Computational Systems Biology lead,
+where I oversaw the implementation and deployment of novel analytical
+tools for the identification of novel target opportunities for increased
+energy expenditure, not only from publicly available data but also from
+data coming from internal efforts. Some of the functions of the role
+included:
+
+\begin{itemize}
+\tightlist
+\item
+  Responsible for the implementation of diverse tools for analysis of
+  high throughput data (transcriptomics, RNA-seq, metabolomics)
+\item
+  Implementation of a knowledge based and data driven construction of
+  screening libraries for recombinant proteins, small peptides, and RNAi
+  therapeutic efforts
+\item
+  Implementation of analytical strategies (QC, statistical analyses,
+  hit-calling) for high throughput screens
+\item
+  Responsible for the interface with IT provider to delineate and expand
+  computational capabilities of the company, from general to research
+  needs
+\end{itemize}
+
+\textbf{{Pfizer, Inc}} \hfill \emph{Cambridge, MA}\\
+Senior Research Scientist, Computational Sciences Center of Emphasis
+\hfill \emph{January 2011 - January 2014}
+
+I was a member of the Computational Sciences Center of Emphasis at
+Pfizer, providing computational support across different preclinical
+programs at the organization, from cardiovascular disease to pain
+management and drug repositioning efforts. Some of the functions of the
+role included:
+
+\begin{itemize}
+\tightlist
+\item
+  Development and implementation of a network analysis tool for the
+  characterization of differential networks in healthy and diseased
+  populations under the scope of metabolic diseases
+\item
+  Implementation of network inference tools for the analysis of
+  large-scale data sets
+\item
+  Development and implementation of a methodology for metabolite set
+  enrichment analysis for metabolomics data
+\item
+  Performed data analysis in transcriptomics, proteomics and
+  metabolomics for different partners within the organization with
+  particular emphasis in Cardiovascular and Metabolic diseases
+\end{itemize}
+
+\textbf{{Howard Hughes Medical Institute @ Boston University}}
+\hfill \emph{Boston, MA}\\
+Post-doctoral Fellow \hfill \emph{July 2007 - January 2011}
+
+Post-doctoral training with Dr.~James Collins at Boston University,
+focusing on the application of machine learning and network inference
+approaches in biomedicine. Some efforts included:
+
+\begin{itemize}
+\tightlist
+\item
+  Developed a network inference algorithm for identification of
+  regulatory architectures of pathways
+\item
+  Identified a novel mechanism of action for antifungal drugs using
+  transcriptomics and metabolomics data
+\item
+  Identified and characterized the small RNA regulatory network in
+  bacterial systems using gene expression data
+\item
+  Performed data analysis of gene expression data and metabolomics data
+  in bacterial and fungal systems
+\end{itemize}
+
+\section{Awards and Grants}\label{awards-and-grants}
+
+\textbf{{Molecular circuits in the hematopoietic stem cell niche (NIH)}}
+\hfill \emph{\$415,000}\\
+co-Investigator \hfill \emph{9/1/20}
+
+\textbf{{Synergistic Discovery and Design (DARPA)}}
+\hfill \emph{\$2,000,000}\\
+co-PI \hfill \emph{9/1/17}
+
+\section{References}\label{references}
+
+References will be provided upon request.
+
+\end{document}
