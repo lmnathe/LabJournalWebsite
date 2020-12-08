@@ -23,36 +23,40 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 Below is a list of relevent coursework taken at the following three institutions - University of Missouri(MU), Kellstadt Graduate School of Business(D), and George Washington University(GWU).
 
 * Economics
-      + Research Methods for Policy Analysis I(D)
-      + Research Methods for Policy Analysis II(D)
-      + Labor Economics(D)
-      + Public Economics(D)
-      + Advanced Consumer Economics(D)
-      + Advanced Producer Economics(D)
-      + International Macroeconomics(D)
-      + Econometrics I(MU)
-      + Quantitative Economics(MU)
-      + Money Banking and Financial Markets(MU)
-      + The Banking System and Money Market(MU)
-      + American Political Economics(MU)
-      + Health Economics(MU)
-      + Intro to Game Theory(MU)
-      + Advanced Macroeconomics(MU)
-      + Advanced Microeconomics(MU)
-      + Intermediate Macroeconomics(MU)
-      + Intermediate Microeconomics(MU)
+
+  + Research Methods for Policy Analysis I(D)
+  + Research Methods for Policy Analysis II(D)
+  + Labor Economics(D)
+  + Public Economics(D)
+  + Advanced Consumer Economics(D)
+  + Advanced Producer Economics(D)
+  + International Macroeconomics(D)
+  + Econometrics I(MU)
+  + Quantitative Economics(MU)
+  + Money Banking and Financial Markets(MU)
+  + The Banking System and Money Market(MU)
+  + American Political Economics(MU)
+  + Health Economics(MU)
+  + Intro to Game Theory(MU)
+  + Advanced Macroeconomics(MU)
+  + Advanced Microeconomics(MU)
+  + Intermediate Macroeconomics(MU)
+  + Intermediate Microeconomics(MU)
 
 * Mathematics
-      + Graduate Real Analysis(GWU)
-      + Calculus I,II,III(MU)
-      + Linear Algebra(MU)
-      + Differential Equations(MU)
+
+  + Graduate Real Analysis(GWU)
+  + Calculus I,II,III(MU)
+  + Linear Algebra(MU)
+  + Differential Equations(MU)
 * Statistics
-      + Undergraduate Statistics I,II,III,IV (MU)
-      + Quantitative Statistics(MU)
+
+  + Undergraduate Statistics I,II,III,IV (MU)
+  + Quantitative Statistics(MU)
 * Computer Science
-      + Introduction to Programing I(D)
-      + Data Strucutres I(D)
+
+  + Introduction to Programing I(D)
+  + Data Strucutres I(D)
 
 
 </div>
