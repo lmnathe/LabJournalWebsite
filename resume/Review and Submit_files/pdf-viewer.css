@@ -1,0 +1,5058 @@
+/* Styles that are specific to TBE, as well as override rules in bootstrap.css */
+.pdf-viewer-style body.mainPage, body.ews, body.login {
+    padding-top: 100px;
+}
+
+.pdf-viewer-style body.tab-layout, body.menubody, body.chromeless {
+    padding-top: 0;
+}
+
+.pdf-viewer-style body.selector, body.chromeless {
+    padding: 10px;
+}
+
+.pdf-viewer-style .selector #header, .selector .navbar, .selector #sidebar {
+    display: none;
+}
+
+.pdf-viewer-style .selector .container-fluid > #content {
+    margin-left: 0
+}
+
+/* Page Customizations */
+
+.pdf-viewer-style body.actuatePortlet {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.pdf-viewer-style .paramDisplayName {
+    font-style: normal;
+    font-size: 12pt !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.pdf-viewer-style .login h3 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer-style .login .text {
+    text-align: left;
+}
+
+.pdf-viewer-style .login .alert {
+    padding-right: 8px;
+    margin-bottom: 5px;
+    min-height: 35px;
+    width: 275px;
+}
+
+.pdf-viewer-style .login .alert img {
+    float: left;
+    margin: 5px 5px 0 -5px;
+}
+
+.pdf-viewer-style .Administration .PortletContentWOPadding table td {
+    padding: 10px;
+}
+
+.pdf-viewer-style .StatusMappingsOnBoarding .ui-progressbar {
+    margin-top: -10px;
+}
+
+.pdf-viewer-style .RatingScaleView #ratingScale_InformationBox input, .RatingScaleView #ratingScale_InformationBox select,
+.pdf-viewer-style .RatingScaleUpdate #ratingScale_InformationBox input, .RatingScaleUpdate #ratingScale_InformationBox select {
+    width: auto;
+    margin-bottom: 0;
+    padding: 1px;
+    cursor: pointer; /* override not-allowed */
+    height: 18px;
+}
+
+.pdf-viewer-style .RatingScaleView #ratingScale_InformationBox select, .RatingScaleUpdate #ratingScale_InformationBox select {
+    height: 21px;
+    width: 110px;
+}
+
+.pdf-viewer-style .reporting .btn-group {
+    float: right;
+    margin-right: 20px;
+}
+
+.pdf-viewer-style .reporting .btn-group .btn {
+    padding-top: 6px;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .reporting .btn-group .btn img {
+    padding-right: 2px;
+    vertical-align: top;
+}
+
+.pdf-viewer-style #createScaleDiv {
+    text-align: center;
+}
+
+.pdf-viewer-style #ratingScalesContainer_div {
+    margin: 0 auto;
+}
+
+.pdf-viewer-style #ratingScalesContainer {
+    background-color: #E1E1E1;
+    padding: 10px;
+    padding-bottom: 40px;
+    margin-left: 60px;
+}
+
+.pdf-viewer-style #ratingSegmentContainer_td {
+    text-align: center;
+    height: 130px;
+    vertical-align: top;
+}
+
+.pdf-viewer-style #ratingSegmentContainer {
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+.pdf-viewer-style .hidden {
+    display: none;
+}
+
+.mandatoryCheckbox {
+    margin-top: 9px;
+    margin-bottom: 13px;
+    margin-left: 2px;
+    font-size:12px;
+}
+
+/*Bug Fix: TBE-11544 : Fixes the alignment b/w labels on the left and the label rows on the right */
+.pdf-viewer-style .ratingScaleDetailsBoxCellHeight {
+    height: 24px;
+}
+
+.pdf-viewer-style .inputLabels_detailsBox_div {
+    text-align: right;
+    width: 130px;
+    border: 0px;
+}
+
+.pdf-viewer-style .inputLabels_detailsBox_div_div {
+    padding: 5px;
+    border-bottom: 1px dotted #CCCCCC;
+    height: 24px; /* This should be the same as .ratingScaleDetailsBoxCellHeight */
+    padding-right: 10px;
+}
+
+.pdf-viewer-style .SubmitReferral .PortletContent > table > tbody > tr > td > img {
+    height: 15px;
+}
+
+/* To fix alignment issue in IE8 */
+.pdf-viewer-style .CalendarWeek .ResultsHeaderRight, .CalendarDay .ResultsHeaderRight, .CalendarMonth .ResultsHeaderRight {
+    width: 220px;
+    text-align: right;
+}
+
+.pdf-viewer-style select.timezone {
+    width: auto;
+}
+
+.pdf-viewer-style .AssignUserPages select, .AssignUserViews select, .AssignRoleViews select, .AssignRolePages select,
+.pdf-viewer-style .OrgChartEdit1 select {
+    width: auto;
+    min-width: 220px;
+}
+
+/* To handle viewed/unviewed for Candidates */
+.pdf-viewer-style .onboarding-employees .RowBold td, .onboarding-employees .RowBold td b,
+.pdf-viewer-style .offboarding-employees .RowBold td, .offboarding-employees .RowBold td b,
+.pdf-viewer-style .RowNormal td, .RowNormal td b, .RowNormal td a {
+    font-weight: normal;
+}
+
+.pdf-viewer-style .onboarding-employees .RowNormal td a,
+.pdf-viewer-style .offboarding-employees .RowNormal td a {
+    font-weight: bold;
+}
+
+.pdf-viewer-style .RowBold td, .RowBold td b, .RowBold td a {
+    font-weight: bold;
+}
+
+.pdf-viewer-style .RowBold td div.btn-group a {
+    font-weight: normal;
+}
+
+/* Zip Code Country and Radius fix */
+.pdf-viewer-style #label_for_field_zipCode_radius, #label_for_field_searchRadiusZipCountryCode_select {
+    display: inline-block;
+}
+
+.pdf-viewer-style #searchRadiusZipCountryCode_select, #zipCode_radius {
+    width: auto;
+    margin-top: 5px;
+}
+
+/* TBE-11567: Reason for leaving field is oversized */
+.pdf-viewer-style .EmployeeEdit #reasonForLeaving_1 {
+    width: auto;
+}
+
+.pdf-viewer-style .PluginEdit .text, .StatusEditActivity #displayDescLabel {
+    width: auto;
+}
+
+.pdf-viewer-style .FieldAdd2 #limitSpinnerSpan, .FieldEdit #limitSpinnerSpan {
+    vertical-align: top;
+    display: inline-block;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: 3px;
+}
+
+.pdf-viewer-style .FieldAdd2 .ui-spinner, .FieldEdit .ui-spinner {
+    position: absolute;
+    margin-left: -2px;
+}
+
+.pdf-viewer-style .RequisitionEdit #tscCalInstantSchedulingScore {
+    display: inline-block;
+    height: auto;
+}
+
+.pdf-viewer-style input, textarea, select, .uneditable-input {
+    color: #333333;
+}
+
+/* Get rid of outline when clicking on elements: http://css-tricks.com/removing-the-dotted-outline/ */
+.pdf-viewer-style a:focus {
+    outline: 1;
+}
+
+.pdf-viewer-style a.greyNoUnderline {
+    color: gray;
+    text-decoration: none;
+}
+
+/* Some printable headers (those created from WebHelper.getTRPrintablePageHeader) use divs instead of tables to set the logo and print/close links.
+For those headers use the below style for the links.*/
+.pdf-viewer-style a.greyNoUnderlineFloat {
+    float: right;
+    color: gray;
+    text-decoration: none;
+}
+
+.pdf-viewer-style body.selector .SearchForm {
+    margin-top: 0;
+    line-height: 24px;
+    padding: 0;
+}
+
+.pdf-viewer-style .login input[type="text"], .login input[type="password"] {
+    height: 24px;
+}
+
+/* Override some Bootstrap defaults */
+.pdf-viewer-style body, table th, table td:not(.nonpdf-inputbutton), label, input, button, select, textarea,
+.pdf-viewer-style input[type="text"],
+.pdf-viewer-style input[type="password"],
+.pdf-viewer-style input[type="datetime"],
+.pdf-viewer-style input[type="datetime-local"],
+.pdf-viewer-style input[type="date"],
+.pdf-viewer-style input[type="month"],
+.pdf-viewer-style input[type="time"],
+.pdf-viewer-style input[type="week"],
+.pdf-viewer-style input[type="number"],
+.pdf-viewer-style input[type="email"],
+.pdf-viewer-style input[type="url"],
+.pdf-viewer-style input[type="search"],
+.pdf-viewer-style input[type="tel"],
+.pdf-viewer-style input[type="color"],
+.pdf-viewer-style .uneditable-input {
+    font-size: 12px;
+}
+
+/* TBE-12503: Fix for gigantic eQuest buttons */
+.pdf-viewer-style input[type="image"] {
+    width: auto;
+}
+
+.pdf-viewer-style table, form {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style label {
+    float: none;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style input[type="file"] {
+    height: 25px;
+    padding-top: 1px;
+    line-height: 20px;
+}
+
+.pdf-viewer-style textarea {
+    width: auto;
+}
+
+.pdf-viewer-style table {
+    border-collapse: separate;
+    empty-cells: show;
+}
+
+.pdf-viewer-style table th, table td {
+    line-height: normal;
+    padding: 0;
+}
+
+.pdf-viewer-style table.no-padding td {
+    padding: 0;
+}
+
+.pdf-viewer-style table.no-padding td.text {
+    padding: 0 5px;
+}
+
+.pdf-viewer-style table.no-spacing {
+    border-collapse: collapse;
+}
+
+.pdf-viewer-style th input[type="checkbox"] {
+    margin-top: -5px;
+}
+
+/* End of overriding defaults */
+.pdf-viewer-style #tabConfigContainer {
+    margin-top: -1px;
+}
+
+.pdf-viewer-style #tabConfigContainer table table table td {
+    vertical-align: middle;
+}
+
+.pdf-viewer-style #tabConfigContainer table table table {
+    width: auto;
+}
+
+.pdf-viewer-style #tabConfigContainer table td table td {
+    padding: 2px 5px 2px 5px;
+}
+
+.pdf-viewer-style #tabConfigContainer input[type="text"] {
+    color: #000000;
+    margin-bottom: 2px;
+    /*height: 16px;*/
+}
+
+.pdf-viewer-style #tabConfigContainer select {
+    padding: 2px 4px 2px 4px;
+    margin-bottom: 2px;
+}
+
+.pdf-viewer-style #tabConfigContainer table.move-controls {
+    margin-top: 20px;
+}
+
+.pdf-viewer-style #tabConfigContainer table.move-controls td {
+    padding: 0;
+}
+
+.pdf-viewer-style table .header:after {
+    content: none;
+}
+
+.pdf-viewer-style #sidebar a, .datagrid a {
+    /* http://www.quirksmode.org/css/tests/iewin_fontweight.html */
+    font-weight: bold;
+}
+
+.pdf-viewer-style .text > input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Layouts */
+.pdf-viewer-style #header {
+    height: 50px;
+    position: absolute;
+    top: 0;
+    width: 100%; /* MR: This causes horizontal scrollbar in IE7, still haven't figured out how to solve. */
+    z-index: 1000;
+}
+
+.pdf-viewer-style #header div.logo {
+    height: 50px;
+    overflow: hidden;
+}
+
+.pdf-viewer-style #header img.logo {
+    margin: 7px 0 0 10px;
+}
+
+.pdf-viewer-style #header .dashboard {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 10px;
+    height: 32px;
+}
+
+.pdf-viewer-style #menu-help {
+    margin-right: 10px
+}
+
+.pdf-viewer-style #menu-help .dropdown-menu {
+    min-width: 120px;
+}
+
+.pdf-viewer-style #menu-view {
+    margin-right: 10px;
+    margin-left: -10px;
+}
+
+.pdf-viewer-style #menu-view .dropdown-menu {
+    min-width: 60px;
+}
+
+.pdf-viewer-style .navbar {
+    top: 50px;
+    position: absolute;
+    z-index: 95;
+    min-width: 1430px;
+}
+
+.pdf-viewer-style .navbar .nav {
+    margin-left: 41px;
+}
+
+.pdf-viewer-style .navbar div > ul > li {
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    z-index: 950;
+    margin-left: -1px;
+}
+
+.pdf-viewer-style .navbar .open a {
+    border-right-width: 0;
+}
+
+.pdf-viewer-style .navbar-inner {
+    background-color: transparent;
+    filter: none; /* Fixes background color from bootstrap in IE */
+    background-image: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.pdf-viewer-style .navbar .dropdown-toggle:after {
+    content: none;
+}
+
+.pdf-viewer-style .navbar .nav > li > a {
+    color: #222222;
+    text-shadow: none;
+}
+
+.pdf-viewer-style .navbar .nav .active {
+    border: none;
+}
+
+.pdf-viewer-style .navbar .nav .active > a {
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-top: 0;
+    color: #333;
+    margin-top: -1px;
+    padding-bottom: 16px;
+}
+
+.pdf-viewer-style .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav > li.active:first-child {
+    background-color: #fff;
+}
+
+.pdf-viewer-style .navbar .nav .dropdown.open .dropdown-toggle, .ews .navbar .nav a:hover {
+    padding-bottom: 16px;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+}
+
+.pdf-viewer-style .navbar .nav li.dropdown.active > .dropdown-toggle:hover, .ews .navbar .nav li.dropdown.active > a:hover {
+    color: #333;
+    background-color: #fff;
+}
+
+.pdf-viewer-style .nav .active .active {
+    /* for submenus: TBE-10733 */
+    font-weight: bold;
+}
+
+.pdf-viewer-style .dropdown-menu {
+    box-shadow: none;
+    max-width: none; /* Fixes TBE-11913: French Locale menu item too long */
+}
+
+.pdf-viewer-style .navbar .dropdown-menu:before, .navbar .dropdown-menu:after {
+    content: none; /* Hides up arrow in drop down menu */
+}
+
+.pdf-viewer-style .navbar div > ul .dropdown-menu, .nav .dropdown-menu {
+    top: 36px;
+    margin-left: -1px;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+}
+
+.pdf-viewer-style .nav-tabs .dropdown-menu {
+    top: 26px;
+}
+
+.pdf-viewer-style .navbar .nav li.dropdown:last-child .dropdown-menu {
+    z-index: -1;
+    top: 38px;
+}
+
+.pdf-viewer-style .nav .dropdown-menu {
+    margin-left: 0;
+    z-index: 940;
+}
+
+.pdf-viewer-style .navbar .dropdown-toggle, .navbar .dropdown-menu {
+    -moz-box-shadow: 4px 4px 7px #999999;
+    -webkit-box-shadow: 4px 4px 7px #999999;
+    box-shadow: 4px 4px 7px #999999;
+}
+
+.pdf-viewer-style .nav .dropdown-top {
+    display: none;
+}
+
+.pdf-viewer-style .nav .open .dropdown-top {
+    display: block;
+    right: 0;
+    position: absolute;
+    margin-top: -4px;
+}
+
+.pdf-viewer-style .navbar div > ul .active .dropdown-toggle, .navbar div > ul .active .dropdown-menu,
+.pdf-viewer-style .navbar .nav > li.dropdown.active:first-child .dropdown-toggle,
+.pdf-viewer-style .ews .navbar div > ul .active > a {
+    background-color: #fff;
+    border-top: 0;
+}
+
+.pdf-viewer-style .navbar div > ul .active .dropdown-menu {
+    margin-left: 0;
+}
+
+.pdf-viewer-style .navbar div > ul .dropdown-menu li a, .nav .dropdown-menu li a {
+    color: #222;
+}
+
+.pdf-viewer-style .navbar div > ul .dropdown-menu li a, .nav .dropdown-menu li a {
+    text-shadow: none;
+}
+
+.pdf-viewer-style .navbar div > ul .dropdown-menu li a:hover, .nav .dropdown-menu li a:hover, .dropmenudiv a:hover {
+    background-image: none;
+    color: #000;
+    filter: none; /* Fixes background color from bootstrap in IE */
+    text-decoration: underline;
+}
+
+.pdf-viewer-style #tx_help_section {
+    width: 35px;
+}
+
+.pdf-viewer-style #mobile_setup_link {
+    float: left;
+    position: absolute;
+    padding-top: 7px;
+    left: -25px;
+    top: 10px;
+}
+
+.pdf-viewer-style #mobile_instructions_bg {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_bkgrd.png") no-repeat scroll 0 0 transparent;
+    height: 540px;
+    width: 800px;
+}
+
+.pdf-viewer-style #mobile_instructions_step1 {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_step1.png") no-repeat scroll 0 0 transparent;
+    height: 65px;
+    width: 195px;
+    position: absolute;
+    right: 12px;
+    top: 205px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.pdf-viewer-style #mobile_instructions_step2 {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_step2.png") no-repeat scroll 0 0 transparent;
+    height: 64px;
+    width: 195px;
+    position: absolute;
+    right: 12px;
+    top: 270px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.pdf-viewer-style #mobile_instructions_email {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_email.png") no-repeat scroll 0 0 transparent;
+    height: 40px;
+    width: 195px;
+    position: absolute;
+    right: 12px;
+    top: 335px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.pdf-viewer-style #mobile_instructions_app_store {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_appstore.png") no-repeat scroll 0 0 transparent;
+    height: 31px;
+    width: 104px;
+    position: absolute;
+    top: 480px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.pdf-viewer-style #mobile_instructions_iphone_bg {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_iPhone_bkgrd.png") no-repeat scroll 0 0 transparent;
+    height: 480px;
+    width: 320px;
+    background-size: contain;
+}
+
+.pdf-viewer-style #mobile_instructions_iphone_step1 {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_step1.png") no-repeat scroll 0 0 transparent;
+    height: 35px;
+    width: 108px;
+    position: absolute;
+    right: 19px;
+    top: 192px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.pdf-viewer-style #mobile_instructions_iphone_step2 {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_step2.png") no-repeat scroll 0 0 transparent;
+    height: 35px;
+    width: 108px;
+    position: absolute;
+    right: 19px;
+    top: 238px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.pdf-viewer-style #mobile_instructions_iphone_email {
+    background: url("../../img/UIv8/mobile/MobileSplashScreen_email.png") no-repeat scroll 0 0 transparent;
+    height: 23px;
+    width: 108px;
+    position: absolute;
+    right: 19px;
+    top: 284px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.pdf-viewer-style .msg_general_notification {
+    background: url("../../img/UIv8/icon_general_notification.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 24px;
+}
+
+/*  auto events notification message menu */
+.pdf-viewer-style .msg_notification_ae_header {
+    background: url("../../img/UIv8/icon_notifications_automated_events_active.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 24px;
+}
+
+.pdf-viewer-style .msg_notification_ae_header_inactive {
+    background: url("../../img/UIv8/icon_notifications_automated_events_inactive.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 24px;
+}
+
+/*  notification message menu */
+.pdf-viewer-style .msg_notification_header {
+    background: url("../../img/UIv8/icon_notification_active.png") no-repeat scroll 0 0 white;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 24px;
+}
+
+.pdf-viewer-style .msg_notification_header_inactive {
+    background: url("../../img/UIv8/icon_notification_inactive.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 24px;
+}
+
+/*  ews notification menu */
+.pdf-viewer-style .ews_notification_header {
+    background: url("../../img/UIv8/icon_ews_inactive.png") no-repeat scroll 0 0 white;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 20px;
+}
+
+.pdf-viewer-style .ews_notification_header_inactive {
+    background: url("../../img/UIv8/icon_ews_inactive.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 20px;
+}
+
+.pdf-viewer-style .msg_notification_comments, .msg_notification_ae_comments, .msg_notification_ews_comments {
+    height: 13px;
+    margin: 0;
+    position: relative;
+    top: -6px;
+    width: 13px;
+    left: 8px;
+    background-color: red;
+    padding: 1px 1px 1px 1px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid black
+}
+
+.pdf-viewer-style #notification_section, #notification_ae_section, #notification_ews_section {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    float: left;
+    padding-left: 3px;
+    padding-right: 8px;
+    height: 16px;
+}
+
+.pdf-viewer-style #notification_section_corner {
+    height: 31px;
+    float: left;
+    padding-left: 7px;
+}
+
+.pdf-viewer-style #notification_dropdown, #notification_ae_dropdown, #notification_ews_dropdown {
+    display: none;
+    position: absolute;
+    z-index: 2000;
+    left: 0;
+    font-size: 11px;
+    border: 1px solid;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+}
+
+.pdf-viewer-style #notification_dropdown ul, #notification_ae_dropdown ul, #notification_ews_dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.pdf-viewer-style #notification_dropdown ul li, #notification_ae_dropdown ul li, #notification_ews_dropdown ul li {
+    padding: 5px 5px 5px 5px;
+    height: 20px;
+}
+
+.pdf-viewer-style #notification_dropdown ul li:last-child:hover, #notification_ae_dropdown ul li:last-child:hover,
+.pdf-viewer-style #notification_ews_dropdown ul li:last-child:hover {
+    border-radius: 0 0 6px 6px;
+}
+
+.pdf-viewer-style #msg_notification_bottomline, #msg_notification_ae_bottomline, #msg_notification_ews_bottomline {
+    border-bottom: 1px solid #CCC;
+}
+
+.pdf-viewer-style #msg_notification_topline, #msg_notification_ae_topline, #msg_notification_ews_topline {
+    border-top: 1px solid #CCC;
+}
+
+.pdf-viewer-style .notificationSectionTitle {
+    padding-top: 4px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0000ff;
+}
+
+.pdf-viewer-style .notificationSectionTd {
+    padding-top: 6px;
+    padding-bottom: 10px;
+    border-bottom: 2px;
+    border-bottom-color: #808080;
+    border-bottom-style: solid;
+    padding-right: 0;
+}
+
+.pdf-viewer-style #toplinkcontainer {
+    height: 30px;
+    margin-right: 10px;
+    white-space: nowrap;
+    display: inline;
+}
+
+.pdf-viewer-style #toplinkcontainer .nav {
+    font-size: .9em;
+    margin-top: 5px;
+    float: left;
+}
+
+.pdf-viewer-style #toplinkcontainer .nav > li > a {
+    color: #333333;
+    margin-top: -10px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent
+}
+
+.pdf-viewer-style #toplinkcontainer div.nav {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 6px;
+}
+
+.pdf-viewer-style #toplinkcontainer #resource_section {
+
+}
+
+.pdf-viewer-style #toplinkcontainer div.nav > a {
+    color: #333333;
+}
+
+.pdf-viewer-style #toplinkcontainer .dropdown-toggle:after {
+    border-top-color: black;
+}
+
+.pdf-viewer-style #toplinkcontainer #logout_section {
+    float: left;
+}
+
+.pdf-viewer-style li.separator {
+    border-top: 1px dotted black;
+}
+
+.pdf-viewer-style .container-fluid > #sidebar {
+    border-radius: 0 6px 6px 0;
+    -moz-border-radius: 0 6px 6px 0;
+    border-left: 0 !important;
+    box-shadow: 3px 3px 6px #CCCCCC;
+    -moz-box-shadow: 3px 3px 6px #CCCCCC;
+    position: absolute;
+    width: 220px;
+    top: 0;
+    left: 0;
+    margin-top: 100px;
+}
+
+.pdf-viewer-style .container-fluid > #sidebar input {
+    margin-left: 10px;
+}
+
+.pdf-viewer-style .container-fluid > #sidebar .span3 {
+    width: 175px;
+}
+
+.pdf-viewer-style .container-fluid > #sidebar h4 {
+    padding-left: 10px;
+    font-size: 14px;
+    line-height: 36px;
+}
+
+.pdf-viewer-style .container-fluid > #sidebar h4 button {
+    font-size: 7px;
+    padding: 2px 2px 1px 1px;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style #sidebar #minimize_panel {
+    float: right;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 6px;
+    padding: 0 5px 2px;
+    line-height: normal;
+    filter: none;
+}
+
+/* Shown when panel is hidden */
+.pdf-viewer-style #sidebar #panelTab {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -71px -1064px;
+    height: 28px;
+    width: 28px;
+}
+
+.pdf-viewer-style #sidebar #searchBox .search, #sidebar #searchBoxFirstLastName .search,
+.pdf-viewer-style #quickSearch #searchBox .search, #quickSearch #searchBoxFirstLastName .search {
+    background: #E6E6E6 url("../../img/UIv9/ats-icons-sprite.png") no-repeat -71px -1064px;
+    filter: none; /* Fixes missing background icon in IE */
+    border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    position: absolute;
+    right: 10px;
+    width: 30px;
+    height: 28px;
+    top: 36px;
+}
+
+.pdf-viewer-style #sidebar #searchBoxFirstLastName .search, #quickSearch #searchBoxFirstLastName .search {
+    top: 2px;
+    right: -4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.pdf-viewer-style #sidebar .advancedlinkContainer {
+    font-size: 10px;
+    font-weight: bold;
+    margin: -10px 0 0 10px;
+    text-align: left;
+    width: 150px;
+    color: blue;
+}
+
+.pdf-viewer-style #sidebar #searchBoxFirstLastName, #quickSearch #searchBoxFirstLastName {
+    position: relative;
+    width: 207px;
+    margin: 10px 0 0 0;
+}
+
+.pdf-viewer-style #sidebar .fLNBoxConnection, #quickSearch .fLNBoxConnection {
+    background: transparent url(../../img/UIv8/fakesearchConnectionBck2.gif) no-repeat scroll left top;
+    height: 27px;
+    width: 17px;
+    position: absolute;
+    top: 16px;
+    right: 26px;
+}
+
+.pdf-viewer-style #sidebar .fLNBoxMagnifier, #quickSearch .fLNBoxMagnifier {
+    position: absolute;
+    right: 0;
+    top: 14px;
+    width: 25px;
+}
+
+.pdf-viewer-style #leftpanelContainer {
+    padding-bottom: 10px;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems {
+    padding-bottom: 20px;
+    margin-top: 15px;
+}
+
+.pdf-viewer-style #recentItems .configure {
+    width: 20px;
+    height: 19px;
+    position: absolute;
+    right: 0;
+    margin-top: -28px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .btn-group > .dropdown-menu {
+    min-width: 100px;
+}
+
+.pdf-viewer-style .btn-group.open > ul.dropdown-menu {
+    float: right;
+}
+
+.pdf-viewer-style .btn-group:before,
+.pdf-viewer-style .btn-group:after {
+    display: inline;
+}
+
+.pdf-viewer-style .btn-group > .dropdown-menu a {
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .configure-buttons, .configure-dummy {
+    width: 20px;
+    height: 19px;
+    margin-left: 4px;
+    margin-right: 8px;
+    margin-top: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    /*float: left;*/
+    zoom: 1;
+    *display: inline;
+}
+
+.pdf-viewer-style .configure-buttons {
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.pdf-viewer-style div.btn-group > input.btn {
+    height: 28px;
+}
+
+.pdf-viewer-style .btn-group > b {
+    position: relative;
+    float: left;
+    margin-left: -1px;
+    padding: 1px 8px 2px 2px;
+}
+
+.pdf-viewer-style .btn-group > .dropdown-menu > li > b {
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+.pdf-viewer-style .btn-group > input[disabled],
+.pdf-viewer-style .btn-group > input[readonly] {
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.pdf-viewer-style .result-header-button-bar {
+    position: relative;
+    display: inline;
+    float: left;
+}
+
+.pdf-viewer-style #btnDynamicContent .divider {
+    *width: 100%;
+    height: 1px;
+    margin: 8px 1px;
+    *margin: -5px 0 5px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #ffffff;
+}
+
+.pdf-viewer-style ul.dropdown-menu > li > input {
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    clear: both;
+    color: #333333;
+    display: block;
+    font-weight: normal;
+    line-height: 18px;
+    height: 18px;
+    padding: 0 8px;;
+    white-space: nowrap;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.pdf-viewer-style .dropdown-menu li > input:hover,
+.pdf-viewer-style .dropdown-menu .active > input,
+.pdf-viewer-style .dropdown-menu .active > input:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+}
+
+.pdf-viewer-style .select-bar {
+    margin-left: 0;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.125) inset, 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    background-color: #F5F5F5;
+    background-image: -moz-linear-gradient(center top, #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+}
+
+.pdf-viewer-style .select-bar:hover {
+    background-color: #e6e6e6;
+    color: #333333;
+    background-position: 0 -15px;
+    -webkit-transition: background-position 0.1s linear;
+    -moz-transition: background-position 0.1s linear;
+    -ms-transition: background-position 0.1s linear;
+    -o-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+
+}
+
+.pdf-viewer-style .select-bar > option {
+    background-color: white;
+}
+
+.pdf-viewer-style .select-bar > .option-first {
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+}
+
+.pdf-viewer-style .select-bar > .option-last {
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+}
+
+.pdf-viewer-style #recentItemsConfigContent label, #buttonsConfig label {
+    margin: 2px 0;
+}
+
+.pdf-viewer-style #recentItemsConfigContent input[type="checkbox"], #buttonsConfig input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.pdf-viewer-style #recentItemsConfig li, #buttonsConfig li {
+    list-style: none;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems ul {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems li {
+    padding: 3px 5px 5px 5px;
+    background-color: white;
+    border: 2px solid silver;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin-bottom: 3px;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems li:hover,
+.pdf-viewer-style .docpreview-candinfo:hover {
+    cursor: pointer;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems li div > span {
+    height: 35px;
+    width: 36px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.pdf-viewer-style #recentItems .details {
+    width: 145px;
+    position: absolute;
+    right: 14px;
+    margin-top: -40px;
+    height: 40px;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems li .details > span {
+    display: block;
+    width: 100%;
+    height: 17px;
+    padding-top: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems li .details .title {
+    color: #666;
+    padding-top: 0;
+}
+
+.pdf-viewer-style #leftpanelContainer #recentItems li div > span img {
+    vertical-align: middle;
+}
+
+.pdf-viewer-style #leftpanelContainer #subscribeSection {
+    text-align: center;
+}
+
+.pdf-viewer-style .container-fluid > #content {
+    margin-left: 230px;
+}
+
+.pdf-viewer-style h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.pdf-viewer-style .tab-layout h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.pdf-viewer-style .tab-layout {
+    overflow-y: auto;
+}
+
+.pdf-viewer-style .browser-upgrade {
+    margin-top: 10px;
+}
+
+.pdf-viewer-style .modern-browsers li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.pdf-viewer-style h1 span {
+    height: 36px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 41px;
+}
+
+.pdf-viewer-style h1 .custom {
+    float: left;
+    margin-top: -10px;
+}
+
+.pdf-viewer-style h1 .heading-nav {
+    font-weight: normal;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.pdf-viewer-style h1 .heading-nav span {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.pdf-viewer-style h1 .back-to-list {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -162px -1033px;
+    width: 14px;
+    height: 12px;
+    margin-left: 10px;
+}
+
+.pdf-viewer-style h1 .previous {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -163px -1067px;
+    width: 14px;
+    height: 12px;
+    margin-left: 20px;
+}
+
+.pdf-viewer-style h1 .next {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -163px -1105px;
+    width: 14px;
+    height: 12px;
+    margin-left: 5px;
+}
+
+/* Administration icons */
+.pdf-viewer-style a .customize-recruit {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -507px -1064px;
+}
+
+.pdf-viewer-style a .customize-perform {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -507px -1132px;
+}
+
+.pdf-viewer-style a .organization-setup {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -507px -1257px;
+}
+
+.pdf-viewer-style a .backup-service {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -506px -1315px;
+}
+
+.pdf-viewer-style h1 .links {
+    vertical-align: middle;
+    font-size: 12px;
+    width: auto;
+    margin: 0 0 0 10px;
+}
+
+.pdf-viewer-style .SearchBox {
+    padding: 4px;
+}
+
+.pdf-viewer-style .SearchForm {
+    padding: 8px 0 0 0;
+}
+
+.pdf-viewer-style .SearchForm input {
+    margin-bottom: 5px;
+}
+
+.pdf-viewer-style .SearchBoxHr {
+    margin: 0 0 8px;
+}
+
+/* common width: 40px, height: 34px */
+
+.pdf-viewer-style a .customize-recruit {
+    width: 35px;
+    height: 33px;
+    display: block;
+}
+
+.pdf-viewer-style a .customize-perform {
+    width: 36px;
+    height: 29px;
+    display: block;
+}
+
+.pdf-viewer-style a .organization-setup {
+    width: 35px;
+    height: 34px;
+    display: block;
+}
+
+.pdf-viewer-style a .backup-service {
+    width: 38px;
+    height: 29px;
+    display: block;
+}
+
+.pdf-viewer-style a .customize-onboarding {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -507px -1194px;
+    width: 36px;
+    height: 30px;
+    display: block;
+}
+
+/* My View icon in top menu bar */
+.pdf-viewer-style .navbar .nav > li:first-child > a, .navbar .nav > li:first-child > a:hover {
+    text-indent: -2000px;
+    width: 20px;
+}
+
+.pdf-viewer-style .nav-tabs {
+    border-bottom: 0;
+    position: relative;
+    top: 1px;
+    left: 3px;
+    margin-bottom: 1px;
+}
+
+.pdf-viewer-style .nav-tabs > li > a {
+    margin-right: -1px;
+    border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.pdf-viewer-style .nav-tabs > .active {
+    margin-top: -4px;
+}
+
+.pdf-viewer-style .nav-tabs > .active > a {
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 5px;
+}
+
+.pdf-viewer-style .nav-tabs .configure, .widgets .configure {
+    width: 19px;
+    height: 18px;
+    display: block;
+    margin-bottom: -1px;
+    padding: 4px 8px;
+}
+
+.pdf-viewer-style .nav-tabs-sortable {
+    list-style: none;
+}
+
+.pdf-viewer-style .nav-tabs-sortable li {
+    cursor: move;
+    padding: 5px;
+    border: 1px solid silver;
+    margin-bottom: 3px;
+    width: 300px;
+}
+
+.pdf-viewer-style .nav-tabs-sortable li .label {
+    float: right;
+}
+
+.pdf-viewer-style .datagrid, .DatagridTable {
+    /* to squish up against tabs */
+    margin-top: -1px;
+}
+
+.pdf-viewer-style table.association {
+    margin-top: -5px
+}
+
+.pdf-viewer-style td.association {
+    padding-top: 0;
+}
+
+.pdf-viewer-style a.association {
+    padding: 0 5px; /* add padding b/w link and brackets [ link ] */
+}
+
+.pdf-viewer-style .selector .datagrid, .selector .DatagridTable {
+    margin-top: 0;
+}
+
+.pdf-viewer-style .selector .ResultsBox, .selector .ResultsBox > table:first-child {
+    border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.pdf-viewer-style .ResultsBox, .PortletBox, .InformationBox, .InformationBox > table, div.InformationContent {
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin-bottom: .5px; /* Fixes TBE-12714 */
+}
+
+.pdf-viewer-style .PortletContent > div.InformationBox {
+    margin: 10px 10px 18px 10px;
+}
+
+.pdf-viewer-style .PortletContent > div.InformationBox.custom-roles {
+    margin-left: 40px !important;
+}
+
+.pdf-viewer-style .PortletContent .ajax-loader {
+    color: green;
+}
+
+.pdf-viewer-style .InformationHeader h3 {
+    line-height: normal;
+}
+
+.pdf-viewer-style .cluetip-inner .InformationBox {
+    border: 0;
+}
+
+.pdf-viewer-style .ResultsBox > table:first-child, .ResultsBox > div.ResultsHeader, .InformationHeader {
+    border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+}
+
+/* Stretches table header and footer to fit width of table - https://engineering.tbetaleo.com/jira/browse/TBE-12302 */
+.pdf-viewer-style div.ResultsBox {
+    display: table;
+    width: 100%;
+}
+
+.pdf-viewer-style .ActionLinkHeadBottom {
+    padding-bottom: 2px;
+}
+
+.pdf-viewer-style .btn-micro {
+    font-size: 6px;
+    line-height: 11px;
+    padding: 1px 3px;
+}
+
+.pdf-viewer-style .btn-micro .caret {
+    margin-left: 0;
+    margin-top: 4px;
+}
+
+.pdf-viewer-style .ActionLinkHeadBottom, .ActionLinkHeadBottom th {
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    color: black;
+}
+
+.pdf-viewer-style .ActionLinkHeadBottom .button-group, .ActionLinkHeadBottom .select-group {
+    margin-top: 9px;
+}
+
+.pdf-viewer-style .ActionLinkHeadBottom .pagination-group {
+    margin-top: 13px;
+}
+
+.pdf-viewer-style .PortletHeader, .FoldableInformationHeader {
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+
+.pdf-viewer-style .PortletHeader.open, .FoldableInformationHeader.open, .InformationHeader.open {
+    border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+}
+
+/* Don't round corners when displaying in a cluetip */
+.pdf-viewer-style #cluetip .InformationHeader.open {
+    border-radius: 0;
+}
+
+.pdf-viewer-style .FoldableInformationHeader + table, .PortletHeader + table, .InformationHeader + table, #emptyTasksTextSpan {
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+}
+
+.pdf-viewer-style .FoldableInformationHeader.open + table, .PortletHeader.open + table {
+    padding-bottom: 3px; /* to prevent rounded corner bleeding */
+}
+
+/* To fix extra padding that looks like it appears in last row (caused by above rule) */
+.pdf-viewer-style .FoldableInformationHeader.open + table .PortletContentWOPadding tr:last-child td,
+.pdf-viewer-style .PortletHeader.open + table .PortletContentWOPadding tr:last-child td {
+    padding-bottom: 3px;
+}
+
+.pdf-viewer-style .InformationHeader table tr:first-child td:first-child, .InformationHeader table table td,
+.pdf-viewer-style .FoldableInformationHeader table table td, .InformationHeader h3, .PortletHeader td,
+.pdf-viewer-style .FoldableInformationHeader .header,
+.pdf-viewer-style div.InformationHeader {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.pdf-viewer-style .ActionHeaderLink, .PortletHeader .text, .FoldableInformationHeader .header a {
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.pdf-viewer-style .text-action-mini {
+    font-size: 11px;
+}
+
+.pdf-viewer-style li >.text-action-mini {
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.pdf-viewer-style .PortletHeader img {
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .InformationHeader .add-version, .InformationHeader .remove-version {
+    float: right;
+    margin-top: -20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.pdf-viewer-style .InformationContent input[type="radio"] {
+    margin-right: 5px !important;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .InformationContent table table td {
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .InformationContent input, .InformationContent textarea, .InformationContent select,
+.pdf-viewer-style .InformationContent .uneditable-input, .PortletHeader select, .PortletHeader input {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .PortletBox, #tabs_container {
+    background-color: #fdfceb;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+
+.pdf-viewer-style #reviewAgeSpinner + .ui-spinner {
+    left: -2px;
+    top: 5px;
+}
+
+.pdf-viewer-style #manage_tabs_button_no_tabs {
+    margin-top: 10px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.pdf-viewer-style #tabs_container {
+    padding: 15px 10px 0;
+}
+
+.pdf-viewer-style #manage_tabs_button_no_tabs, #manage_tabs_button {
+    background-color: #fdfceb;
+}
+
+.pdf-viewer-style #tabs .active, #pageLayOutTabsUL .active, .edit-tabs {
+    background: #fdfceb;
+}
+
+.pdf-viewer-style .PortletBox .ResultsHeader, td.ResultsBox .ResultsHeader {
+    padding-top: 8px;
+}
+
+.pdf-viewer-style .PortletBox .ResultsHeader, .PortletBox .ResultsFooter {
+    padding-left: 5px;
+}
+
+.pdf-viewer-style .PortletBox .ResultsFooter {
+    padding-bottom: 5px;
+}
+
+.pdf-viewer-style .ResultsHeaderLeft table, .ResultsHeaderRight table {
+    background-image: none;
+    background-color: transparent;
+}
+
+.pdf-viewer-style .ActionLinkHeadBottom, .ResultsFooter {
+    min-height: 44px;
+    overflow: auto;
+}
+
+.pdf-viewer-style .ResultsHeader {
+    /* The combination of padding and min-height = 44px */
+    padding-top: 2px;
+    min-height: 42px;
+    overflow: visible;
+}
+
+.pdf-viewer-style .ResultsHeader, .ActionLinkHeadBottom, .PortletBox .ResultsHeader {
+    vertical-align: middle
+}
+
+.pdf-viewer-style .datagrid thead th, .DataTableHead th {
+    padding: 5px 5px 2px;
+}
+
+.pdf-viewer-style .datagrid th img, .DataTableHead th img {
+    vertical-align: middle;
+    padding-bottom: 3px;
+}
+
+.pdf-viewer-style .datagrid thead a, .DataTableHead th a {
+    color: #333333;
+}
+
+.pdf-viewer-style .datagrid td, .DatagridTable td, #emptyTasksTextSpan, .selector .ResultsBox td, .DataTableOddRow td, .DataTableEvenRow td {
+    padding: 5px 5px;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .datagrid tbody td tbody, .DatagridTable tbody td tbody {
+    background-color: transparent;
+}
+
+/* Remove top border from nested tables */
+.pdf-viewer-style .datagrid td > table td, .datagrid .DataTableRowCell > table td,
+.pdf-viewer-style .DatagridTable td > table td, .DatagridTable .DataTableRowCell > table td {
+    border-top: none;
+}
+
+.pdf-viewer-style .administration.WebPageEdit #content input, .administration.WebPageEdit #content select {
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .administration.WebPageEdit .InformationBox > table td {
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .administration.WebPageEdit .DatagridTable tr.spacer td {
+    padding: 3px;
+}
+
+.pdf-viewer-style .administration.WebPageEdit .DatagridTable .DTActionC {
+    vertical-align: top;
+    padding-top: 12px;
+}
+
+.pdf-viewer-style .administration.Customize .PortletContentWOPadding > table td,
+.pdf-viewer-style .administration.CustomizePerformanceManagement .PortletContentWOPadding > table td,
+.pdf-viewer-style .administration.CustomizeOnBoarding .PortletContentWOPadding > table td {
+    padding: 3px 10px;
+}
+
+.pdf-viewer-style #emptyTasksTextSpan {
+    display: block;
+}
+
+.pdf-viewer-style .DTActionC, .DataTableOverActionCell, .DataTableOverLastRowActionCell {
+    white-space: nowrap;
+}
+
+.pdf-viewer-style .InformationContent td {
+    padding: 5px
+}
+
+.pdf-viewer-style .InformationContent fieldset, .InformationContent .control-group {
+    padding: 4px;
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .InformationContent fieldset label, .InformationContent .control-group .control-label {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.pdf-viewer-style .InformationContent p {
+    padding: 5px;
+}
+
+.pdf-viewer-style #content .tabs .active > a {
+    color: #333333;
+    font-weight: bold;
+}
+
+.pdf-viewer-style .portlet-toggle {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .portlet-toggle {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -76px -1031px;
+}
+
+.pdf-viewer-style .portlet-toggle:hover {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -116px -1031px;
+}
+
+.pdf-viewer-style .portlet-toggle.open {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -76px -1001px;
+}
+
+.pdf-viewer-style .portlet-toggle.open:hover {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -116px -1001px;
+}
+
+.pdf-viewer-style .simple-toggle {
+    cursor: pointer;
+    width: 9px;
+    height: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 2px;
+}
+
+.pdf-viewer-style .simple-toggle.open {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -81px -1198px;
+}
+
+.pdf-viewer-style .simple-toggle.closed {
+    height: 8px;
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -81px -1198px;
+
+    /* IE-only DX filter */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Safari/Chrome function */
+    -webkit-transform: rotate(270deg);
+    /* Firefox function */
+    -moz-transform: rotate(270deg);
+}
+
+/* Table Header Actions */
+.pdf-viewer-style .button-group, .select-group {
+    float: left;
+    padding: 0px 4px;
+}
+
+.pdf-viewer-style .button-group .select-group {
+    padding: 0 0 0 4px;
+    display: inline;
+    float: none;
+}
+
+.pdf-viewer-style .select-group select {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .pagination-group {
+    padding: 5px 4px 0 4px;
+    float: right;
+}
+
+/* Table icons */
+.pdf-viewer-style table .sort-indicator {
+    width: 9px;
+    height: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 2px 3px;
+}
+
+.pdf-viewer-style table .sort-indicator.desc {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -81px -1168px;
+}
+
+.pdf-viewer-style table .sort-indicator.desc:hover {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -121px -1168px;
+}
+
+.pdf-viewer-style table .sort-indicator.asc {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -81px -1198px;
+}
+
+.pdf-viewer-style table .sort-indicator.asc:hover {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -121px -1198px;
+}
+
+.pdf-viewer-style .pagination {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin: 0 0 0 2px;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .pagination:hover {
+    text-decoration: none;
+}
+
+.pdf-viewer-style .pagination.first.disabled {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -76px -1291px;
+}
+
+.pdf-viewer-style .pagination.first {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -116px -1291px;
+}
+
+.pdf-viewer-style .pagination.last.disabled {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -76px -1321px;
+}
+
+.pdf-viewer-style .pagination.last {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -116px -1321px;
+}
+
+.pdf-viewer-style .pagination.back.disabled {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -76px -1231px;
+}
+
+.pdf-viewer-style .pagination.back {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -116px -1231px;
+}
+
+.pdf-viewer-style .pagination.next.disabled {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -76px -1261px;
+}
+
+.pdf-viewer-style .pagination.next {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -116px -1261px;
+}
+
+.pdf-viewer-style .action-arrow {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -76px -1135px;
+    width: 18px;
+    height: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .checkmark {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -164px -1005px;
+    width: 13px;
+    height: 11px;
+    display: inline-block;
+}
+
+.pdf-viewer-style .cogwheel {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -115px -1067px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.pdf-viewer-style .pointer-arrow {
+    background: url(../../img/UIv8/green-pointer.png) no-repeat;
+    width: 22px;
+    height: 13px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.pdf-viewer-style .arrows {
+    width: 22px;
+    padding: 5px;
+}
+
+.pdf-viewer-style .restriction {
+    padding: 3px 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.pdf-viewer-style .green-circle {
+    vertical-align: middle;
+    height: 16px;
+    width: 35px;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+}
+
+/* Move Arrow Icons */
+.pdf-viewer-style img.arrow {
+    height: 21px;
+    width: 22px;
+    display: block;
+    margin-bottom: 5px; /*TBE-11234*/
+    margin-left: auto; /*TBE-11234*/
+    margin-right: auto; /*TBE-11234*/
+    max-width: 22px; /*TBE-11527 - override max-width: 100% */
+}
+
+.pdf-viewer-style #footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.pdf-viewer-style .CalendarHeader .nowrapRegular {
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.pdf-viewer-style .CalendarHeader td {
+    padding: 3px 0 2px 0;
+}
+
+.pdf-viewer-style .CalendarMonth .DatagridTable tr td {
+    border-top: 0;
+}
+
+.pdf-viewer-style .CalendarMonth .DatagridTable tr td table td {
+    border-top: 0;
+}
+
+.pdf-viewer-style .CalendarMonth .DatagridTable .day, .CalendarMonth .DatagridTable .first, .CalendarMonth .DatagridTable .last,
+.pdf-viewer-style .CalendarMonth .DatagridTable .empty {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    padding: 5px 10px 20px 5px;
+    vertical-align: top;
+}
+
+.pdf-viewer-style .CalendarMonth .DatagridTable .first {
+    border-width: 0 1px 1px 0;
+}
+
+.pdf-viewer-style .CalendarMonth .DatagridTable .empty {
+    border-bottom-width: 1px;
+    background-color: #EEEEEE;
+}
+
+.pdf-viewer-style .calendar {
+    height: 23px;
+    width: 23px;
+    display: inline-block;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    margin-right: 10px;
+}
+
+.pdf-viewer-style .commonBorder .calendar {
+    margin-right: 0;
+}
+
+.pdf-viewer-style .calendar.selected {
+    border-bottom: 2px solid #666666;
+}
+
+/* Talent Card */
+.pdf-viewer-style #talentCard h3, #cluetip .mainHeaderTd {
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+}
+
+.pdf-viewer-style #cluetip .mainHeaderTd > div {
+    padding-left: 10px !important;
+}
+
+.pdf-viewer-style #cluetip .workHistory {
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    margin-left: 6px;
+    width: 688px;
+}
+
+/* Org Chart */
+.pdf-viewer-style .OrgChart .slidetabsmenu {
+    float: none;
+}
+
+.pdf-viewer-style .OrgChart .slidetabsmenu ul {
+    position: absolute;
+    right: 20px;
+    margin-top: -6px;
+}
+
+.pdf-viewer-style .orgChart {
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+
+.pdf-viewer-style .orgChart .header .picture .photo {
+    border: 2px solid #fff;
+}
+
+.pdf-viewer-style .orgChart .focus {
+    cursor: default !important;
+}
+
+.pdf-viewer-style .available-trees ul {
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    max-height: 375px;
+    overflow: auto;
+}
+
+/* Tabs
+----------------------------------*/
+.pdf-viewer-style .ui-tabs {
+    padding: .2em;
+}
+
+.pdf-viewer-style .ui-tabs-nav {
+    padding: .2em .2em 0 .2em;
+    position: relative;
+}
+
+.pdf-viewer-style .ui-tabs-nav li {
+    float: left;
+    border-bottom: 0 !important;
+    margin: 0 .2em -1px 0;
+    padding: 0;
+}
+
+.pdf-viewer-style .ui-tabs-nav li a {
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+}
+
+.pdf-viewer-style .ui-tabs-nav li.ui-tabs-selected {
+    padding-bottom: .1em;
+    border-bottom: 0;
+}
+
+.pdf-viewer-style .ui-tabs-panel {
+    padding: 1em 1.4em;
+    display: block;
+    border: 0;
+    background: none;
+}
+
+.pdf-viewer-style .ui-tabs-hide {
+    display: none !important;
+}
+
+.pdf-viewer-style .tab-layout table.edit-tabs {
+    border: 1px solid #999999;
+    border-collapse: separate;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin-top: -1px;
+}
+
+.pdf-viewer-style #owners_dialog_boxes_div table, #approvers_dialog_boxes_div table {
+    width: auto;
+}
+
+.pdf-viewer-style #owners_dialog_boxes_div table td, #approvers_dialog_boxes_div table td {
+    vertical-align: middle;
+    padding: 0 5px;
+}
+
+/* Dialog
+----------------------------------*/
+.ui-dialog {
+    padding: 0
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    border: 0;
+    padding: 0 5px;
+    font-size: 14px;
+    background: url("../akirax/images/theme/taleo/ribbon_pixel_taleo.png");
+    height:30px;
+    border-radius: 0px;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    position: absolute;
+    right: .3em;
+    top: 50%;
+    width: 20px;
+    margin: -10px 0 0 0;
+    padding: 0px;
+    height: 20px;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 1;
+}
+
+.ui-dialog .ui-dialog-titlebar .ui-button .ui-dialog-close-corrections{
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    margin-left: -8px;
+    left: 50%;
+}
+
+.ui-front{
+    z-index: 100;
+}
+
+/* get rid of iframe borders */
+.ui-dialog iframe {
+    border: 0;
+}
+
+/* Progress bar */
+.pdf-viewer-style .ui-progressbar {
+    height: 25px;
+    margin-bottom: -15px;
+    line-height: 20px;
+}
+
+/* Date Picker */
+.pdf-viewer-style .ui-datepicker-trigger {
+    margin-left: 3px;
+    vertical-align: middle;
+}
+
+/* Fix alignment for encrypted date fields */
+.pdf-viewer-style .dateField .ui-datepicker-trigger {
+    margin-left: -3px;
+}
+
+/* CSS Theme Picker */
+.pdf-viewer-style .css-theme {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .css-theme.selected {
+    border: 1px solid black !important;
+    margin-bottom: -1px;
+}
+
+.pdf-viewer-style .css-theme.blue {
+    background: #B4D5EC;
+}
+
+.pdf-viewer-style .css-theme.blue-green {
+    background: #9BCCDE;
+}
+
+.pdf-viewer-style .css-theme.green {
+    background: #C3EEB7;
+}
+
+.pdf-viewer-style .css-theme.gray {
+    background: #D4D4D4;
+}
+
+.pdf-viewer-style .css-theme.orange {
+    background: #F1D69F;
+}
+
+.pdf-viewer-style .css-theme.pink {
+    background: #E9CCE9;
+}
+
+.pdf-viewer-style .css-theme.red {
+    background: #E09C9C;
+}
+
+.pdf-viewer-style .css-theme.yellow {
+    background: #F7EFA8;
+}
+
+.pdf-viewer-style .css-theme.custom {
+    background: white;
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid #eee;
+    position: relative;
+    top: -7px;
+}
+
+.pdf-viewer-style #css-customizer {
+    display: none;
+    padding: 10px;
+}
+
+.pdf-viewer-style .ews-body {
+    background: white;
+    width: 426px;
+    height: 280px;
+    margin: 10px auto;
+    border: 1px solid #CCC;
+}
+
+.pdf-viewer-style .ews-body input {
+    width: 60px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    padding-bottom: 2px;
+}
+
+.pdf-viewer-style .ews-body button {
+    margin-left: 5px;
+    margin-top: -1px;
+    padding: 4px 4px 0;
+}
+
+.pdf-viewer-style .ews-header {
+    height: 26px;
+    padding: 9px 5px 5px;
+}
+
+.pdf-viewer-style .ews-navbar {
+    min-width: 426px !important;
+    top: 79px;
+    text-align: left;
+    z-index: 0;
+}
+
+.pdf-viewer-style .ews-navbar div > ul > li {
+    padding-bottom: 3px;
+}
+
+.pdf-viewer-style .ews-content {
+    width: 90%;
+    margin: 60px auto 0;
+}
+
+.pdf-viewer-style .ews-content .InformationHeader {
+    font-weight: bold;
+    padding-left: 4px;
+}
+
+.pdf-viewer-style .ews-content .colors {
+    margin-top: 10px;
+}
+
+.pdf-viewer-style .ews .css-theme {
+    border: 1px solid silver;
+}
+
+.pdf-viewer-style .ews img {
+    max-width: none;
+}
+
+.pdf-viewer-style .ews .employee-info > table .nowrapFormLabel {
+    padding-right: 10px;
+}
+
+/* Validation errors */
+.pdf-viewer-style form .error {
+    border-color: #EE5F5B;
+    color: #B94A48;
+}
+
+.pdf-viewer-style .charts-congfig-error,
+.pdf-viewer-style .pref-lang-validation-error {
+    border-color: #EE5F5B;
+    color: #B94A48;
+    font-size: 15px;
+    padding: 0 5px;
+}
+
+.pdf-viewer-style .charts-congfig-error-field {
+    border: 2px solid #EE5F5B !important;
+}
+
+.pdf-viewer-style form .alert {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style form .help-inline {
+    color: #B94A48;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .fit, select {
+    width: auto;
+}
+
+.pdf-viewer-style .required {
+    color: #d70101;
+    font-weight: bold;
+}
+
+.pdf-viewer-style .ui-accordion .ui-accordion-content-active {
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-left-radius: 7px;
+    -khtml-border-top-left-radius: 7px;
+    border-top-left-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -khtml-border-top-right-radius: 7px;
+    border-top-right-radius: 7px;
+    margin-top: -5px;
+}
+
+/* Begin of Reports UI Graphic Checkbox and Radio buttons */
+.pdf-viewer-style span.checkboxUnchecked {
+    background: url('../../img/UIv8/btn_checkbox.png') no-repeat right top;
+    cursor: pointer;
+    padding: 6px 4px 0 6px;
+    width: 160px;
+    float: left;
+    margin: 6px;
+    height: 32px;
+    vertical-align: middle;
+    font-size: 16px
+}
+
+.pdf-viewer-style .checkboxChecked {
+    background: url('../../img/UIv8/btn_checkbox_checked.png') no-repeat left top;
+    padding: 6px 4px 0 6px;
+    cursor: pointer;
+    width: 160px;
+    float: left;
+    margin: 6px;
+    height: 32px;
+    font-size: 16px
+}
+
+.pdf-viewer-style span.radioButtonFalse {
+    background: url("../../img/UIv8/btn_radioButtonFalse.png") no-repeat scroll right top;
+    cursor: pointer;
+    float: left;
+    font-size: 16px;
+    height: 32px;
+    margin: 6px;
+    padding: 6px 4px 0 6px;
+    text-align: left;
+    vertical-align: middle;
+    width: 160px;
+}
+
+.pdf-viewer-style .radioButtonTrue {
+    background: url("../../img/UIv8/btn_radioButtonTrue.png") no-repeat scroll left top;
+    cursor: pointer;
+    float: left;
+    font-size: 16px;
+    height: 32px;
+    margin: 6px;
+    padding: 6px 4px 0 6px;
+    text-align: left;
+    width: 160px;
+}
+
+/* End of Reports UI Graphic Checkbox buttons */
+
+/* Begin Reports service heading customization */
+.pdf-viewer-style .serviceHeading {
+    height: 30px;
+}
+
+.pdf-viewer-style .serviceHeading td {
+    font-size: 16px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.pdf-viewer-style .serviceHeading td.serviceType {
+    text-align: right
+}
+
+/* EWS Styles */
+.pdf-viewer-style .ews .navbar .nav, .ews #content {
+    margin-left: 0;
+}
+
+.pdf-viewer-style .ews #content {
+    margin-top: 10px;
+}
+
+.pdf-viewer-style .ews #header h1 {
+    margin-left: 10px;
+}
+
+.pdf-viewer-style .ews #logout_section {
+    position: absolute;
+    height: 30px;
+    right: 21px;
+    top: 10px;
+}
+
+.pdf-viewer-style .ews #__id_txt_description, .ews #__id_txt_measurement {
+    width: 300px;
+    height: 100px;
+}
+
+.pdf-viewer-style .pubbox {
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    color: #000000;
+    margin: 0 auto;
+    padding: 20px 30px;
+    position: relative;
+    text-align: center;
+    width: 300px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.pdf-viewer-style .pubbox label {
+    text-align: left;
+}
+
+.pdf-viewer-style .pubbox input[type="text"], .pubbox input[type="password"] {
+    width: 290px;
+}
+
+.pdf-viewer-style .pubfooter {
+    color: #3D3D3D;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* customizations for click-thru screens */
+.pdf-viewer-style .click-thru .container {
+    padding: 0;
+    width: auto;
+}
+
+.pdf-viewer-style .click-thru h1 {
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.pdf-viewer-style .click-thru h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer-style .click-thru h3 {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.pdf-viewer-style .click-thru hr {
+    margin: 12px 0;
+}
+
+.pdf-viewer-style .click-thru .pubbox {
+    width: 400px;
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+.pdf-viewer-style .multi-rater .pubbox {
+    width: 500px;
+}
+
+.pdf-viewer-style .click-thru .pubbox .comment-mgr {
+    padding: 10px 0;
+}
+
+.pdf-viewer-style .click-thru .pubbox table td {
+    padding: 2px;
+    line-height: 14px;
+}
+
+.pdf-viewer-style .click-thru .pubbox table {
+    margin-bottom: 10px;
+}
+
+.pdf-viewer-style .click-thru .pubbox .activityRow {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .click-thru .pubbox .activityRow td {
+    padding: 5px;
+}
+
+.pdf-viewer-style .click-thru .pubbox textarea {
+    width: 100%;
+}
+
+.pdf-viewer-style .click-thru .pubbox fieldset label {
+    display: inline-block;
+    text-align: right;
+}
+
+.pdf-viewer-style .click-thru .pubbox p:last-child {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style .click-thru .competency, .click-thru .goal {
+    margin-left: 20px;
+    border-bottom: 1px dotted silver;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer-style .click-thru .competency:last-child, .click-thru .goal:last-child {
+    border-bottom: 0;
+    margin-bottom: 15px;
+}
+
+.pdf-viewer-style .click-thru .decline {
+    float: right;
+    margin-top: -10px;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+/* MR: Changed from 480 to 854 for Android http://stackoverflow.com/questions/6786701/droid-2-not-detected-by-css-media-query */
+.pdf-viewer-style @media only screen and (min-device-width: 320px) and (max-device-width: 854px) {
+    body.mainPage.click-thru {
+        padding: 0;
+    }
+
+    .multi-rater .pubbox {
+        width: auto;
+    }
+
+    .click-thru .pubbox {
+        width: auto;
+        border-radius: 0;
+        border: 0;
+        padding: 10px 20px;
+        margin-bottom: 0;
+    }
+
+    .click-thru .pubbox textarea {
+        width: 90%;
+    }
+
+    .width160 {
+        width: 100px;
+        min-width: 100px;
+    }
+
+    .click-thru .btn {
+        width: 190px;
+        white-space: pre-wrap;
+        margin-bottom: 10px;
+    }
+
+    .click-thru .competency, .click-thru .goal {
+        margin-left: 5px;
+    }
+
+    .click-thru .decline {
+        float: none;
+        margin-top: 0;
+    }
+}
+
+/* iPad (portrait and landscape) ----------- */
+.pdf-viewer-style @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body.mainPage.click-thru {
+        padding-top: 50px;
+    }
+}
+
+.pdf-viewer-style .ui-spinner {
+    position: relative;
+}
+
+.pdf-viewer-style .ui-spinner-buttons {
+    position: absolute
+}
+
+.pdf-viewer-style .ui-spinner-button {
+    overflow: hidden
+}
+
+.pdf-viewer-style .ieOnlyMask {
+    overflow: hidden\0/IE8 +9;
+    _overflow: hidden;
+    *overflow: hidden;
+}
+
+/* TBE-11444: Fix height of dropdowns in CKEditor */
+.pdf-viewer-style .cke_skin_v2 .cke_rcombo .cke_text {
+    height: 14px !important;
+}
+
+/*TBE-15226: height issue for CKEditor input */
+.pdf-viewer-style .cke_dialog_ui_input_text input[type="text"] {
+    height: auto;
+    line-height: 14px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+}
+
+/*TBE-11350,11318,11613 : Setting select box sizes to auto so that it shows the box with the correctly computed width instead of the default 210px*/
+.pdf-viewer-style #reqSelectedStatusOnCandCount, #reqCandHigherThenScore, #lastUpdateNumDays, #excludeOlderThanMonths {
+    width: auto;
+}
+
+/*TBE-11318 : These are in the RatingScaleUpdate page. Let them have a minimum width so that they align properly*/
+.pdf-viewer-style #displayToolId, #ratingToolId {
+    min-width: 110px;
+    width: auto;
+}
+
+/*TBE-11630 : Adding here so as to minimize impact of the fix. Can be fixed in CWebHelper.getStatusSelect() too with more testing*/
+.pdf-viewer-style .candidates #status {
+    min-width: 220px;
+    width: auto;
+}
+
+.pdf-viewer-style #devPanelDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: 32000;
+    width: 1000px;
+    padding: 5px 0 0 5px;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-radius: 0 0 6px;
+}
+
+.pdf-viewer-style #devPanelDiv select {
+    height: auto;
+}
+
+.pdf-viewer-style #devPanelDiv .btn, #showDevPanelButton .btn {
+    padding: 2px 5px;
+}
+
+.pdf-viewer-style #showDevPanelButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    visibility: hidden;
+    z-index: 32000;
+}
+
+/*TBE-11386 : Add a -5px margin to lift the table up so that it aligns with the label*/
+.pdf-viewer-style #employeeTable {
+    margin-top: -5px;
+}
+
+.pdf-viewer-style .reportsListTable {
+    width: 100%;
+    border: 0px solid #ccc;
+}
+
+.pdf-viewer-style .reportsListTable tr td {
+    border-bottom: 1px solid #ccc;
+    height: 26px
+}
+
+/* TBE-11543 :  Fixed this so as to remove paddings and widen the borders to fully fill the table. If it is desired for all accordions we could remove #reportContent_td */
+.pdf-viewer-style #reportContent_td .ui-accordion .ui-accordion-content {
+    padding: 0px;
+}
+
+.pdf-viewer-style .pointer-cursor {
+    cursor: pointer !important;
+}
+
+.pdf-viewer-style .reviewTemplateIcon {
+    height: 20px;
+    width: 24px;
+}
+
+.pdf-viewer-style .refreshIcon {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -163px -1134px;
+    height: 11px;
+    width: 12px;
+}
+
+.pdf-viewer-style span.refreshIcon {
+    display: inline-block;
+}
+
+.pdf-viewer-style img.fieldDateOnHover {
+    display: none;
+}
+
+.pdf-viewer-style .DataTableOddRow:hover img.fieldDateOnHover,
+.pdf-viewer-style .DataTableEvenRow:hover img.fieldDateOnHover {
+    display: inline-block;
+}
+
+.pdf-viewer-style .arrowTipLeft {
+    float: left;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid;
+    /* border-right color needs to be set manually in element using this class */
+}
+
+.pdf-viewer-style .arrowBody {
+    float: left;
+    height: 16px;
+    padding: 0 11px 0 4px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #ffffff;
+    /* background-color needs to be set manually in element using this class */
+}
+
+.pdf-viewer-style #langDiv {
+    float: right;
+    margin-top: -35px;
+}
+
+.pdf-viewer-style #langDiv ul.dropdown-menu {
+    border-top: 1px solid #608FAF;
+    border-top-right-radius: 6px;
+    -moz-border-radius: 0 6px 6px 6px;
+    top: auto;
+}
+
+.pdf-viewer-style #langDiv > ul {
+    margin-bottom: 0;
+}
+
+.pdf-viewer-style #langDiv a.selected-lang {
+    font-weight: bold;
+}
+
+.pdf-viewer-style td.ListViewInAccordionCell {
+    height: 20px;
+    padding: 5px;
+}
+
+.pdf-viewer-style td.ListViewInAccordionCellBorder {
+    border-bottom: 1px solid #AAADAD;
+}
+
+.pdf-viewer-style .ListViewInAccordionHeader {
+    text-align: left;
+    height: 32px;
+    padding: 5px;
+}
+
+/* Fix for https://engineering.tbetaleo.com/jira/browse/TBE-12865 in IE8 */
+.pdf-viewer-style .transparent50 .multiraterProgressbar {
+    margin-bottom: -7px;
+}
+
+.pdf-viewer-style div.cal-date-range-width {
+    width: 120px;
+    display: inline-block;
+}
+
+.pdf-viewer-style .smallText > div.cal-date-range-width {
+    width: 88px;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.pdf-viewer-style .publish-refresh-header {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -507px -1257px;
+    padding-left: 45px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 18px;
+    display: block;
+}
+
+.pdf-viewer-style .publish-refresh-body {
+    margin: 0 0 5px 40px;
+    padding: 4px;
+}
+
+.pdf-viewer-style .dependent-orgs > div {
+    padding-left: 60px;
+    display: inline-block;
+}
+
+.pdf-viewer-style .dependent-orgs-name {
+    font-weight: bold;
+}
+
+.pdf-viewer-style .dependent-orgs-code {
+    /*nothing for now*/
+}
+
+.pdf-viewer-style .centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdf-viewer-style .noTitleDialog .ui-dialog-titlebar {
+    border: 0 none;
+    display: none;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+.pdf-viewer-style .bold {
+    font-weight: bold;
+}
+
+/* PDF Viewer */
+.pdf-viewer-style #pdf-viewer {
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.pdf-viewer-style .pdf-pagination {
+    float: right;
+}
+
+.pdf-viewer-style .pdf-pagination .pagination {
+    width: auto;
+}
+
+.pdf-viewer-style #pdf-viewer .ajax-loader {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pdf-viewer-style #pdf-viewer .pdf-page {
+    margin: 0 auto;
+    border: 1px solid black;
+    z-index: 1;
+    background-size: contain;
+    height: 1325px;
+    position: relative;
+}
+
+.pdf-viewer-style #pdf-viewer .fields {
+    z-index: 100;
+    position: absolute
+}
+
+.pdf-viewer-style #pdf-viewer .fields input[type=text], #pdf-viewer .fields input[type=password],
+.pdf-viewer-style #pdf-viewer .fields input[type=checkbox], #pdf-viewer .fields textarea {
+    padding: 0;
+    position: absolute;
+    margin-top: -2px;
+    cursor: pointer;
+}
+
+.pdf-viewer-style #pdf-viewer .fields input.textbox {
+    padding-left: 3px;
+    color: black;
+}
+
+.pdf-viewer-style #pdf-viewer .fields textarea.textbox {
+    padding: 5px;
+    color: black;
+}
+
+.pdf-viewer-style #pdf-viewer .fields input.checkbox {
+    min-height: 0;
+}
+
+.pdf-viewer-style #pdf-viewer .fields input[type=checkbox] {
+    margin-left: 2px;
+    margin-top: 0;
+}
+
+.pdf-viewer-style #pdf-viewer .required, #esign-dialog .required {
+    border-color: red;
+    font-weight: normal;
+}
+
+.pdf-viewer-style #esign-dialog textarea {
+    width: 90%;
+}
+
+.pdf-viewer-style #esign-dialog .comments-employee {
+    padding: 5px 5px 5px 10px;
+    color: blue;
+    margin-bottom: 10px
+}
+
+.pdf-viewer-style #pdf-viewer .field-dialog > div > div {
+    margin-bottom: 20px;
+}
+
+.field-dialog {
+    display: none;
+    padding: 10px 20px
+}
+
+.field-dialog > div > div > span {
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+
+.field-dialog select, .field-dialog input[type=text] {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#advanced-settings {
+    border-top: 1px dotted silver;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#advanced-settings .controls {
+    margin-left: 30px;
+}
+
+#advanced-settings input[type="text"] {
+    width: 35px;
+}
+
+.pdf-viewer-style #pdf-viewer #thumbnails {
+    margin-top: 2px;
+}
+
+.pdf-viewer-style #pdf-viewer #thumbnails .thumb a {
+    min-height: 205px;
+    min-width: 160px;
+}
+
+.pdf-viewer-style #pdf-viewer #thumbnails .thumb img {
+    border: 1px solid black;
+    width: 150px; /* causes issues in IE8 */
+    height: 194px;
+}
+
+.pdf-viewer-style #pdf-viewer #thumbnails .thumb .pageNumber {
+    margin-top: -20px;
+    margin-left: 5px;
+}
+
+.pdf-viewer-style #pdf-viewer #thumbnails .nav-tabs > li > a {
+    background-color: #ffffff;
+    border: none;
+}
+
+.pdf-viewer-style #pdf-viewer  #thumbnails .tabs-right > .nav-tabs > li > a {
+    margin-left: 0;
+}
+
+.pdf-viewer-style #pdf-viewer  #thumbnails .nav-tabs > .active {
+    margin-top: 0;
+}
+
+/* indicators for thumbnails with required fields and fields */
+.pdf-viewer-style #pdf-viewer .arrow {
+    position: absolute;
+    right: -5px;
+    margin-top: -200px;
+}
+
+/* End PDF Viewer */
+
+/* Used for high lighting "on behalf of" messages in Performance Review,Goals,Offers etc */
+.pdf-viewer-style .onBehalfOfFont {
+    display: inline;
+}
+
+/* Dashboard Styles */
+
+.pdf-viewer-style .ModernUI #header {
+    box-shadow: 0 0 10px #000000;
+}
+
+.pdf-viewer-style .dashboard .span12 {
+    margin-top: 20px;
+}
+
+.pdf-viewer-style .ModernUI .container-fluid {
+    background: #a6a6a6 url('../../img/UIv9/grey-background.png');
+}
+
+.pdf-viewer-style .ModernUI > .container-fluid {
+    margin-top: -6px;
+}
+
+.pdf-viewer-style .ModernUI .container-fluid > #sidebar h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer-style .dashboard .container-widgets {
+    border-radius: 6px;
+    padding: 0 20px 0 0;
+    min-width: 700px;
+}
+
+.pdf-viewer-style .dashboard .widgets {
+    height: 100%;
+    min-width: 500px;
+}
+
+.pdf-viewer-style .dashboard .widgets > li {
+    height: 33.33333333333333%;
+    min-height: 400px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pdf-viewer-style .dashboard .widgets .ui-sortable {
+    white-space: nowrap;
+}
+
+.pdf-viewer-style .dashboard #summary-bar .ui-sortable-helper {
+    border: 1px solid silver !important;
+}
+
+.pdf-viewer-style .dashboard .carousel .widget {
+    margin-left: 10px;
+}
+
+.pdf-viewer-style .dashboard .widget {
+    width: 500px;
+    height: 320px;
+    display: inline-block;
+    border: 2px solid #e5e4dd;
+    margin-top: 10px;
+}
+
+.pdf-viewer-style .dashboard .widgets .configure {
+    float: left;
+    margin-left: 8px;
+}
+
+.pdf-viewer-style .dashboard #summary-bar.empty, .dashboard #chart-bar.empty {
+    background-color: #eee;
+}
+
+.pdf-viewer-style .dashboard .widgets-empty {
+    margin-top: 75px;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    text-shadow: 0px 1px 1px #fbfbfb;
+    color: silver;
+}
+
+.pdf-viewer-style .dashboard .clock {
+    min-height: 130px;
+    background: black;
+    padding-top: 10px;
+    border: 3px solid #e5e4dd;
+}
+
+.pdf-viewer-style .dashboard .clock, .dashboard .reports, .dashboard #task-bar,
+.pdf-viewer-style .dashboard #summary-bar, .ModernUI .container-fluid > #sidebar {
+    box-shadow: 5px 5px 5px #999;
+    margin-bottom: 15px;
+}
+
+.pdf-viewer-style .ModernUI .container-fluid > #sidebar {
+    border: 0;
+    margin-top: 123px;
+}
+
+.pdf-viewer-style .dashboard #task-bar, .dashboard #summary-bar, .dashboard #chart-bar, .dashboard .reports {
+    background-color: #FFFFFE;
+    border-radius: 10px 10px 0 0;
+}
+
+.pdf-viewer-style .dashboard .heading {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.pdf-viewer-style .dashboard .heading:before, .dashboard .heading:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    -moz-border-radius: 100px / 10px;
+    border-radius: 100px / 10px;
+}
+
+.pdf-viewer-style .dashboard .heading:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: skew(8deg) rotate(3deg);
+    -moz-transform: skew(8deg) rotate(3deg);
+    -ms-transform: skew(8deg) rotate(3deg);
+    -o-transform: skew(8deg) rotate(3deg);
+    transform: skew(8deg) rotate(3deg);
+}
+
+.pdf-viewer-style .dashboard .heading:hover, .modal.ui-draggable .modal-header {
+    cursor: move
+}
+
+.pdf-viewer-style .ModernUI .modal-header, .ModernUI .modal-header .close,
+.pdf-viewer-style .docpreview-title, .docpreview-title .close {
+    color: #fff;
+}
+
+.pdf-viewer-style .dashboard .heading .handle {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -634px -998px;
+    width: 68px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    right: 15px;
+    margin-top: -18px;
+}
+
+.pdf-viewer-style .dashboard .summary-item .handle {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -578px -998px;
+    width: 11px;
+    height: 36px;
+    position: absolute;
+    margin-left: 12px;
+    margin-top: 10px;
+}
+
+.pdf-viewer-style .dashboard .show-more {
+    text-align: center;
+    border-top: 1px solid silver;
+    background: white;
+    color: #666;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.pdf-viewer-style .dashboard .show-more:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .dashboard .show-more .caret {
+    margin-top: 7px;
+}
+
+.pdf-viewer-style .dashboard .show-more .caret-up {
+    margin-top: 3px;
+}
+
+.pdf-viewer-style .caret-up {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid black;
+}
+
+.pdf-viewer-style .ModernUI .modal.draggable {
+    width: 800px !important;
+    position: fixed !important;
+    margin-left: -400px;
+}
+
+.pdf-viewer-style .dashboard #summary-bar {
+    max-height: 150px;
+    min-height: 242px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-viewer-style .dashboard .summary-items {
+    background-color: white;
+    /* responsive grid */
+    padding: 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.pdf-viewer-style .dashboard .summary-item {
+    border-right: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    /* put the border on the inside of the box */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    font-size: 14px;
+    color: #666;
+    height: 50px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25);
+    /* responsive grid */
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 25%;
+}
+
+.pdf-viewer-style .dashboard .summary-item.odd {
+    background-color: #f3f3f3;
+}
+
+.pdf-viewer-style .dashboard .summary-item.odd .summary-value {
+    background-color: #ededeb;
+}
+
+.pdf-viewer-style .dashboard .summary-item.odd .summary-title:after {
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #f3f3f3 20px); /* FF3.6+ */
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #f3f3f3 20px); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #f3f3f3 20px); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #f3f3f3 20px); /* IE10+ */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #f3f3f3 20px); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#f3f3f3', GradientType=1); /* IE6-9 */
+}
+
+.pdf-viewer-style @media screen and (max-width: 1400px) {
+    .dashboard .summary-item {
+        width: 33.33333333333333%; /* Fallback */
+        width: -webkit-calc(100% / 3);
+        width: calc(100% / 3);
+    }
+}
+
+.pdf-viewer-style @media screen and (max-width: 1000px) {
+    .dashboard .summary-item {
+        width: 50%; /* Fallback */
+        width: -webkit-calc(100% / 2);
+        width: calc(100% / 2);
+    }
+}
+
+.pdf-viewer-style .dashboard .summary-title {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+    margin-left: 30px;
+    overflow: hidden;
+}
+
+.pdf-viewer-style .dashboard .summary-title:after {
+    display: block;
+    position: absolute;
+    right: 66px;
+    top: 5px;
+    bottom: 5px;
+    width: 30px;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 20px); /* FF3.6+ */
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 20px); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 20px); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 20px); /* IE10+ */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 20px); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=1); /* IE6-9 */
+    content: "";
+}
+
+.pdf-viewer-style .dashboard .summary-value {
+    font-size: 32px;
+    color: #3399ff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    float: right;
+    padding: 16px 5px 10px;
+    width: 66px;
+    text-align: center;
+    height: 50px;
+    border-left: 1px solid #D1D1D0;
+    border-bottom: 1px solid #D1D1D0;
+    box-sizing: border-box;
+    background-color: #fefefe;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.pdf-viewer-style .dashboard #task-bar {
+    background: #eee url('../../img/UIv9/tasks-background.png') repeat-x;
+    min-height: 221px;
+    max-height: 180px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-viewer-style .dashboard .task-items {
+    /* responsive grid */
+    padding: 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.pdf-viewer-style .dashboard .task-item {
+    margin-top: 5px;
+    margin-left: 10px;
+    padding-top: 40px;
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    font-size: 14px;
+    /* responsive grid */
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 25%; /* Fallback */
+    width: -webkit-calc(100% / 4);
+    width: calc(100% / 4);
+}
+
+.pdf-viewer-style .dashboard .task-item.sticky-note {
+    background: url('../../img/UIv9/ats-icons-sprite.png') no-repeat -561px -1062px;
+    width: 165px;
+    height: 152px;
+}
+
+.pdf-viewer-style .dashboard .task-title {
+    width: 85%;
+    margin: 0 auto;
+    white-space: normal;
+    text-align: center;
+    overflow: hidden;
+    height: 55px;
+}
+
+.pdf-viewer-style .dashboard .task-value {
+    width: 100%;
+    text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #003366;
+    font-size: 42px;
+    margin-top: 15px;
+}
+
+.pdf-viewer-style .dashboard .task-item.hidden {
+    display: none;
+}
+
+.pdf-viewer-style .dashboard .reports {
+    margin-top: 10px;
+    height: 63.333333%;
+    color: #666;
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    font-size: 13px;
+    max-height: 750px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-viewer-style .dashboard .reports .heading {
+    font-size: 14px;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+.pdf-viewer-style .dashboard .report-item {
+    padding: 5px 20px;
+    border-bottom: 1px solid silver;
+}
+
+.pdf-viewer-style .dashboard .report-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.pdf-viewer-style .dashboard .report-title {
+    color: #3399ff;
+    font-weight: bold;
+}
+
+.pdf-viewer-style .dashboard .reports-empty {
+    padding: 10px 5px 10px 10px;
+}
+
+/* Remove the following 3 rules after upgrading to Bootstrap 2.3 */
+.pdf-viewer-style .carousel-indicators {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 5;
+    margin: 0;
+    list-style: none;
+    height: 15px;
+}
+
+.pdf-viewer-style .carousel-indicators li {
+    display: block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    text-indent: -999px;
+    background-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+/* TBE-14213: Fix random left/right alignment in IE10. This seems to be happening because
+   'left' or 'right' CSS classes are added to the slide. Doesn't happen in other browsers. */
+.pdf-viewer-style .carousel-inner .chart.left, .carousel-inner .chart.right {
+    text-align: center;
+}
+
+/* center carousel indicators */
+.pdf-viewer-style .carousel-indicators.middle {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 15px;
+    text-align: center;
+}
+
+.pdf-viewer-style .carousel-indicators.middle li {
+    float: none;
+    display: inline-block;
+}
+
+.pdf-viewer-style .carousel-indicators .active {
+    background-color: #fff;
+}
+
+/* End of Bootstrap 2.3 rules */
+.pdf-viewer-style .dashboard .carousel-indicators {
+    bottom: -20px;
+    top: inherit;
+}
+
+.pdf-viewer-style .dashboard .carousel-indicators .active {
+    background-color: black;
+}
+
+.pdf-viewer-style .carousel-control.left, .carousel-control.right {
+    text-align: center;
+}
+
+.pdf-viewer-style .dashboard .carousel-indicators li {
+    background-color: gray;
+}
+
+.pdf-viewer-style .dashboard #chart-bar {
+    box-shadow: 5px 5px 5px #999;
+    margin-bottom: 15px;
+}
+
+.pdf-viewer-style .dashboard .chart-title {
+    margin-top: 5px;
+    font-weight: bold;
+    position: absolute;
+    width: 500px;
+    background-color: white;
+}
+
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+.pdf-viewer-style [ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+.pdf-viewer-style .dashboard .events, .carousel-control {
+    cursor: pointer;
+}
+
+/* Make Bootstrap's modal background match jQuery UI's */
+.pdf-viewer-style .modal-backdrop, .modal-backdrop.fade.in {
+    background: #aaaaaa url(jquery-ui/bootstrap/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.pdf-viewer-style #dialog-frame {
+    min-width: 560px;
+    max-width: 75%;
+}
+
+/* TBE-14294: Add position: relative to .modal-body so absolutely-positioned widgets work properly */
+.pdf-viewer-style #dialog-frame .modal-body {
+    position: relative;
+}
+
+.pdf-viewer-style .dashboard .twoup .widget, .dashboard .twoup .chart-title {
+    width: 45%;
+    min-width: 463px;
+    max-width: 500px;
+}
+
+.pdf-viewer-style .MyView .switch {
+    float: right;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.pdf-viewer-style .switch.disabled {
+    color: #999;
+    cursor: pointer;
+}
+
+.pdf-viewer-style .ModernUI .switch {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    color: white;
+}
+
+.pdf-viewer-style .ModernUI .span12 .switch {
+    position: absolute;
+    right: 50px;
+    margin-top: -22px;
+}
+
+.pdf-viewer-style .widgets-counter {
+    height: 12px;
+    margin: 0;
+    position: relative;
+    top: 19px;
+    width: 12px;
+    left: 17px;
+    background-color: white;
+    padding: 1px 1px 1px 1px;
+    color: black;
+    font-weight: bold;
+    border: 1px solid black
+}
+
+.pdf-viewer-style .imageChartType, .removeChart {
+    margin-top: -3px;
+}
+
+/* Sidebar for Dashboard */
+.pdf-viewer-style .ModernUI #sidebar .configure {
+    margin-top: -38px;
+}
+
+.pdf-viewer-style .ModernUI #sidebar #searchBox .search {
+    top: 46px;
+}
+
+.pdf-viewer-style .ModernUI #sidebar #searchboxContainer h4 {
+    border-radius: 0 6px 0 0;
+}
+
+/* iPad fixes for Dashboard */
+.pdf-viewer-style @media screen and (max-device-width: 1024px) {
+    .dashboard .show-more {
+        padding: 10px 0;
+    }
+}
+
+/* End of Dashboard */
+
+/* Social Sourcing iFrame */
+
+.pdf-viewer-style iframe#SSrc {
+    width: 980px;
+    height: 1200px;
+    overflow: hidden;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Social Sourcing loading div */
+.pdf-viewer-style div#ssloading {
+    width: 980px;
+    height: 1200px;
+    display: table-cell;
+    text-align: center;
+}
+
+.pdf-viewer-style div#ssloadingInside {
+    width: 980px;
+    height: 350px;
+    display: table-cell;
+}
+
+/* Document preview Modal styling */
+
+#docpreview-dialog-frame {
+    z-index: 1060;
+}
+
+.docpreview-modal-backdrop {
+    z-index: 1059;
+}
+
+.pdf-viewer-style .docpreview-title {
+    padding: 0;
+    padding-top: 12px;
+}
+
+.pdf-viewer-style .docpreview-title h4 {
+    text-align: center;
+    padding-bottom: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.pdf-viewer-style .docpreview-title .close {
+    padding-right: 15px;
+}
+
+.pdf-viewer-style .docpreview-header {
+    padding-left: 15px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 45px;
+    border-radius: 0;
+
+}
+
+.pdf-viewer-style .docpreview-header span {
+    color: #525054;
+    font-size: 12pt;
+}
+
+.pdf-viewer-style .docpreview-body {
+    padding: 0;
+}
+
+.pdf-viewer-style .modal-resizable {
+    width: 100%;
+    overflow: auto;
+    max-height: 100% !important;
+}
+
+.pdf-viewer-style #docpreview-resizable-content {
+    padding: 0;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100% !important;
+
+}
+
+.pdf-viewer-style .docpreview-frame {
+    max-width: 80% !important;
+    z-index: 1250;
+}
+
+.pdf-viewer-style .docpreview-candinfo {
+    background-color: white;
+    border: 2px solid silver;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 3px;
+    padding: 3px 5px 5px;
+    width: 200px;
+    float: left;
+    position: relative;
+}
+
+.pdf-viewer-style .docpreview-candinfo .cand,
+.pdf-viewer-style .docpreview-candinfo .empl,
+.pdf-viewer-style .docpreview-candinfo .work {
+    display: inline-block;
+    height: 35px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 36px;
+}
+
+.pdf-viewer-style .docpreview-candinfo .details {
+    height: 40px;
+    margin-top: -40px;
+    position: relative;
+    right: 14px;
+
+}
+
+.pdf-viewer-style .docpreview-candinfo .details  > a {
+    display: block;
+    height: 17px;
+    overflow: hidden;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    float: left;
+    padding-left: 60px;
+    font-size: 10pt;
+    text-overflow: ellipsis;
+    width: 160px;
+
+}
+
+.pdf-viewer-style .docpreview-candinfo .details a:hover {
+    text-decoration: none;
+}
+
+.pdf-viewer-style .docpreview-header .status {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    text-align: center;
+    font-weight: normal !important;
+    overflow: hidden;
+    word-wrap: break-word;
+
+}
+
+.pdf-viewer-style .docpreview-menu {
+    /*background-color: white;
+    border: 2px solid silver;
+    -- placeholder for menu --
+    */
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 3px;
+    padding: 3px 5px 5px;
+    width: 200px;
+    float: right;
+    position: relative;
+    height: 35px;
+}
+
+.pdf-viewer-style .docpreview-info {
+    /*background-color: white;
+    border: 2px solid silver;
+    -- placeholder for menu --
+    */
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 3px;
+    padding: 3px 5px 5px;
+    width: 200px;
+    float: left;
+    position: relative;
+    height: 35px;
+}
+
+.pdf-viewer-style .docpreview-candinfo .details .moreInfo {
+    bottom: 5px;
+    font-size: 9pt;
+    font-weight: normal;
+    padding-left: 60px;
+    position: relative;
+    text-overflow: ellipsis;
+    width: 160px;
+}
+/* Layouts */
+.pdf-viewer-style a {
+    color: #0087cc;
+}
+.pdf-viewer-style a:hover {
+    color: #0087cc;
+}
+.pdf-viewer-style .navbar div > ul > li {
+    border: 1px solid #4884a6;
+    background-color: #9bccde;
+    border-top: 0;
+}
+.pdf-viewer-style .navbar-inner {
+    border-top: 1px solid #4884a6;
+}
+.pdf-viewer-style .navbar .nav > li > a:hover {
+    color: #333333;
+}
+.pdf-viewer-style .navbar .nav .active > a {
+    border: 1px solid #4884a6;
+}
+.pdf-viewer-style .nav > .open.active > a:hover,
+.pdf-viewer-style .dropdown-menu,
+.pdf-viewer-style #toplinkcontainer .nav > .open > a,
+.pdf-viewer-style .nav-tabs .open .dropdown-toggle,
+.pdf-viewer-style #notification_ae_dropdown,
+.pdf-viewer-style #notification_dropdown,
+.pdf-viewer-style #notification_ews_dropdown {
+    border-color: #4884a6;
+}
+.pdf-viewer-style .navbar .nav li.dropdown:last-child .dropdown-menu,
+.pdf-viewer-style .dropdown-top {
+    border-top: 1px solid #4884a6;
+}
+.pdf-viewer-style .navbar div > ul .dropdown-menu,
+.pdf-viewer-style .nav .dropdown-menu,
+.pdf-viewer-style .nav > .open.active > a:hover,
+.pdf-viewer-style .navbar div > ul .active .dropdown-menu,
+.pdf-viewer-style .nav-tabs .open .dropdown-toggle,
+.pdf-viewer-style .navbar .nav li.dropdown.open.active > .dropdown-toggle,
+.pdf-viewer-style #notification_ae_dropdown,
+.pdf-viewer-style #notification_dropdown,
+.pdf-viewer-style #notification_ews_dropdown {
+    background-color: #eff5f9;
+}
+.pdf-viewer-style .navbar div > ul .dropdown-menu li a:hover,
+.pdf-viewer-style .nav .dropdown-menu li a:hover,
+.pdf-viewer-style .dropmenudiv a:hover,
+.pdf-viewer-style #notification_ae_dropdown li:hover,
+.pdf-viewer-style #notification_dropdown li:hover,
+.pdf-viewer-style #notification_ews_dropdown li:hover,
+.pdf-viewer-style .nav .active .active,
+.pdf-viewer-style .nav-tabs .dropdown-menu .active > a,
+.pdf-viewer-style .nav-tabs .dropdown-menu > a:hover {
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems li:hover,
+.pdf-viewer-style .docpreview-candinfo:hover {
+    background-color: #e2f1cd;
+    border-color: #4884a6;
+}
+.pdf-viewer-style .navbar div > ul .menu-dropdown li a:hover,
+.pdf-viewer-style .nav .menu-dropdown li a:hover,
+.pdf-viewer-style .navbar div > ul .dropdown-menu li a:hover,
+.pdf-viewer-style .nav .dropdown-menu li a:hover,
+.pdf-viewer-style .dropmenudiv a:hover {
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style .container-fluid > #sidebar {
+    background-color: #eff5f9;
+    border: 1px solid #4884a6;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems {
+    border-top: 1px solid #4884a6;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .requ,
+.pdf-viewer-style #leftpanelContainer #recentItems .reqtm {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -311px -116px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .acct,
+.pdf-viewer-style #leftpanelContainer #recentItems .custm {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -445px -119px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .cand ,
+.pdf-viewer-style .docpreview-candinfo .cand {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -566px -116px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .rqcnd {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1315px -122px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .empl,
+.pdf-viewer-style .docpreview-candinfo .empl {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -379px -118px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .ctct {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -502px -116px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .post,
+.pdf-viewer-style #leftpanelContainer #recentItems .prfl {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -57px -118px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .perf {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -550px -116px;
+}
+.pdf-viewer-style .reviewTemplateInitial {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -550px -615px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .actp {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -748px -116px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .work,
+.pdf-viewer-style .docpreview-candinfo .work {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -806px -116px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .pmrv,
+.pdf-viewer-style #leftpanelContainer #recentItems .pmrvt {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -628px -118px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .cycl,
+.pdf-viewer-style #leftpanelContainer #recentItems .plan {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -687px -118px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .irpt,
+.pdf-viewer-style #leftpanelContainer #recentItems .irpi {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -945px -118px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .rvcyc {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1133px -117px;
+}
+/* CRM Icons */
+.pdf-viewer-style #leftpanelContainer #recentItems .servr {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1133px -117px;
+}
+.pdf-viewer-style #leftpanelContainer #recentItems .leadCss {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -253px -116px;
+}
+.pdf-viewer-style h1 .myview {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -190px -116px;
+}
+.pdf-viewer-style h1 .pipeline,
+.pdf-viewer-style h1 .lead,
+.pdf-viewer-style h1 .order {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -253px -116px;
+}
+.pdf-viewer-style h1 .requisitions {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -311px -116px;
+}
+.pdf-viewer-style h1 .candidates {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -566px -118px;
+}
+.pdf-viewer-style h1 .requisitioncandidates {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1315px -122px;
+}
+.pdf-viewer-style h1 .accounts,
+.pdf-viewer-style h1 .customer {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -445px -116px;
+}
+.pdf-viewer-style h1 .contacts {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -504px -116px;
+}
+.pdf-viewer-style h1 .employees {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -379px -116px;
+}
+.pdf-viewer-style h1 .goals {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1256px -116px;
+}
+.pdf-viewer-style h1 .perform {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -628px -116px;
+}
+.pdf-viewer-style h1 .competency {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -127px -116px;
+}
+.pdf-viewer-style h1 .compensation {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -687px -116px;
+}
+.pdf-viewer-style h1 .onboarding {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -748px -116px;
+}
+.pdf-viewer-style h1 .users {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -811px -116px;
+}
+.pdf-viewer-style h1 .administration {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -873px -116px;
+}
+.pdf-viewer-style h1 .reports {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -945px -116px;
+    width: 33px;
+}
+.pdf-viewer-style .widgets-per-listview-background {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -945px -116px;
+    height: 36px;
+    width: 36px;
+}
+.pdf-viewer-style h1 .tbe_apps,
+.pdf-viewer-style h1 .support {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1012px -116px;
+}
+.pdf-viewer-style h1 .positions,
+.pdf-viewer-style h1 .profiles {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -58px -116px;
+}
+/* CRM Header Icons */
+.pdf-viewer-style h1 .server,
+.pdf-viewer-style h1 .reviewcycle {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1132px -116px;
+}
+/* My View icon in top menu bar */
+.pdf-viewer-style .ews .navbar .nav > li:first-child .dropdown-toggle,
+.pdf-viewer-style .navbar .nav > li.dropdown:first-child .dropdown-toggle,
+.pdf-viewer-style .navbar .nav > li.dropdown.open:first-child .dropdown-toggle,
+.pdf-viewer-style .navbar .nav > li.dropdown.open:first-child .dropdown-toggle:hover {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -158px -602px;
+}
+.pdf-viewer-style #support_section .nav a:hover,
+.pdf-viewer-style .nav > li.dropdown.open .dropdown-toggle,
+.pdf-viewer-style .nav > li.dropdown.open .dropdown-toggle:hover,
+.pdf-viewer-style .navbar .nav > li.dropdown.open .dropdown-toggle,
+.pdf-viewer-style .navbar .nav > li.dropdown.open .dropdown-toggle:hover,
+.pdf-viewer-style .navbar .nav > li.dropdown.open:first-child .dropdown-toggle:hover,
+.pdf-viewer-style .navbar .nav > li.dropdown.open:first-child .dropdown-toggle {
+    background-color: #eff5f9;
+    color: #333333;
+}
+.pdf-viewer-style .nav-tabs > li > a {
+    background-color: #e2f1cd;
+    border: 1px solid #4884a6;
+}
+.pdf-viewer-style .nav-tabs .dropdown-menu {
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style .nav-tabs .dropdown-menu li a {
+    color: #0087cc;
+}
+.pdf-viewer-style .nav-tabs .dropdown-menu li a:hover {
+    background-color: #ffffff;
+    color: #0087cc;
+}
+.pdf-viewer-style .nav-tabs > li > a:hover,
+.pdf-viewer-style .nav-tabs li.dropdown.open.active > a:hover {
+    background-color: #cbe6a5;
+    border: 1px solid #4884a6;
+    border-bottom: none;
+    color: #0087cc;
+}
+.pdf-viewer-style .nav-tabs > li.dropdown.open .dropdown-toggle,
+.pdf-viewer-style .nav-tabs > li.dropdown.open .dropdown-toggle:hover,
+.pdf-viewer-style .nav-tabs li.dropdown.open.active > a:hover {
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style .nav-tabs > .active > a,
+.pdf-viewer-style .nav-tabs > .active > a:hover {
+    border: 1px solid #4884a6;
+    border-bottom: 0;
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style .nav-tabs .dropdown-menu .active > a {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+.pdf-viewer-style .nav-tabs .configure {
+    background: #e2f1cd url(../../img/UIv9/ats-icons-sprite.png) no-repeat -970px -1021px;
+}
+.pdf-viewer-style .widgets .configure,
+.pdf-viewer-style .ModernUI #sidebar .configure {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -577px -1040px;
+    width: 20px;
+    height: 19px;
+}
+.pdf-viewer-style .ResultsBox,
+.pdf-viewer-style .PortletBox,
+.pdf-viewer-style .InformationBox,
+.pdf-viewer-style #tabs_container {
+    border: 1px solid #4884a6;
+}
+.pdf-viewer-style .mainPage .ResultsBox > table:first-child,
+.pdf-viewer-style .mainPage .ResultsBox > div.ResultsHeader,
+.pdf-viewer-style .FoldableInformationHeader,
+.pdf-viewer-style .PortletHeader,
+.pdf-viewer-style .InformationHeader {
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #e2f1cd);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #e2f1cd);
+    background-image: linear-gradient(to bottom, #cbe6a5, #e2f1cd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbe6a5', endColorstr='#e2f1cd');
+}
+/* tr and th in the rule below are for IE9 compatibility */
+.pdf-viewer-style .datagrid thead,
+.pdf-viewer-style .DatagridTable .DataTableHead,
+.pdf-viewer-style .datagrid thead tr,
+.pdf-viewer-style .DataTableHead th,
+.pdf-viewer-style .DataTableHead.FoldableInformationHeader {
+    background-color: #e2f1cd;
+    background-image: -moz-linear-gradient(top, #e2f1cd, #ffffff);
+    background-image: -webkit-linear-gradient(top, #e2f1cd, #ffffff);
+    background-image: linear-gradient(to bottom, #e2f1cd, #ffffff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2f1cd', endColorstr='#ffffff');
+}
+.pdf-viewer-style .ActionLinkHeadBottom th,
+.pdf-viewer-style .ActionLinkHeadBottom {
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #ffffff, #cbe6a5);
+    background-image: -webkit-linear-gradient(top, #ffffff, #cbe6a5);
+    background-image: linear-gradient(to bottom, #ffffff, #cbe6a5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cbe6a5');
+}
+.pdf-viewer-style .PortletHeader + table {
+    background-color: #ffffff;
+}
+.pdf-viewer-style .datagrid tbody,
+.pdf-viewer-style .DatagridTable tbody,
+.pdf-viewer-style .InformationBox > table,
+.pdf-viewer-style div.InformationContent,
+.pdf-viewer-style .DataTableOddRow,
+.pdf-viewer-style #emptyTasksTextSpan {
+    background-color: #ffffff;
+}
+.pdf-viewer-style .datagrid td,
+.pdf-viewer-style .datagrid .DataTableRowCell,
+.pdf-viewer-style .DatagridTable td,
+.pdf-viewer-style .DatagridTable .DataTableRowCell {
+    border-top: 1px solid #4884a6;
+}
+.pdf-viewer-style .DataTableRowCell.CompetencyCell {
+    border-top: 1px solid #4884a6;
+    border-right: 1px solid #4884a6;
+    border-left: 1px solid #4884a6;
+}
+.pdf-viewer-style .DataTableRowCell.LastCompetencyCell {
+    border-bottom: 1px solid #4884a6;
+}
+.pdf-viewer-style .ListViewInAccordionTable {
+    background-color: #eff5f9;
+}
+.pdf-viewer-style tr.DataTableOddRow:hover,
+.pdf-viewer-style tr.DataTableEvenRow:hover {
+    background: #eff5f9;
+}
+.pdf-viewer-style .sideBySideTableRankingTD {
+    border-right: 1px solid #4884a6;
+}
+.pdf-viewer-style .CalendarMonth .DatagridTable .day,
+.pdf-viewer-style .CalendarMonth .DatagridTable .first,
+.pdf-viewer-style .CalendarMonth .DatagridTable .last,
+.pdf-viewer-style .CalendarMonth .DatagridTable .empty {
+    border-color: #4884a6;
+}
+.pdf-viewer-style .content .tabs .active > a {
+    background-color: #cbe6a5;
+    border-color: #4884a6 #4884a6 transparent;
+}
+/* Calendar Theme Colors */
+.pdf-viewer-style .CalendarHeader {
+    background-color: #b3d8e5;
+}
+.pdf-viewer-style .CalendarHeader .nowrapRegular {
+    color: #666666;
+}
+.pdf-viewer-style .calendar-day {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -770px -1025px;
+}
+.pdf-viewer-style .calendar-week {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -805px -1025px;
+}
+.pdf-viewer-style .calendar-month {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -840px -1025px;
+}
+.pdf-viewer-style .calendar-contact {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -875px -1025px;
+}
+.pdf-viewer-style .calendar-group {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -910px -1025px;
+}
+.pdf-viewer-style .calendar-list {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -945px -1025px;
+    margin-right: 0;
+}
+/* Talent Card Colors */
+.pdf-viewer-style .cluetip-talentCard .cluetip-outer {
+    border: 1px solid #cccccc;
+}
+.pdf-viewer-style #talentCard .header {
+    background-color: #cbe6a5;
+    border: 1px solid #999999;
+}
+.pdf-viewer-style .tabs-bottom #cards a,
+.pdf-viewer-style .tabs-bottom #cards .filler {
+    border-top: 1px solid #999999;
+    background-color: #eff5f9 !important;
+}
+.pdf-viewer-style .tabs-bottom #cards a,
+.pdf-viewer-style .tabs-bottom #manage_tabs_button,
+.pdf-viewer-style .cluetip-talentCard #manage_tabs_button_no_tabs {
+    border-right: 1px solid #999999;
+}
+.pdf-viewer-style #talentCard h3,
+.pdf-viewer-style #cluetip .mainHeaderTd {
+    border-color: #999999;
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style #talentCard .data,
+.pdf-viewer-style #cluetip .workHistory {
+    border-color: #999999;
+}
+.pdf-viewer-style #cluetip .workHistory thead tr {
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: linear-gradient(to bottom, #cbe6a5, #ffffff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbe6a5', endColorstr='#ffffff');
+}
+.pdf-viewer-style #cluetip .workHistory tbody {
+    background-color: #ffffff;
+}
+.pdf-viewer-style .cluetip-talentCard .tabs-bottom #cards .Position_Information {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -58px -602px;
+}
+.pdf-viewer-style .cluetip-talentCard .tabs-bottom #cards .Contact_Information {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -434px -602px;
+}
+.pdf-viewer-style .cluetip-talentCard .tabs-bottom #cards .Performance {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -542px -601px;
+}
+.pdf-viewer-style .cluetip-talentCard .tabs-bottom #cards .Work_History {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -975px -605px;
+}
+/* Org Chart Theme Colors */
+.pdf-viewer-style .orgChart {
+    border: 1px solid #999999;
+}
+.pdf-viewer-style .orgChart div.card,
+.pdf-viewer-style #legend .direct,
+.pdf-viewer-style #legend .indirect {
+    border: 2px solid #999999;
+}
+.pdf-viewer-style .orgChart .indirect,
+.pdf-viewer-style #legend .indirect {
+    border: 2px dashed #999999 !important;
+}
+.pdf-viewer-style .orgChart .header {
+    background-color: #cbe6a5;
+    border-bottom: 1px solid #999999;
+}
+.pdf-viewer-style .orgChart .focus {
+    border: 2px solid #999999 !important;
+}
+.pdf-viewer-style .orgChart .focus .header {
+    background-color: #9bccde;
+}
+.pdf-viewer-style .available-trees h3 {
+    border: 1px solid #999999;
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: linear-gradient(to bottom, #cbe6a5, #ffffff);
+    /*filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{headerDarkBackground}', endColorstr='@{headerLightBackground}')";*/
+
+}
+.pdf-viewer-style .available-trees ul {
+    border-color: #999999;
+}
+.pdf-viewer-style .available-trees ul li:hover {
+    background-color: #eff5f9;
+}
+.ui-datepicker .ui-datepicker-header {
+    background-color: #CCC;
+}
+.pdf-viewer-style .ui-dialog {
+    border: 1px solid #999999;
+}
+.pdf-viewer-style #tabs a,
+.pdf-viewer-style #pageLayOutTabsUL a,
+.pdf-viewer-style .pageLayoutTab a span {
+    border: 1px solid #4884a6;
+    background-color: #eff5f9;
+}
+.pdf-viewer-style #manage_tabs_button_no_tabs {
+    border-bottom-color: #9bccde;
+}
+.pdf-viewer-style #manage_tabs_button {
+    background-color: #eff5f9;
+    border: 1px solid #4884a6;
+}
+.pdf-viewer-style #manage_tabs_button_no_tabs {
+    border-color: #4884a6;
+}
+.pdf-viewer-style #manage_tabs_button_no_tabs a,
+.pdf-viewer-style #manage_tabs_button_no_tabs a:link,
+.pdf-viewer-style #manage_tabs_button a,
+.pdf-viewer-style #manage_tabs_button a:link {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -879px -610px;
+}
+.pdf-viewer-style .slidetabsmenu a {
+    border-color: #4884a6;
+    background-color: #cbe6a5;
+}
+.pdf-viewer-style .dropmenudiv,
+.pdf-viewer-style .pubbox {
+    border-color: #4884a6;
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #eff5f9);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #e2f1cd);
+    background-image: linear-gradient(to bottom, #cbe6a5, #e2f1cd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbe6a5', endColorstr='#e2f1cd');
+}
+.pdf-viewer-style .click-thru h2 {
+    border-bottom: 1px solid #4884a6;
+}
+.pdf-viewer-style span.radioButtonFalse,
+.pdf-viewer-style span.checkboxUnchecked {
+    background-color: #eff5f9;
+}
+.pdf-viewer-style .radioButtonTrue,
+.pdf-viewer-style .checkboxChecked {
+    background-color: #9bccde;
+}
+.pdf-viewer-style #devPanelDiv {
+    border-color: #4884a6;
+    background-color: #eff5f9;
+}
+.pdf-viewer-style #recentItems .configure,
+.pdf-viewer-style .configure-buttons {
+    background: url('../../img/UIv9/ats-icons-sprite.png') no-repeat scroll -978px -1025px;
+}
+.pdf-viewer-style div.add-to-ical {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1031px -1024px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.pdf-viewer-style .zoneRefreshDialog {
+    background-color: #eff5f9 !important;
+}
+.pdf-viewer-style .dashboard .heading,
+.pdf-viewer-style .ModernUI .modal-header,
+.pdf-viewer-style .ModernUI .container-fluid > #sidebar h4,
+.pdf-viewer-style .docpreview-title {
+    background-color: #326497;
+    background-image: -moz-linear-gradient(top, #326497, #162c54);
+    background-image: -webkit-linear-gradient(top, #326497, #162c54);
+    background-image: linear-gradient(to bottom, #326497, #162c54);
+}
+.pdf-viewer-style .dashboard .show-more:hover {
+    background: #326497;
+}
+.pdf-viewer-style .reqcandquickview {
+    padding: 5px;
+}
+/* blue-green.css */
+/* Layouts */
+.pdf-viewer-style .pdfviewer a {
+    color: #0087cc;
+}
+
+.pdf-viewer-style .pdfviewer a:hover {
+    color: #0087cc;
+}
+
+.pdf-viewer-style .pdfviewer .navbar div > ul > li {
+    border: 1px solid #4884a6;
+    background-color: #9bccde;
+    border-top: 0;
+}
+
+.pdf-viewer-style .pdfviewer .navbar-inner {
+    border-top: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .navbar .nav > li > a:hover {
+    color: #333333;
+}
+
+.pdf-viewer-style .pdfviewer .navbar .nav .active > a {
+    border: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .nav > .open.active > a:hover,
+.pdf-viewer-style .pdfviewer .dropdown-menu,
+.pdf-viewer-style .pdfviewer #toplinkcontainer .nav > .open > a,
+.pdf-viewer-style .pdfviewer .nav-tabs .open .dropdown-toggle,
+.pdf-viewer-style .pdfviewer #notification_ae_dropdown,
+.pdf-viewer-style .pdfviewer #notification_dropdown,
+.pdf-viewer-style .pdfviewer #notification_ews_dropdown {
+    border-color: #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .navbar .nav li.dropdown:last-child .dropdown-menu,
+.pdf-viewer-style .pdfviewer .dropdown-top {
+    border-top: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .navbar div > ul .dropdown-menu,
+.pdf-viewer-style .pdfviewer .nav .dropdown-menu,
+.pdf-viewer-style .pdfviewer .nav > .open.active > a:hover,
+.pdf-viewer-style .pdfviewer .navbar div > ul .active .dropdown-menu,
+.pdf-viewer-style .pdfviewer .nav-tabs .open .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .navbar .nav li.dropdown.open.active > .dropdown-toggle,
+.pdf-viewer-style .pdfviewer #notification_ae_dropdown,
+.pdf-viewer-style .pdfviewer #notification_dropdown,
+.pdf-viewer-style .pdfviewer #notification_ews_dropdown {
+    background-color: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer .navbar div > ul .dropdown-menu li a:hover,
+.pdf-viewer-style .pdfviewer .nav .dropdown-menu li a:hover,
+.pdf-viewer-style .pdfviewer .dropmenudiv a:hover,
+.pdf-viewer-style .pdfviewer #notification_ae_dropdown li:hover,
+.pdf-viewer-style .pdfviewer #notification_dropdown li:hover,
+.pdf-viewer-style .pdfviewer #notification_ews_dropdown li:hover,
+.pdf-viewer-style .pdfviewer .nav .active .active,
+.pdf-viewer-style .pdfviewer .nav-tabs .dropdown-menu .active > a,
+.pdf-viewer-style .pdfviewer .nav-tabs .dropdown-menu > a:hover {
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems li:hover,
+.pdf-viewer-style .pdfviewer .docpreview-candinfo:hover {
+    background-color: #e2f1cd;
+    border-color: #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .navbar div > ul .menu-dropdown li a:hover,
+.pdf-viewer-style .pdfviewer .nav .menu-dropdown li a:hover,
+.pdf-viewer-style .pdfviewer .navbar div > ul .dropdown-menu li a:hover,
+.pdf-viewer-style .pdfviewer .nav .dropdown-menu li a:hover,
+.pdf-viewer-style .pdfviewer .dropmenudiv a:hover {
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer .container-fluid > #sidebar {
+    background-color: #eff5f9;
+    border: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems {
+    border-top: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .requ,
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .reqtm {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -311px -116px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .acct,
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .custm {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -445px -119px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .cand,
+.pdf-viewer-style .pdfviewer .docpreview-candinfo .cand {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -566px -116px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .rqcnd {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1315px -122px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .empl,
+.pdf-viewer-style .pdfviewer .docpreview-candinfo .empl {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -379px -118px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .ctct {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -502px -116px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .post,
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .prfl {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -57px -118px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .perf {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -550px -116px;
+}
+
+.pdf-viewer-style .pdfviewer .reviewTemplateInitial {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -550px -615px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .actp {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -748px -116px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .work,
+.pdf-viewer-style .pdfviewer .docpreview-candinfo .work {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -806px -116px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .pmrv,
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .pmrvt {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -628px -118px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .cycl,
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .plan {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -687px -118px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .irpt,
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .irpi {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -945px -118px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .rvcyc {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1133px -117px;
+}
+
+/* CRM Icons */
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .servr {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1133px -117px;
+}
+
+.pdf-viewer-style .pdfviewer #leftpanelContainer #recentItems .leadCss {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -253px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .myview {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -190px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .pipeline,
+.pdf-viewer-style .pdfviewer h1 .lead,
+.pdf-viewer-style .pdfviewer h1 .order {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -253px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .requisitions {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -311px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .candidates {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -566px -118px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .requisitioncandidates {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1315px -122px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .accounts,
+.pdf-viewer-style .pdfviewer h1 .customer {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -445px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .contacts {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -504px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .employees {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -379px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .goals {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1256px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .perform {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -628px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .competency {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -127px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .compensation {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -687px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .onboarding {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -748px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .users {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -811px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .administration {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -873px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .reports {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -945px -116px;
+    width: 33px;
+}
+
+.pdf-viewer-style .pdfviewer .widgets-per-listview-background {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -945px -116px;
+    height: 36px;
+    width: 36px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .tbe_apps,
+.pdf-viewer-style .pdfviewer h1 .support {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1012px -116px;
+}
+
+.pdf-viewer-style .pdfviewer h1 .positions,
+.pdf-viewer-style .pdfviewer h1 .profiles {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -58px -116px;
+}
+
+/* CRM Header Icons */
+.pdf-viewer-style .pdfviewer h1 .server,
+.pdf-viewer-style .pdfviewer h1 .reviewcycle {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -1132px -116px;
+}
+
+/* My View icon in top menu bar */
+.pdf-viewer-style .pdfviewer .ews .navbar .nav > li:first-child .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown:first-child .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown.open:first-child .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown.open:first-child .dropdown-toggle:hover {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat -158px -602px;
+}
+
+.pdf-viewer-style .pdfviewer #support_section .nav a:hover,
+.pdf-viewer-style .pdfviewer .nav > li.dropdown.open .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .nav > li.dropdown.open .dropdown-toggle:hover,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown.open .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown.open .dropdown-toggle:hover,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown.open:first-child .dropdown-toggle:hover,
+.pdf-viewer-style .pdfviewer .navbar .nav > li.dropdown.open:first-child .dropdown-toggle {
+    background-color: #eff5f9;
+    color: #333333;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs > li > a {
+    background-color: #e2f1cd;
+    border: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs .dropdown-menu {
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs .dropdown-menu li a {
+    color: #0087cc;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs .dropdown-menu li a:hover {
+    background-color: #ffffff;
+    color: #0087cc;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs > li > a:hover,
+.pdf-viewer-style .pdfviewer .nav-tabs li.dropdown.open.active > a:hover {
+    background-color: #cbe6a5;
+    border: 1px solid #4884a6;
+    border-bottom: none;
+    color: #0087cc;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs > li.dropdown.open .dropdown-toggle,
+.pdf-viewer-style .pdfviewer .nav-tabs > li.dropdown.open .dropdown-toggle:hover,
+.pdf-viewer-style .pdfviewer .nav-tabs li.dropdown.open.active > a:hover {
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs > .active > a,
+.pdf-viewer-style .pdfviewer .nav-tabs > .active > a:hover {
+    border: 1px solid #4884a6;
+    border-bottom: 0;
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs .dropdown-menu .active > a {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+.pdf-viewer-style .pdfviewer .nav-tabs .configure {
+    background: #e2f1cd url(../../img/UIv9/ats-icons-sprite.png) no-repeat -970px -1021px;
+}
+
+.pdf-viewer-style .pdfviewer .widgets .configure,
+.pdf-viewer-style .pdfviewer .ModernUI #sidebar .configure {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -577px -1040px;
+    width: 20px;
+    height: 19px;
+}
+
+.pdf-viewer-style .pdfviewer .ResultsBox,
+.pdf-viewer-style .pdfviewer .PortletBox,
+.pdf-viewer-style .pdfviewer .InformationBox,
+.pdf-viewer-style .pdfviewer #tabs_container {
+    border: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .mainPage .ResultsBox > table:first-child,
+.pdf-viewer-style .pdfviewer .mainPage .ResultsBox > div.ResultsHeader,
+.pdf-viewer-style .pdfviewer .FoldableInformationHeader,
+.pdf-viewer-style .pdfviewer .PortletHeader,
+.pdf-viewer-style .pdfviewer .InformationHeader {
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #e2f1cd);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #e2f1cd);
+    background-image: linear-gradient(to bottom, #cbe6a5, #e2f1cd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbe6a5', endColorstr='#e2f1cd');
+}
+
+/* tr and th in the rule below are for IE9 compatibility */
+.pdf-viewer-style .pdfviewer .datagrid thead,
+.pdf-viewer-style .pdfviewer .DatagridTable .DataTableHead,
+.pdf-viewer-style .pdfviewer .datagrid thead tr,
+.pdf-viewer-style .pdfviewer .DataTableHead th,
+.pdf-viewer-style .pdfviewer .DataTableHead.FoldableInformationHeader {
+    background-color: #e2f1cd;
+    background-image: -moz-linear-gradient(top, #e2f1cd, #ffffff);
+    background-image: -webkit-linear-gradient(top, #e2f1cd, #ffffff);
+    background-image: linear-gradient(to bottom, #e2f1cd, #ffffff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2f1cd', endColorstr='#ffffff');
+}
+
+.pdf-viewer-style .pdfviewer .ActionLinkHeadBottom th,
+.pdf-viewer-style .pdfviewer .ActionLinkHeadBottom {
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #ffffff, #cbe6a5);
+    background-image: -webkit-linear-gradient(top, #ffffff, #cbe6a5);
+    background-image: linear-gradient(to bottom, #ffffff, #cbe6a5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cbe6a5');
+}
+
+.pdf-viewer-style .pdfviewer .PortletHeader + table {
+    background-color: #ffffff;
+}
+
+.pdf-viewer-style .pdfviewer .datagrid tbody,
+.pdf-viewer-style .pdfviewer .DatagridTable tbody,
+.pdf-viewer-style .pdfviewer .InformationBox > table,
+.pdf-viewer-style .pdfviewer div.InformationContent,
+.pdf-viewer-style .pdfviewer .DataTableOddRow,
+.pdf-viewer-style .pdfviewer #emptyTasksTextSpan {
+    background-color: #ffffff;
+}
+
+.pdf-viewer-style .pdfviewer .datagrid td,
+.pdf-viewer-style .pdfviewer .datagrid .DataTableRowCell,
+.pdf-viewer-style .pdfviewer .DatagridTable td,
+.pdf-viewer-style .pdfviewer .DatagridTable .DataTableRowCell {
+    border-top: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .DataTableRowCell.CompetencyCell {
+    border-top: 1px solid #4884a6;
+    border-right: 1px solid #4884a6;
+    border-left: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .DataTableRowCell.LastCompetencyCell {
+    border-bottom: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .ListViewInAccordionTable {
+    background-color: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer tr.DataTableOddRow:hover,
+.pdf-viewer-style .pdfviewer tr.DataTableEvenRow:hover {
+    background: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer .sideBySideTableRankingTD {
+    border-right: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .CalendarMonth .DatagridTable .day,
+.pdf-viewer-style .pdfviewer .CalendarMonth .DatagridTable .first,
+.pdf-viewer-style .pdfviewer .CalendarMonth .DatagridTable .last,
+.pdf-viewer-style .pdfviewer .CalendarMonth .DatagridTable .empty {
+    border-color: #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer .content .tabs .active > a {
+    background-color: #cbe6a5;
+    border-color: #4884a6 #4884a6 transparent;
+}
+
+/* Calendar Theme Colors */
+.pdf-viewer-style .pdfviewer .CalendarHeader {
+    background-color: #b3d8e5;
+}
+
+.pdf-viewer-style .pdfviewer .CalendarHeader .nowrapRegular {
+    color: #666666;
+}
+
+.pdf-viewer-style .pdfviewer .calendar-day {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -770px -1025px;
+}
+
+.pdf-viewer-style .pdfviewer .calendar-week {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -805px -1025px;
+}
+
+.pdf-viewer-style .pdfviewer .calendar-month {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -840px -1025px;
+}
+
+.pdf-viewer-style .pdfviewer .calendar-contact {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -875px -1025px;
+}
+
+.pdf-viewer-style .pdfviewer .calendar-group {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -910px -1025px;
+}
+
+.pdf-viewer-style .pdfviewer .calendar-list {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -945px -1025px;
+    margin-right: 0;
+}
+
+/* Talent Card Colors */
+.pdf-viewer-style .pdfviewer .cluetip-talentCard .cluetip-outer {
+    border: 1px solid #cccccc;
+}
+
+.pdf-viewer-style .pdfviewer #talentCard .header {
+    background-color: #cbe6a5;
+    border: 1px solid #999999;
+}
+
+.pdf-viewer-style .pdfviewer .tabs-bottom #cards a,
+.pdf-viewer-style .pdfviewer .tabs-bottom #cards .filler {
+    border-top: 1px solid #999999;
+    background-color: #eff5f9 !important;
+}
+
+.pdf-viewer-style .pdfviewer .tabs-bottom #cards a,
+.pdf-viewer-style .pdfviewer .tabs-bottom #manage_tabs_button,
+.pdf-viewer-style .pdfviewer .cluetip-talentCard #manage_tabs_button_no_tabs {
+    border-right: 1px solid #999999;
+}
+
+.pdf-viewer-style .pdfviewer #talentCard h3,
+.pdf-viewer-style .pdfviewer #cluetip .mainHeaderTd {
+    border-color: #999999;
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer #talentCard .data,
+.pdf-viewer-style .pdfviewer #cluetip .workHistory {
+    border-color: #999999;
+}
+
+.pdf-viewer-style .pdfviewer #cluetip .workHistory thead tr {
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: linear-gradient(to bottom, #cbe6a5, #ffffff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbe6a5', endColorstr='#ffffff');
+}
+
+.pdf-viewer-style .pdfviewer #cluetip .workHistory tbody {
+    background-color: #ffffff;
+}
+
+.pdf-viewer-style .pdfviewer .cluetip-talentCard .tabs-bottom #cards .Position_Information {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -58px -602px;
+}
+
+.pdf-viewer-style .pdfviewer .cluetip-talentCard .tabs-bottom #cards .Contact_Information {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -434px -602px;
+}
+
+.pdf-viewer-style .pdfviewer .cluetip-talentCard .tabs-bottom #cards .Performance {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -542px -601px;
+}
+
+.pdf-viewer-style .pdfviewer .cluetip-talentCard .tabs-bottom #cards .Work_History {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -975px -605px;
+}
+
+/* Org Chart Theme Colors */
+.pdf-viewer-style .pdfviewer .orgChart {
+    border: 1px solid #999999;
+}
+
+.pdf-viewer-style .pdfviewer .orgChart div.card,
+.pdf-viewer-style .pdfviewer #legend .direct,
+.pdf-viewer-style .pdfviewer #legend .indirect {
+    border: 2px solid #999999;
+}
+
+.pdf-viewer-style .pdfviewer .orgChart .indirect,
+.pdf-viewer-style .pdfviewer #legend .indirect {
+    border: 2px dashed #999999 !important;
+}
+
+.pdf-viewer-style .pdfviewer .orgChart .header {
+    background-color: #cbe6a5;
+    border-bottom: 1px solid #999999;
+}
+
+.pdf-viewer-style .pdfviewer .orgChart .focus {
+    border: 2px solid #999999 !important;
+}
+
+.pdf-viewer-style .pdfviewer .orgChart .focus .header {
+    background-color: #9bccde;
+}
+
+.pdf-viewer-style .pdfviewer .available-trees h3 {
+    border: 1px solid #999999;
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #ffffff);
+    background-image: linear-gradient(to bottom, #cbe6a5, #ffffff);
+    /*filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{headerDarkBackground}', endColorstr='@{headerLightBackground}')";*/
+
+}
+
+.pdf-viewer-style .pdfviewer .available-trees ul {
+    border-color: #999999;
+}
+
+.pdf-viewer-style .pdfviewer .available-trees ul li:hover {
+    background-color: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer .ui-widget-header {
+    background-color: #9bccde !important;
+}
+
+.pdf-viewer-style .pdfviewer .ui-dialog {
+    border: 1px solid #999999;
+}
+
+.pdf-viewer-style .pdfviewer #tabs a,
+.pdf-viewer-style .pdfviewer #pageLayOutTabsUL a,
+.pdf-viewer-style .pdfviewer .pageLayoutTab a span {
+    border: 1px solid #4884a6;
+    background-color: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer #manage_tabs_button_no_tabs {
+    border-bottom-color: #9bccde;
+}
+
+.pdf-viewer-style .pdfviewer #manage_tabs_button {
+    background-color: #eff5f9;
+    border: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer #manage_tabs_button_no_tabs {
+    border-color: #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer #manage_tabs_button_no_tabs a,
+.pdf-viewer-style .pdfviewer #manage_tabs_button_no_tabs a:link,
+.pdf-viewer-style .pdfviewer #manage_tabs_button a,
+.pdf-viewer-style .pdfviewer #manage_tabs_button a:link {
+    background: url("../../img/UIv9/ats-icons-sprite.png") no-repeat scroll -879px -610px;
+}
+
+.pdf-viewer-style .pdfviewer .slidetabsmenu a {
+    border-color: #4884a6;
+    background-color: #cbe6a5;
+}
+
+.pdf-viewer-style .pdfviewer .dropmenudiv,
+.pdf-viewer-style .pdfviewer .pubbox {
+    border-color: #4884a6;
+    background-color: #cbe6a5;
+    background-image: -moz-linear-gradient(top, #cbe6a5, #eff5f9);
+    background-image: -webkit-linear-gradient(top, #cbe6a5, #e2f1cd);
+    background-image: linear-gradient(to bottom, #cbe6a5, #e2f1cd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbe6a5', endColorstr='#e2f1cd');
+}
+
+.pdf-viewer-style .pdfviewer .click-thru h2 {
+    border-bottom: 1px solid #4884a6;
+}
+
+.pdf-viewer-style .pdfviewer span.radioButtonFalse,
+.pdf-viewer-style .pdfviewer span.checkboxUnchecked {
+    background-color: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer .radioButtonTrue,
+.pdf-viewer-style .pdfviewer .checkboxChecked {
+    background-color: #9bccde;
+}
+
+.pdf-viewer-style .pdfviewer #devPanelDiv {
+    border-color: #4884a6;
+    background-color: #eff5f9;
+}
+
+.pdf-viewer-style .pdfviewer #recentItems .configure,
+.pdf-viewer-style .pdfviewer .configure-buttons {
+    background: url('../../img/UIv9/ats-icons-sprite.png') no-repeat scroll -978px -1025px;
+}
+
+.pdf-viewer-style .pdfviewer div.add-to-ical {
+    background: url(../../img/UIv9/ats-icons-sprite.png) no-repeat -1031px -1024px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.pdf-viewer-style .pdfviewer .zoneRefreshDialog {
+    background-color: #eff5f9 !important;
+}
+
+.pdf-viewer-style .pdfviewer .dashboard .heading,
+.pdf-viewer-style .pdfviewer .ModernUI .modal-header,
+.pdf-viewer-style .pdfviewer .ModernUI .container-fluid > #sidebar h4,
+.pdf-viewer-style .pdfviewer .docpreview-title {
+    background-color: #326497;
+    background-image: -moz-linear-gradient(top, #326497, #162c54);
+    background-image: -webkit-linear-gradient(top, #326497, #162c54);
+    background-image: linear-gradient(to bottom, #326497, #162c54);
+}
+
+.pdf-viewer-style .pdfviewer .dashboard .show-more:hover {
+    background: #326497;
+}
+
+.pdf-viewer-style .pdfviewer .reqcandquickview {
+    padding: 5px;
+}
+
+label.pdf-control-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+ select.pdf-admin-input, textarea.pdf-admin-input, input.pdf-admin-input 
+{
+  display: inline-block;
+  height: 18px;
+  padding: 4px;
+  margin-bottom: 9px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #555555;
+}
+
+
+select.pdf-admin-input {
+  height: 28px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: 28px;
+  max-width: 100%;
+  min-width: 50%;
+}
+
+.pdf-viewer-style .accessiblePdfContentHideme {
+	position: absolute; 
+	top: -9999px; 
+}
+
+.bootstrap .btn-group > .btn.active {
+    z-index: inherit;
+}
+
+#circle-close-button {
+    width:25px;
+    height:25px;
+    display:block;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:black;
+    background:white;
+    font-family:"Tahoma", Helvetica, sans-serif;
+    text-align:center;
+    font-size:18px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    box-shadow:0px 0px 2px 0px #666;
+    -moz-box-shadow:0px 0px 2px 0px #666;
+    -webkit-box-shadow:0px 0px 2px 0px #666;
+    font-weight:bold;
+
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 101
+}
+
+.bootstrap .form-actions{
+    margin: 10px 0;
+    padding: 10px 0px;
+    height: 3em;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+}
+
+#fullscreen-btn {
+    margin-right: 10px;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,40 @@
+/*
+* @author arunpra
+*/
+//Trap the tab focus inside a dom element like div.
+function trapTabFocus(popUp)
+{
+    var children = popUp.find('select, input, textarea, button, a').filter(':visible');
+    var firstElem = children.first();
+    var lastElem = children.last();
+
+    firstElem.focus();
+
+    // Handles shift on last element
+    lastElem.on('keydown', function (e) {
+        if ((e.which === 9 && !e.shiftKey)) {
+            e.preventDefault();
+            firstElem.focus();
+        }
+    });
+
+    // Handles shift + tab on first input
+    firstElem.on('keydown', function (e) {
+        if ((e.which === 9 && e.shiftKey)) {
+            e.preventDefault();
+            lastElem.focus();
+        }
+    });
+}
+
+// You must call clearTabFocus function if you dont need tabFocus
+//  in order to avoid the memory leak.
+function clearTabFocus(popUp)
+{
+    var children = popUp.find('select, input, textarea, button, a').filter(':visible');
+    var firstElem = children.first();
+    var lastElem = children.last();
+    // Remove the event handlers
+    lastElem.off('keydown');
+    firstElem.off('keydown');
+}
