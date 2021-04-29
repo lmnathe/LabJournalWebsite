@@ -1,0 +1,31 @@
+Calendar.getText=function(b){if(!Calendar._texts){var a={};
+a.INFO=calendarRes._g("aboutCommandTT");
+a.ABOUT=calendarRes._g("aboutContent1")+"\n"+calendarRes._g("aboutContent1")+"\n"+calendarRes._g("aboutContent2")+"\n"+calendarRes._g("aboutContent3")+"\n"+calendarRes._g("aboutContent4")+"\n"+calendarRes._g("aboutContent5")+"\n"+calendarRes._g("aboutContent6")+"\n"+calendarRes._g("aboutContent7")+"\n";
+a.ABOUT_TIME="\n\n"+calendarRes._g("aboutTimeContent1")+"\n"+calendarRes._g("aboutTimeContent5")+"\n"+calendarRes._g("aboutTimeContent6")+"\n"+calendarRes._g("aboutTimeContent7");
+a.PREV_YEAR=calendarRes._g("previousYearCommandTT");
+a.PREV_MONTH=calendarRes._g("previousMonthCommandTT");
+a.TODAY=calendarRes._g("todayCommand");
+a.GO_TODAY=calendarRes._g("todayCommandTT");
+a.NEXT_MONTH=calendarRes._g("nextMonthCommandTT");
+a.NEXT_YEAR=calendarRes._g("nextYearCommandTT");
+a.SEL_DATE=calendarRes._g("calendarMainTT");
+a.PART_TODAY=calendarRes._g("todayParenthesis");
+a.DAY_FIRST=calendarRes._g("dayDisplayedFirstCommandTT","%s");
+a.CLOSE=calendarRes._g("closeCommandTT");
+a.CLEAR=calendarRes._g("eraseCommand");
+a.DONE=calendarRes._g("doneCommand");
+a.CANCEL=calendarRes._g("cancelCommand");
+a.WK=calendarRes._g("week");
+a.WKABBR=calendarRes._g("weekTT");
+a.DRAG_TO_MOVE=calendarRes._g("dragAndDrop");
+a.TIME="??Time:";
+a.TIME_PART="??(Shift-)Click or drag to change value";
+a.WEEKEND="0,6";
+a.TT_DATE_FORMAT="%a, %b %e";
+a.DN=[weekDaysRes._g("sunday"),weekDaysRes._g("monday"),weekDaysRes._g("tuesday"),weekDaysRes._g("wednesday"),weekDaysRes._g("thursday"),weekDaysRes._g("friday"),weekDaysRes._g("saturday"),weekDaysRes._g("sunday")];
+a.SDN=[weekDaysAbbrRes._g("sundayAbbrev"),weekDaysAbbrRes._g("mondayAbbrev"),weekDaysAbbrRes._g("tuesdayAbbrev"),weekDaysAbbrRes._g("wednesdayAbbrev"),weekDaysAbbrRes._g("thursdayAbbrev"),weekDaysAbbrRes._g("fridayAbbrev"),weekDaysAbbrRes._g("saturdayAbbrev"),weekDaysAbbrRes._g("sundayAbbrev")];
+a.MN=[monthsRes._g("january"),monthsRes._g("february"),monthsRes._g("march"),monthsRes._g("april"),monthsRes._g("may"),monthsRes._g("june"),monthsRes._g("july"),monthsRes._g("august"),monthsRes._g("september"),monthsRes._g("october"),monthsRes._g("november"),monthsRes._g("december")];
+a.SMN=[monthsAbbrRes._g("januaryAbbrev"),monthsAbbrRes._g("februaryAbbrev"),monthsAbbrRes._g("marchAbbrev"),monthsAbbrRes._g("aprilAbbrev"),monthsAbbrRes._g("mayAbbrev"),monthsAbbrRes._g("juneAbbrev"),monthsAbbrRes._g("julyAbbrev"),monthsAbbrRes._g("augustAbbrev"),monthsAbbrRes._g("septemberAbbrev"),monthsAbbrRes._g("octoberAbbrev"),monthsAbbrRes._g("novemberAbbrev"),monthsAbbrRes._g("decemberAbbrev")];
+Calendar._texts=a
+}return Calendar._texts[b]
+};

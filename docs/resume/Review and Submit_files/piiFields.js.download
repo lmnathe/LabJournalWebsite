@@ -1,0 +1,205 @@
+function ChangeExecutor(changeHandler, oldInputs) {
+
+    this.changeHandler = changeHandler;
+    this.oldInputs = oldInputs;
+    this.editPanel = {};
+
+    var self = this;
+
+    this.execute = function (event) {
+        event.preventDefault();
+
+        self.editPanel.hide();
+
+        self.oldInputs.each(function () {
+            $(this).show();
+        });
+
+        self.changeHandler.attr("checked", "checked");
+    };
+
+    this.prepare = function () {
+        self.oldInputs.hide();
+    };
+}
+
+function PiiRenderer(editLinkLabel, editLinkTitle) {
+
+    this.prepareEditPanel = function (piiFieldName, changeExecutor) {
+        var piiEditPanel = $("<div class='piiEditPanel'></div>");
+        piiEditPanel.append($("<span class='output-text entity-value'>******</span>"));
+        var editLink = $("<a id='" + piiFieldName + "_edit' href='#' title='" + editLinkTitle + "' class='entity-select-action'>" + editLinkLabel + "</a>");
+        changeExecutor.prepare();
+        editLink.click(changeExecutor.execute);
+        piiEditPanel.append(editLink);
+        return piiEditPanel;
+    };
+}
+
+function PiiControllerReadOnlyField() {
+
+	this.find = function(piiFieldChangeHandler) {
+        var piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiReadOnly = $("span.output-text.entity-value[id$='" + piiFieldName + "']");
+        return this.piiReadOnly.length == 1;
+	};
+	
+    this.rerender = function () {
+        this.piiReadOnly.html('******');
+    };
+}
+
+// Text Input & URL & password Input
+function PiiControllerInput(piiRenderer) {
+
+	this.find = function(piiFieldChangeHandler) {
+		this.piiFieldName = piiFieldChangeHandler.attr("title");
+		this.piiField = $("input:text[name$='" + this.piiFieldName + "'],input:password[name$='" + this.piiFieldName + "']");
+		return this.piiField.length == 1;
+	};
+
+	this.rerender = function(piiFieldChangeHandler) {
+		var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, this.piiField);
+		var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+		changeExecutor.editPanel = piiEditPanel;
+		this.piiField.after(piiEditPanel);
+	};
+}
+
+function PiiControllerTextArea(piiRenderer) {
+
+	this.find = function(piiFieldChangeHandler) {
+		this.piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiField = $("textarea.input-textarea.entity-value[name$='" + this.piiFieldName + "']");
+        return this.piiField.length == 1;
+	};
+	
+    this.rerender = function (piiFieldChangeHandler) {
+        var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, this.piiField);
+        var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+        changeExecutor.editPanel = piiEditPanel;
+        this.piiField.after(piiEditPanel);
+    };
+}
+
+// Date Drop-down Lists
+function PiiControllerDropDownDate(piiRenderer) {
+
+	this.find = function (piiFieldChangeHandler){
+        this.piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiDateFields = $("fieldset.input-date-time").find("select[name*='" + this.piiFieldName + "']");
+        return this.piiDateFields.length == 3;
+	};
+	
+	this.rerender = function(piiFieldChangeHandler) {
+		var piiDateFieldSet = $(this.piiDateFields[0]).parent().parent();
+		var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, piiDateFieldSet.find("div"));
+		var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+		changeExecutor.editPanel = piiEditPanel;
+		piiDateFieldSet.after(piiEditPanel);
+	};
+}
+
+// Date Input
+function PiiControllerInputDate(piiRenderer) {
+
+	this.find = function (piiFieldChangeHandler) {
+		this.piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiDateInput = $("span.input-date-time[id$='" + this.piiFieldName + "']");
+        return this.piiDateInput.length == 1;
+	};
+	
+    this.rerender = function (piiFieldChangeHandler) {
+		var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, this.piiDateInput);
+		var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+		changeExecutor.editPanel = piiEditPanel;
+		this.piiDateInput.after(piiEditPanel);
+    };
+}
+
+function PiiControllerCheckbox(piiRenderer) {
+	
+	this.find = function (piiFieldChangeHandler){
+		this.piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiDateFields = $("fieldset.input-checkbox").find("input[name$='" + this.piiFieldName + "']");
+        return this.piiDateFields.length > 0;
+	};
+	
+    this.rerender = function (piiFieldChangeHandler) {
+        var piiCheckboxFieldSet = $(this.piiDateFields[0]).parent().parent();
+        var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, piiCheckboxFieldSet.find("label"));
+        var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+        changeExecutor.editPanel = piiEditPanel;
+        piiCheckboxFieldSet.after(piiEditPanel);
+    };
+}
+
+function PiiControllerRadio(piiRenderer) {
+
+	this.find = function(piiFieldChangeHandler){
+		this.piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiDateFields = $("fieldset.input-radio").find("input[name$='" + this.piiFieldName + "']");
+        return this.piiDateFields.length > 0;
+	};
+	
+    this.rerender = function (piiFieldChangeHandler) {
+        var piiCheckboxFieldSet = $(this.piiDateFields[0]).parent().parent().parent();
+        var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, piiCheckboxFieldSet.find(">span"));
+        var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+        changeExecutor.editPanel = piiEditPanel;
+        piiCheckboxFieldSet.after(piiEditPanel);
+    };
+}
+
+function PiiControllerSelect(piiRenderer) {
+
+	this.find = function(piiFieldChangeHandler){
+		this.piiFieldName = piiFieldChangeHandler.attr("title");
+        this.piiSelects = $("select[name$='" + this.piiFieldName + "']");
+        return this.piiSelects.length == 1;
+	};
+
+    this.rerender = function (piiFieldChangeHandler) {
+        var piiSelect = $(this.piiSelects[0]);
+        var changeExecutor = new ChangeExecutor(piiFieldChangeHandler, piiSelect);
+        var piiEditPanel = piiRenderer.prepareEditPanel(this.piiFieldName, changeExecutor);
+        changeExecutor.editPanel = piiEditPanel;
+        piiSelect.after(piiEditPanel);
+    };
+}
+
+function PiiFieldProcessor(piiRenderer) {
+	
+	var self = this;
+
+    this.piiControllers = new Array(
+            new PiiControllerInput(piiRenderer),
+	        new PiiControllerTextArea(piiRenderer),
+            new PiiControllerDropDownDate(piiRenderer),
+            new PiiControllerInputDate(piiRenderer),
+            new PiiControllerCheckbox(piiRenderer),
+            new PiiControllerRadio(piiRenderer),
+            new PiiControllerSelect(piiRenderer),
+            new PiiControllerReadOnlyField()
+        );
+	
+    this.process = function(){
+    	$("#piiHandlers").find("input").each(function(){
+    		
+    		var piiFieldChangeHandler = $(this);
+
+    		if (piiFieldChangeHandler.attr("checked")) {
+    			return;
+    		}
+
+    		for ( var i = 0; i < self.piiControllers.length; i++) {
+    			if(self.piiControllers[i].find(piiFieldChangeHandler)){
+    				self.piiControllers[i].rerender(piiFieldChangeHandler);
+    				return;
+    			}
+    		}
+    		
+    	});
+    };
+
+}

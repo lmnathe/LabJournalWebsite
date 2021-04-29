@@ -1,0 +1,27 @@
+function secform_confirmSubmit(pSrc) {
+   return true; // temporary waiting for Akira 1.3E
+   /*if (pSrc == true || pSrc == 'taleo') {
+       return true;
+   }
+   return false;*/
+}
+function secform_mySubmit(pSrc) {
+  if (secform_confirmSubmit(pSrc) == false) {
+    throw new Error(1000, "form submit invalid");
+  } else {
+    this._submit();
+  }
+}
+function secform_initForm(pForm) {
+  if (pForm.submit && pForm.tagName == 'FORM' && pForm.submit != secform_mySubmit) {
+    pForm._submit = pForm.submit;
+    pForm.submit = secform_mySubmit;
+  }
+}
+function secform_initForms(pForms) {
+  if (pForms.length > 0) {
+    for (i = 0; i < pForms.length; ++i) {
+        secform_initForm(pForms[i]);
+    }
+  }
+}
