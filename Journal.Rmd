@@ -25,6 +25,6 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 2019 | 8 | 28 Last compiled: `r Sys.Date()`
 
 1. A clean function to pull in CRA disclosure files.. [https://github.com/lmnathe/read_cra]
--There are a few peculiarities regarding reading in the data from 1996-2001, and 2016-2017 that made this chalangeing, but I believe they are well attended to in this function. 
+-There are a few peculiarities regarding reading in the data from 1996-2001, and 2016-2017 that made this challenging, but I believe they are well attended to in this function. 
 
 

@@ -10,6 +10,8 @@ navbar:
     href: Links.html
   - text: Resume
     href: Resume.html
+  - text: Publications
+    href: Publications.html
 output_dir: docs
 output:
   html_document:

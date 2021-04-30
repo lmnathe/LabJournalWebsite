@@ -1,0 +1,38 @@
+---
+title: "Publications"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+</div>
+<div class="col-sm-6">
+<a href = "https://github.com/lmnathe/LucasNathe">
+![](images\papers.jpg)
+</a>
+</div>
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+```
+
+
+#  Co-authored
+
+2021 | 4 | 30 
+
+1. [Developments in the Credit Score Distribution over 2020](https://www.federalreserve.gov/econres/notes/feds-notes/developments-in-the-credit-score-distribution-over-2020-20210430.htm)
+- The distribution of household credit risk can vary with aggregate economic and credit conditions. For example, the share of subprime-scored borrowers declined at a relatively steady pace during the economic recovery from the Global Financial Crisis. Although the COVID-19 pandemic interrupted the economic conditions that supported this trend, the pace of decline accelerated following the pandemic’s onset in March 2020.
+
+
+$$\\[2in]$$
+
+#  Assisted
+
+2021 | 1 | 1 
+
+1. [Is Lending Distance Really Changing? Distance Dynamics and Loan Composition in Small Business Lending](https://www.federalreserve.gov/econres/feds/files/2021011pap.pdf)
+- Has information technology improved small businesses’ credit access by hardening the information used in loan underwriting and reducing the importance of lender proximity? Previous research, pointing to increasing average lending distances, suggests that it has. Using over 20 years of Community Reinvestment Act data, we find that while average distances have increased substantially, distances at individual banks remain unchanged. Instead, average distance has increased because a small group of lenders specializing in high-volume, small-loan lending nationwide have increased their share of small business lending by 10 percentage points. Our findings imply that small businesses continue to depend on local banks
