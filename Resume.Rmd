@@ -55,8 +55,8 @@ Below is a list of relevent coursework taken at the following three institutions
   + Quantitative Statistics(MU)
 * Computer Science
 
-  + Introduction to Programing I(D)
-  + Data Strucutres I(D)
+  + Introduction to Programming I(D)
+  + Data Structures I(D)
 
 
 </div>
