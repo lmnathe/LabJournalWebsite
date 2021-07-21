@@ -1,7 +1,8 @@
 ---
 title: "Lucas's Website"
-output: html_document
-#https://lmnathe.github.io/LucasNathe/
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 <style type="text/css">
