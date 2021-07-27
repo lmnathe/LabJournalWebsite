@@ -20,11 +20,18 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
 
-# Reading CRA data. 
+
+### BJJ
+
+2021 | 7 | 27 Last compiled: `r Sys.Date()`
+
+1. After pausing in 2020, I have finally started training in Brazilian Jiu Jitstu again, and found a site that tracks amateur competition records. I've only got 4 matches under my belt but hopefully competing again soon. [https://smoothcomp.com/ko/profile/41099]  
+
+### Reading CRA data. 
 
 2019 | 8 | 28 Last compiled: `r Sys.Date()`
 
-1. A clean function to pull in CRA disclosure files.. [https://github.com/lmnathe/read_cra]
+2. A clean function to pull in CRA disclosure files.. [https://github.com/lmnathe/read_cra]
 -There are a few peculiarities regarding reading in the data from 1996-2001, and 2016-2017 that made this challenging, but I believe they are well attended to in this function. 
 
 
