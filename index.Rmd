@@ -21,7 +21,7 @@ output:
 
 # **Lucas Nathe**
 
-This is a working space for my website. I am currently a Senior Research Assistant at the Federal Reserve Board studying Consumer Finance. 
+This is a working space for my personal website. I am currently a Research Analyst at the Consumer Financial Protection Bureau. 
 
 
 ## What i've been working on lately..
