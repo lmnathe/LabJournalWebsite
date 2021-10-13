@@ -37,4 +37,4 @@ This is a working space for my personal website. I am currently a Research Analy
 ![](flowers.jpeg)
 </a>
 </div>
-Disclaimer: The views expressed on this site are mine alone and do not necessarily reflect the views of the Federal Reserve Board or its staff. 
+Disclaimer: The views expressed on this site are mine alone and do not reflect the views of the Consumer Financial Protection Bureau or its staff. 
