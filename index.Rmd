@@ -24,7 +24,7 @@ output:
 This is a working space for my personal website. I am currently a Research Analyst in the Office of Research at the Consumer Financial Protection Bureau. 
 
 
-## What i've been working on lately..
+## What I've been working on lately..
 1. In an attempt to rebuff my Python, webscraping, and geocoding skills, I attempted to explore the determinants of Fringe Bank location in my hometown of Chicago, starting with proximity to a traditional bank in this [Jupyter Notebook](https://github.com/lmnathe/Chicago_FringeBanks/blob/main/Chicago_FringeBanks.ipynb).
 2. Scrapping data on brewery production and revenue from the Alcohol & Tobacco Tax and Trade Bureau [https://www.ttb.gov/beer/statistics], to generate the Herfindahl-Hirschman Index over time. [https://lmnathe.shinyapps.io/brew_app/]
 3. Plotting a few google trend search results by DMA against the number of COVID-19 cases by month. [https://lmnathe.shinyapps.io/gtrendsapp/]. Note, the shinyApp currently takes about 30 seconds to launch.

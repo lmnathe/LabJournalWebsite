@@ -4,14 +4,14 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: Journal
-    href: Journal.html
-  - text: Links
-    href: Links.html
   - text: Resume
     href: Resume.html
   - text: Publications
     href: Publications.html
+  - text: Journal
+    href: Journal.html
+  - text: Links
+    href: Links.html
 output_dir: docs
 output:
   html_document:
