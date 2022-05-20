@@ -24,7 +24,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 2022 | 5 | 13
 
-1. [Credit Card Late Fees](https://files.consumerfinance.gov/f/documents/cfpb_credit-card-late-fees_report_2022-03.pdf_)
+1. [Credit Card Late Fees](https://files.consumerfinance.gov/f/documents/cfpb_credit-card-late-fees_report_2022-03.pdf)
 - Prior to the COVID-19 pandemic, consumers had steadily been paying more in credit card late
 fees each year—peaking at over $14 billion in 2019. Late fees assessed by issuers declined to
 about $12 billion in 2020 given record-high payment rates and public and private relief efforts.
