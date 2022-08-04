@@ -13,8 +13,8 @@
 
 <title>Lucas’s Website</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -232,7 +236,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -286,21 +290,43 @@ $(document).ready(function () {
 <div class="row" style="padding-top: 30px;">
 <div id="lucas-nathe" class="section level1 col-sm-6">
 <h1><strong>Lucas Nathe</strong></h1>
-<p>This is a working space for my personal website. I am currently a Research Analyst in the Office of Research at the Consumer Financial Protection Bureau.</p>
+<p>This is a working space for my personal website. I am currently a
+Research Analyst in the Office of Research at the Consumer Financial
+Protection Bureau.</p>
 <div id="what-ive-been-working-on-lately.." class="section level2">
 <h2>What I’ve been working on lately..</h2>
 <ol style="list-style-type: decimal">
-<li>In an attempt to rebuff my Python, webscraping, and geocoding skills, I attempted to explore the determinants of Fringe Bank location in my hometown of Chicago, starting with proximity to a traditional bank in this <a href="https://github.com/lmnathe/Chicago_FringeBanks/blob/main/Chicago_FringeBanks.ipynb">Jupyter Notebook</a>.</li>
-<li>Scrapping data on brewery production and revenue from the Alcohol &amp; Tobacco Tax and Trade Bureau [<a href="https://www.ttb.gov/beer/statistics" class="uri">https://www.ttb.gov/beer/statistics</a>], to generate the Herfindahl-Hirschman Index over time. [<a href="https://lmnathe.shinyapps.io/brew_app/" class="uri">https://lmnathe.shinyapps.io/brew_app/</a>]</li>
-<li>Plotting a few google trend search results by DMA against the number of COVID-19 cases by month. [<a href="https://lmnathe.shinyapps.io/gtrendsapp/" class="uri">https://lmnathe.shinyapps.io/gtrendsapp/</a>]. Note, the shinyApp currently takes about 30 seconds to launch.</li>
-<li>A clean function to pull in CRA disclosure files county loan totals.. [<a href="https://github.com/lmnathe/read_cra" class="uri">https://github.com/lmnathe/read_cra</a>]</li>
+<li>In an attempt to rebuff my Python, webscraping, and geocoding
+skills, I attempted to explore the determinants of Fringe Bank location
+in my hometown of Chicago, starting with proximity to a traditional bank
+in this <a
+href="https://github.com/lmnathe/Chicago_FringeBanks/blob/main/Chicago_FringeBanks.ipynb">Jupyter
+Notebook</a>.</li>
+<li>Scrapping data on brewery production and revenue from the Alcohol
+&amp; Tobacco Tax and Trade Bureau [<a
+href="https://www.ttb.gov/beer/statistics"
+class="uri">https://www.ttb.gov/beer/statistics</a>], to generate the
+Herfindahl-Hirschman Index over time. [<a
+href="https://lmnathe.shinyapps.io/brew_app/"
+class="uri">https://lmnathe.shinyapps.io/brew_app/</a>]</li>
+<li>Plotting a few google trend search results by DMA against the number
+of COVID-19 cases by month. [<a
+href="https://lmnathe.shinyapps.io/gtrendsapp/"
+class="uri">https://lmnathe.shinyapps.io/gtrendsapp/</a>]. Note, the
+shinyApp currently takes about 30 seconds to launch.</li>
+<li>A clean function to pull in CRA disclosure files county loan
+totals.. [<a href="https://github.com/lmnathe/read_cra"
+class="uri">https://github.com/lmnathe/read_cra</a>]</li>
 </ol>
 </div>
 </div>
 <div class="col-sm-6">
-<p><a href = "https://github.com/lmnathe/LucasNathe"> <img src="flowers.jpeg" /> </a></p>
+<p><a href = "https://github.com/lmnathe/LucasNathe"> <img
+src="flowers.jpeg" /> </a></p>
 </div>
-<p>Disclaimer: The views expressed on this site are mine alone and do not reflect the views of the Consumer Financial Protection Bureau or its staff.</p>
+<p>Disclaimer: The views expressed on this site are mine alone and do
+not reflect the views of the Consumer Financial Protection Bureau or its
+staff.</p>
 
 
 
